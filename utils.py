@@ -2,7 +2,7 @@ import json
 import yaml
 import time 
 import logging
-logging.basicConfig(filename='logs/thisIsLog.log', format = '%(levelname)-8s %(asctime)s %(message)s' , level=logging.DEBUG)
+logging.basicConfig(filename='logs/thisIsLog.log', format = '%(levelname)-8s %(asctime)s %(message)s' , level=logging.INFO)
 
 
 def log(logType, message):

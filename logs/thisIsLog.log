@@ -1,15 +1,56 @@
-INFO     2020-10-30 22:31:12,490 categories are:['all']
-INFO     2020-10-30 22:32:34,739 dict_keys(['info', 'videos', 'sentences'])
-INFO     2020-10-30 22:34:20,026 dict_keys(['contributor', 'data_created', 'version', 'description', 'year'])
-DEBUG    2020-10-31 02:13:21,642 matched regex search: (?:v=|\/)([0-9A-Za-z_-]{11}).*
-DEBUG    2020-10-31 02:13:24,149 finding initial function name
-DEBUG    2020-10-31 02:13:24,150 finished regex search, matched: ;ytplayer\.config\s*=\s*({.*?});
-DEBUG    2020-10-31 02:14:21,577 matched regex search: (?:v=|\/)([0-9A-Za-z_-]{11}).*
-DEBUG    2020-10-31 02:14:24,254 finding initial function name
-DEBUG    2020-10-31 02:14:24,260 finished regex search, matched: ;ytplayer\.config\s*=\s*({.*?});
-DEBUG    2020-10-31 02:15:31,264 matched regex search: (?:v=|\/)([0-9A-Za-z_-]{11}).*
-DEBUG    2020-10-31 02:15:34,452 finding initial function name
-DEBUG    2020-10-31 02:15:34,459 finished regex search, matched: ;ytplayer\.config\s*=\s*({.*?});
-DEBUG    2020-10-31 02:21:41,426 matched regex search: (?:v=|\/)([0-9A-Za-z_-]{11}).*
-DEBUG    2020-10-31 02:21:44,977 finding initial function name
-DEBUG    2020-10-31 02:21:44,982 finished regex search, matched: ;ytplayer\.config\s*=\s*({.*?});
+INFO     2020-10-31 06:02:45,515 init started
+INFO     2020-10-31 06:02:45,716 init finished successfully
+INFO     2020-10-31 06:03:17,253 init started
+INFO     2020-10-31 06:03:17,420 init finished successfully
+INFO     2020-10-31 06:04:09,293 init started
+INFO     2020-10-31 06:04:09,489 init finished successfully
+INFO     2020-10-31 06:05:40,251 init started
+INFO     2020-10-31 06:18:41,254 init started
+INFO     2020-10-31 06:18:41,447 init finished successfully
+INFO     2020-10-31 06:19:28,482 init started
+INFO     2020-10-31 06:19:28,675 init finished successfully
+INFO     2020-10-31 06:32:58,574 init started
+INFO     2020-10-31 06:32:58,758 init finished successfully
+INFO     2020-10-31 06:37:11,489 init started
+INFO     2020-10-31 06:37:11,665 init finished successfully
+INFO     2020-10-31 06:39:00,908 init started
+INFO     2020-10-31 06:39:01,126 init finished successfully
+INFO     2020-10-31 06:40:17,585 init started
+INFO     2020-10-31 06:40:51,919 init started
+INFO     2020-10-31 06:40:52,097 init finished successfully
+INFO     2020-10-31 06:42:20,343 init started
+INFO     2020-10-31 06:42:44,901 init started
+INFO     2020-10-31 06:42:45,079 init finished successfully
+INFO     2020-10-31 06:45:04,440 init started
+INFO     2020-10-31 06:45:04,633 init finished successfully
+INFO     2020-10-31 06:45:32,348 init started
+INFO     2020-10-31 06:45:32,550 init finished successfully
+INFO     2020-10-31 06:46:01,539 init started
+INFO     2020-10-31 06:46:17,467 init started
+INFO     2020-10-31 06:46:17,647 init finished successfully
+INFO     2020-10-31 06:47:06,546 init started
+INFO     2020-10-31 06:47:06,771 init finished successfully
+INFO     2020-10-31 06:53:09,596 init started
+INFO     2020-10-31 06:53:09,777 init finished successfully
+INFO     2020-10-31 07:05:25,433 init started
+INFO     2020-10-31 07:05:25,609 init finished successfully
+INFO     2020-10-31 07:05:45,292 init started
+INFO     2020-10-31 07:05:45,449 init finished successfully
+INFO     2020-10-31 07:06:03,512 init started
+INFO     2020-10-31 07:06:03,687 init finished successfully
+INFO     2020-10-31 07:09:00,327 init started
+INFO     2020-10-31 07:09:00,502 init finished successfully
+INFO     2020-10-31 07:10:42,195 init started
+INFO     2020-10-31 07:10:42,413 init finished successfully
+INFO     2020-10-31 07:11:57,309 init started
+INFO     2020-10-31 07:11:57,561 init finished successfully
+INFO     2020-10-31 07:18:44,336 init started
+INFO     2020-10-31 07:18:44,530 init finished successfully
+INFO     2020-10-31 07:21:05,533 init started
+INFO     2020-10-31 07:21:05,708 init finished successfully
+INFO     2020-10-31 07:31:12,490 init started
+INFO     2020-10-31 07:31:12,680 init finished successfully
+INFO     2020-10-31 07:36:19,958 init started
+INFO     2020-10-31 07:36:20,133 init finished successfully
+INFO     2020-10-31 07:39:34,169 init started
+INFO     2020-10-31 07:39:34,359 init finished successfully

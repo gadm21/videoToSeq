@@ -34,10 +34,10 @@ class VideoDataHandler():
         self.vid2cap = dict() 
 
         self.process()
-    
+        
+u
     def getYoutubeId(self,url):
         query = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
-        print(query) 
         return query['v'][0]
 
     def process(self):
@@ -52,16 +52,22 @@ class VideoDataHandler():
         url = video['url'] 
         sTime = video['start time'] 
         eTime = video['end time'] 
-        videoPath = os.path.join(self.vids_dir, video['video_id']+'.mp4')
-        videoPath2 = os.path.join(self.vids_dir, video['video_id']+'2.mp4')
-        
-        if os.path.exists(videoPath):
-            log('info', '{} already downloaded'.format(video['video_id']))
-            return
+        videoName = video['video_id'] + '.mp4'
 
-        YouTube(url).streams.first().download(videoPath)
-        video = VideoFileClip(videoPath).subclip(sTime,eTime)
-        video.write_videofile(videoPath2,fps=25)
+        def on_downloaded(stream, fileHandle):   
+            clip = VideoFileClip(fileHandle).subclip(sTime, eTime) 
+            clip.write_videofile(os.path.join(self.vids_dir, videoName), fps = 25)
+
+        yt = YouTube(url)
+        yt.register_on_complete_callback(on_downloaded)
+        stream = yt.streams.filter(subtype= 'mp4').first() 
+        if stream is None or videoName in os.listdir(self.vids_dir) : return False, None
+        
+        stream.download(self.vids_dir)
+        
+        return True, os.path.join(self.vids_dir, stream.title+'.mp4')
+
+
         
         
 
