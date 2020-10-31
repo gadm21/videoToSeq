@@ -21,12 +21,14 @@ class VideoDataHandler():
         self.raw_data = read_json(params['training_data'])
         
         self.vids_dir = params['vids_dir']
+        self.originals_dir = os.path.join(params['vids_dir'], 'originals')
         self.caps_dir = params['caps_dir']
         self.categories = params['categories']
 
 
         if not os.path.exists(self.vids_dir): os.makedirs(self.vids_dir, exist_ok = True) 
         if not os.path.exists(self.caps_dir): os.makedirs(self.caps_dir, exist_ok = True) 
+        if not os.path.exists(self.originals_dir): os.makedirs(self.originals_dir, exist_ok = True) 
 
         #log('info', 'categories are:{}'.format(self.categories))
 
@@ -34,8 +36,7 @@ class VideoDataHandler():
         self.vid2cap = dict() 
 
         self.process()
-        
-u
+
     def getYoutubeId(self,url):
         query = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
         return query['v'][0]
@@ -43,33 +44,44 @@ u
     def process(self):
         self.create_vid2cap()
 
-        sample = self.vid2cap['video'+str(0)] 
-        self.downloadVideo(sample[0]) 
-        #print(sample[1:3])
+        for i in range(10):
+
+            sample = self.vid2cap['video'+str(i)] 
+            f, path = self.downloadVideo(sample[0]) 
+            if not f :
+                print("{} is already downloaded".format(sample[0]['video_id']+'.mp4'))
+            else:
+                print("{} downloaded".format(sample[0]['video_id']+'.mp4')) 
 
 
-    def downloadVideo(self, video ):
+    def downloadVideo(self, video, trials =5 ):
         url = video['url'] 
         sTime = video['start time'] 
         eTime = video['end time'] 
         videoName = video['video_id'] + '.mp4'
+        if videoName in os.listdir(self.vids_dir) : return False, None
 
         def on_downloaded(stream, fileHandle):   
             clip = VideoFileClip(fileHandle).subclip(sTime, eTime) 
             clip.write_videofile(os.path.join(self.vids_dir, videoName), fps = 25)
 
-        yt = YouTube(url)
-        yt.register_on_complete_callback(on_downloaded)
-        stream = yt.streams.filter(subtype= 'mp4').first() 
-        if stream is None or videoName in os.listdir(self.vids_dir) : return False, None
-        
-        stream.download(self.vids_dir)
-        
-        return True, os.path.join(self.vids_dir, stream.title+'.mp4')
+        try:
+            yt = YouTube(url)
+            yt.register_on_complete_callback(on_downloaded)
+            stream = yt.streams.filter(subtype= 'mp4').first() 
+            if stream is None : return False, None
+            
+            stream.download(self.originals_dir)
+            
+            return True, os.path.join(self.vids_dir, stream.title+'.mp4')
+        except:
+            if trials : 
+                print("{} retrying...".format(videoName))
+                self.downloadVideo(video, trials-1)
+            print("could not download {}".format(videoName))
+            return False, None
 
 
-        
-        
 
     def create_vid2cap(self):
 
