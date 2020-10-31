@@ -1,0 +1,15 @@
+INFO     2020-10-30 22:31:12,490 categories are:['all']
+INFO     2020-10-30 22:32:34,739 dict_keys(['info', 'videos', 'sentences'])
+INFO     2020-10-30 22:34:20,026 dict_keys(['contributor', 'data_created', 'version', 'description', 'year'])
+DEBUG    2020-10-31 02:13:21,642 matched regex search: (?:v=|\/)([0-9A-Za-z_-]{11}).*
+DEBUG    2020-10-31 02:13:24,149 finding initial function name
+DEBUG    2020-10-31 02:13:24,150 finished regex search, matched: ;ytplayer\.config\s*=\s*({.*?});
+DEBUG    2020-10-31 02:14:21,577 matched regex search: (?:v=|\/)([0-9A-Za-z_-]{11}).*
+DEBUG    2020-10-31 02:14:24,254 finding initial function name
+DEBUG    2020-10-31 02:14:24,260 finished regex search, matched: ;ytplayer\.config\s*=\s*({.*?});
+DEBUG    2020-10-31 02:15:31,264 matched regex search: (?:v=|\/)([0-9A-Za-z_-]{11}).*
+DEBUG    2020-10-31 02:15:34,452 finding initial function name
+DEBUG    2020-10-31 02:15:34,459 finished regex search, matched: ;ytplayer\.config\s*=\s*({.*?});
+DEBUG    2020-10-31 02:21:41,426 matched regex search: (?:v=|\/)([0-9A-Za-z_-]{11}).*
+DEBUG    2020-10-31 02:21:44,977 finding initial function name
+DEBUG    2020-10-31 02:21:44,982 finished regex search, matched: ;ytplayer\.config\s*=\s*({.*?});
