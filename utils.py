@@ -1,6 +1,7 @@
 import json 
 import yaml
 import time 
+import random
 import logging
 logging.basicConfig(filename='logs/thisIsLog.log', format = '%(levelname)-8s %(asctime)s %(message)s' , level=logging.INFO)
 
@@ -31,3 +32,14 @@ def read_json(path):
         data = json.load(json_file)
     
     return data 
+
+
+
+def get_sample(raw_data):
+    
+    sample = random.choice(raw_data['videos']) 
+    video_id = sample['video_id']
+
+    sentences = [sent['caption'] for sent in raw_data['sentences'] if sent['video_id'] == video_id]
+
+    return sample, sentences 

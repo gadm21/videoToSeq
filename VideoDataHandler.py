@@ -30,12 +30,9 @@ class VideoDataHandler():
         if not os.path.exists(self.caps_dir): os.makedirs(self.caps_dir, exist_ok = True) 
         if not os.path.exists(self.originals_dir): os.makedirs(self.originals_dir, exist_ok = True) 
 
-        #log('info', 'categories are:{}'.format(self.categories))
-
-        self.processed = False 
         self.vid2cap = dict() 
 
-        self.process()
+        #self.process()
 
     def getYoutubeId(self,url):
         query = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
@@ -54,7 +51,7 @@ class VideoDataHandler():
                 print("{} downloaded".format(sample[0]['video_id']+'.mp4')) 
 
 
-    def downloadVideo(self, video, trials =5 ):
+    def downloadVideo(self, video, trials =2 ):
         url = video['url'] 
         sTime = video['start time'] 
         eTime = video['end time'] 
@@ -78,8 +75,9 @@ class VideoDataHandler():
             if trials : 
                 print("{} retrying...".format(videoName))
                 self.downloadVideo(video, trials-1)
-            print("could not download {}".format(videoName))
-            return False, None
+            else: 
+                print("could not download {}".format(videoName))
+                return False, None
 
 
 
