@@ -11,6 +11,8 @@ def log(logType, message):
         logging.info( message) 
     elif logType == 'warn':
         logging.warning(message) 
+    else:
+        logging.debug(message) 
 
 def get_time(): 
     return time.strftime("%H_%M_%S", time.localtime() )
