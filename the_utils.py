@@ -4,6 +4,8 @@ import time
 import random
 import logging
 logging.basicConfig(filename='logs/thisIsLog.log', format = '%(levelname)-8s %(asctime)s %(message)s' , level=logging.INFO)
+import re
+
 
 
 def log(logType, message):
@@ -37,11 +39,11 @@ def read_json(path):
 
 
 
-def get_sample(raw_data):
-    
-    sample = random.choice(raw_data['videos']) 
-    video_id = sample['video_id']
 
-    sentences = [sent['caption'] for sent in raw_data['sentences'] if sent['video_id'] == video_id]
 
-    return sample, sentences 
+def caption_tokenize(caption):
+    caption = re.sub('[^a-zA-Z]+', ' ', caption.encode('utf-8')).lower()
+    caption = caption.split()
+    return caption
+
+

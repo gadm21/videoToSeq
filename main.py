@@ -1,5 +1,5 @@
-from utils import * 
-from model import VModel
+from the_utils import * 
+from the_model import VModel
 from VideoDataHandler import VideoDataHandler
 
 params = read_yaml()

@@ -1,5 +1,5 @@
 
-from utils import *
+from the_utils import *
 from VideoDataHandler import VideoDataHandler
 
 import numpy as np
@@ -102,7 +102,7 @@ class VModel:
         #tf.keras.utils.plot_model(model, to_file='total.png', show_shapes=True) 
         
         self.model = model 
-        log('info', ' model created!') 
+        log('info', ' mcnn model created!') 
         
         
         
