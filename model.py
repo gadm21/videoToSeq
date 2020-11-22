@@ -40,8 +40,7 @@ class VModel:
     def build_mcnn(self):
         if self.params['learning']:
             self.train_model()
-        log('debug', "creating model (CNN cutoff) with Vocab size: %d" %
-            self.params['VOCAB_SIZE'])
+        log('debug', "creating model (CNN cutoff) with Vocab size: %d" % self.params['VOCAB_SIZE'])
 
         # _____________________________________________________________________________________
         c_model_input = Input(shape=(self.params['CAPTION_LEN'] + 1, self.params['OUTDIM_EMB']))
@@ -100,50 +99,13 @@ class VModel:
         
         model = Model(inputs=[c_model_input, a_model_input, i_model_input], outputs=concatted)
         model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
+        #tf.keras.utils.plot_model(model, to_file='total.png', show_shapes=True) 
+        
         self.model = model 
+        log('info', ' model created!') 
         
-        tf.keras.utils.plot_model(model, to_file='total.png', show_shapes=True) 
         
-
-
-        # _________________________________________________________________________________
-
-
-
-        '''
-        model = Sequential()
-        model.add(
-            concatted
-        )
-        model.add(
-            TimeDistributed(
-                Dropout(0.2)
-            )
-        )
-        model.add(
-            LSTM(
-                1024,
-                return_sequences=True,
-                kernel_initializer='random_normal',
-                recurrent_regularizer=l2(0.01)
-            )
-        )
-        model.add(
-            TimeDistributed(
-                Dense(self.params['VOCAB_SIZE'],
-                      kernel_initializer='random_normal')
-            )
-        )
-        model.add(Activation('softmax'))
-
-        optimizer = RMSprop(lr=0.001, rho=0.9, epsilon=1e-8, decay=0)
-        model.compile(optimizer=optimizer,
-                      loss='categorical_crossentropy', metrics=['accuracy'])
-        model.summary()
-        log('info', ' model created!')
-        self.model = model
-        return model
-        '''
+        
 
     def get_cutoff_shape(self):
         # ResNet
@@ -152,13 +114,31 @@ class VModel:
         return shape
 
     def build_cutoff_model(self):
-        pass
+        bese = ResNet50(include_top=False, weights='imagenet') 
+        self.co_model = base 
+        self.co_model._make_predict_function() # so that first predict() will be faster
+        self.graph = tf.get_default_graph() 
+        log('info', 'cutoff model built!')
+
+    def preprocess_partial_model(self, frames):
+        frames_in = np.asarray([image.img_to_array(frame) for frame in frames])
+        frames_in = preprocess_input(frames_in) 
+        with self.graph.as_default():
+            frames_out = self.co_model.predict(frames_in) 
+            frames_out = np.array([frame.flatten() for frame in frames_out])
+        return frames_out 
+
+    def get_model(self):
+        return self.model 
     
-    def test(self):
-        x1 = tf.keras.layers.Dense(8)(np.arange(10).reshape(5, 2))
-        x2 = tf.keras.layers.Dense(8)(np.arange(10, 20).reshape(5, 2))
-        concatted = tf.keras.layers.Concatenate()([x1, x2])
-        print(type(x1))
-        print(type(x2)) 
-        print(type(concatted))
-        print(concatted.shape)
+    def plot_model(self):
+        tf.keras.utils.plot_model(self.model, 'model.png', show_shapes=True) 
+        tf.keras.utils.plot_model(self.model, 'model2.png', show_shapes=True, show_layer_names=False) 
+
+
+
+
+if __name__ == '__main__':
+    params = read_yaml() 
+    vmodel = VModel(params) 
+    vmodel.plot_model() 
