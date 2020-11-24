@@ -1,6 +1,10 @@
-INFO     2020-11-22 14:16:39,449  model created!
-INFO     2020-11-22 15:11:23,851 init started
-INFO     2020-11-22 15:11:24,111 init finished successfully
-INFO     2020-11-22 15:12:21,809 init started
-INFO     2020-11-22 15:12:28,022 init started
-INFO     2020-11-22 15:12:28,218 init finished successfully
+INFO     2020-11-24 23:36:31,770 embeddings_file exists
+INFO     2020-11-24 23:36:31,773 embeddings loaded
+INFO     2020-11-24 23:36:31,773 building vocab (ind2word
+INFO     2020-11-24 23:36:31,774 Vocab built!
+INFO     2020-11-24 23:38:20,553 embeddings created
+INFO     2020-11-24 23:38:20,554 embeddings size:367
+INFO     2020-11-24 23:38:20,554 embeddings size:(300,)
+INFO     2020-11-24 23:38:20,561 embeddings saved
+INFO     2020-11-24 23:38:20,561 building vocab (ind2word)
+INFO     2020-11-24 23:38:20,563 Vocab built!
