@@ -1,6 +1,9 @@
 training_data : 'train_2017/data.json' 
 vids_dir : 'data/videos/' 
 caps_dir: 'data/captions/'
+glove_file: 'data/glove_file'
+embeddings_file: 'data/embeddings_file.pickle'
+
 categories: ['all']
 
 

@@ -25,13 +25,23 @@ class VideoDataHandler():
         self.caps_dir = params['caps_dir']
         self.categories = params['categories']
 
-
         if not os.path.exists(self.vids_dir): os.makedirs(self.vids_dir, exist_ok = True) 
         if not os.path.exists(self.caps_dir): os.makedirs(self.caps_dir, exist_ok = True) 
         if not os.path.exists(self.originals_dir): os.makedirs(self.originals_dir, exist_ok = True) 
 
-        self.downloaded_videos = []
+        self.downloaded = []
         self.vid2cap = dict() 
+        '''
+        downloaded: list()
+        the first element is the video object containing url, video_id, etc..
+        all following elements are captions. One caption per element 
+
+        vid2cap: dictionary() 
+        the key is the video_id. The value is a list. the content of the list is the same as self.downloaded
+
+        The difference between downloaded and the value of vid2cap keys is that downloaded only
+        has the information of already downloaded videos which can be used for training.
+        '''
         self.create_vid2cap()
 
         self.process()
@@ -46,7 +56,7 @@ class VideoDataHandler():
             f, path = self.downloadVideo(sample[0])  
             if f :
                 print("{} downloaded".format(sample[0]['video_id']))
-                self.downloaded_videos.append(sample) 
+                self.downloaded.append(sample) 
             else:
                 print("cannot download {} ".format(sample[0]['video_id']+'.mp4')) 
 
@@ -92,6 +102,7 @@ class VideoDataHandler():
         for sentence in self.raw_data['sentences']:
             if sentence['video_id'] not in self.vid2cap:
                 log('warn', '{} was not found in videos'.format(sentence['video_id']))
+                continue 
             self.vid2cap[sentence['video_id']].append(sentence['caption']) 
 
 
