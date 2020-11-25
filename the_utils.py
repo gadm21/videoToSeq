@@ -5,6 +5,7 @@ import random
 import logging
 logging.basicConfig(filename='logs/thisIsLog.log', format = '%(levelname)-8s %(asctime)s %(message)s' , level=logging.INFO)
 import re
+import numpy as np
 
 
 
@@ -41,9 +42,17 @@ def read_json(path):
 
 
 
-def caption_tokenize(caption):
+def tokenize_caption(caption):
     caption = re.sub('[^a-zA-Z]+', ' ', caption).lower()
     caption = caption.split()
     return caption
 
+
+def get_embeddings(n=300):
+    '''
+    remember that range of embeddings generated here is [-1,1] but 
+    glove embeddings range is not the same and need to be scaled
+    '''
+    embeds = np.random.randint(0,2, n) - np.random.rand(n)
+    return embeds
 

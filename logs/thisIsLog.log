@@ -1,10 +1,7 @@
-INFO     2020-11-24 23:36:31,770 embeddings_file exists
-INFO     2020-11-24 23:36:31,773 embeddings loaded
-INFO     2020-11-24 23:36:31,773 building vocab (ind2word
-INFO     2020-11-24 23:36:31,774 Vocab built!
-INFO     2020-11-24 23:38:20,553 embeddings created
-INFO     2020-11-24 23:38:20,554 embeddings size:367
-INFO     2020-11-24 23:38:20,554 embeddings size:(300,)
-INFO     2020-11-24 23:38:20,561 embeddings saved
-INFO     2020-11-24 23:38:20,561 building vocab (ind2word)
-INFO     2020-11-24 23:38:20,563 Vocab built!
+INFO     2020-11-25 20:56:47,019 vocab built
+INFO     2020-11-25 20:56:47,020 vocab saved
+INFO     2020-11-25 20:56:47,029 embeddings created
+INFO     2020-11-25 20:56:47,035 embeddings saved
+
+INFO     2020-11-25 20:57:53,581 word2ix loaded
+INFO     2020-11-25 20:57:53,590 embeddings loaded

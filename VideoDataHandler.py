@@ -55,10 +55,10 @@ class VideoDataHandler():
             sample = self.vid2cap['video'+str(i)] 
             f, path = self.downloadVideo(sample[0])  
             if f :
-                print("{} downloaded".format(sample[0]['video_id']))
+                log('debug', "{} downloaded".format(sample[0]['video_id']))
                 self.downloaded.append(sample) 
             else:
-                print("cannot download {} ".format(sample[0]['video_id']+'.mp4')) 
+                log('debug',"cannot download {} ".format(sample[0]['video_id']+'.mp4')) 
 
 
     def downloadVideo(self, video, trials =2 ):

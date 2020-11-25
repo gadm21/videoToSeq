@@ -1,7 +1,6 @@
 
 
 from the_utils import *
-from fake_embeddings import create_embeddings
 from VideoDataHandler import * 
 import os
 import numpy as np
@@ -22,53 +21,64 @@ class Vocab:
         self.specialWords['NONE'] = '?!?'
         self.specialWords['EXTRA'] = '___'
 
-        self.load_embeddings()
         self.build_vocab() 
+        self.load_embeddings()
 
-        log('info', 'Vocab built!')
 
     
 
     def load_embeddings(self):
         
         if os.path.exists(self.params['embeddings_file']):
-            log('info', 'embeddings_file exists')
             with open(self.params['embeddings_file'], 'rb') as f:
                 self.embeddings = pickle.load(f) 
-            log('info', 'embeddings loaded')
-            return False
+            log('info', 'embeddings loaded') 
         else:
             self.embeddings = dict()
-            for caption in self.captions:
-                for sentence in caption:
-                    tokens = sentence.split(' ')
-                    for token in tokens :
-                        if token not in self.embeddings.keys() :
-                            self.embeddings[token] = create_embeddings(n=self.params['OUTDIM_EMB'])
-            log('info', 'embeddings created') 
-            log('info', 'embeddings size:{}'.format(len(self.embeddings.keys())))
-            log('info', 'embeddings size:{}'.format(self.embeddings['car'].shape))
+            
+            for token in self.vocab :
+                if token not in self.embeddings.keys() :
+                    self.embeddings[token] = get_embeddings(n=self.params['OUTDIM_EMB'])
+            log('info', 'embeddings created')  
+
             self.save_embeddings() 
+            log('info', 'embeddings saved') 
 
     def save_embeddings(self):
         with open(self.params['embeddings_file'], 'wb') as f :
             pickle.dump(self.embeddings, f) 
-            log('info', 'embeddings saved')
 
     def build_vocab(self):
-        if os.path.exists(self.params['vocab_file']):
-            log('info', 'vocab_file exists') 
-            with open(self.params['vocab_file'], 'rb') as f:
-                self.ind2word = pickle.load(f)
-            log('info', 'vocab_file loaded')
+        if os.path.exists(self.params['word2ix_file']):
+            with open(self.params['word2ix_file'], 'rb') as f:
+                self.word2ix = pickle.load(f)
+
+            self.ix2word = {index:word for word,index in self.word2ix.items()} 
+            self.vocab = [word for word in self.word2ix.keys()] 
+            log('info', 'word2ix loaded')
+
         else:
-            log('info', 'building vocab (ind2word)')
+            
+            self.vocab = dict() 
+            for caption in self.captions :
+                for sentence in caption : 
+                    for token in tokenize_caption(sentence):
+                        self.vocab[token] = self.vocab.get(token, 0) + 1 
+            
+            self.vocab = [pair[0] for pair in 
+                sorted(self.vocab.items(), key = lambda item : item[1], reverse= True)
+                [: self.params['VOCAB_SIZE']-len(self.specialWords)]]
+            self.vocab.extend(self.specialWords)
 
-            all_words = [word for word in self.embeddings.keys()]
-            all_words.extend(list(self.specialWords.values()))
+            self.word2ix = {word:index for index,word in enumerate(self.vocab)} 
+            self.ix2word = {index:word for index,word in enumerate(self.vocab)}
 
-            print("len:", len(all_words)) 
-            print("words:", all_words[:5])
+            log('info', 'vocab built')
+
+            with open(self.params['word2ix_file'], 'wb') as f :
+                pickle.dump(self.word2ix, f) 
+
+            log('info', 'vocab saved')
 
 
 
