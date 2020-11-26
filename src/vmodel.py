@@ -1,6 +1,6 @@
 
-from the_utils import *
-from VideoDataHandler import VideoDataHandler
+from utils import *
+from videoHandler import videoHandler
 
 import numpy as np
 import os
@@ -22,6 +22,11 @@ from tensorflow.keras.regularizers import l2
 import tensorflow as tf
 import tensorflow.keras.backend as K
 
+
+'''
+TODO add function get_video() which takes a video_id and does the following:
+    1- 
+'''
 
 class VModel:
 
@@ -114,10 +119,10 @@ class VModel:
         return shape
 
     def build_cutoff_model(self):
-        bese = ResNet50(include_top=False, weights='imagenet') 
+        base = ResNet50(include_top=False, weights='imagenet') 
         self.co_model = base 
-        self.co_model._make_predict_function() # so that first predict() will be faster
-        self.graph = tf.get_default_graph() 
+        #self.co_model._make_predict_function() # so that first predict() will be faster
+        self.graph = tf.compat.v1.get_default_graph() 
         log('info', 'cutoff model built!')
 
     def preprocess_partial_model(self, frames):
@@ -140,5 +145,5 @@ class VModel:
 
 if __name__ == '__main__':
     params = read_yaml() 
-    vmodel = VModel(params) 
+    vmodel = Model(params) 
     vmodel.plot_model() 

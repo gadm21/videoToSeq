@@ -1,11 +1,14 @@
 
 
-from the_utils import *
-from VideoDataHandler import * 
+from utils import *
+from videoHandler import * 
 import os
 import numpy as np
 import pickle
 
+#TODO rewrite vocab to include the embeddings and vocab from the 
+#raw data not from downloaded videos so that it is not limited
+#to the captions of the downloaded videos
 
 class Vocab:
 
@@ -85,5 +88,5 @@ class Vocab:
 
 if __name__ == "__main__":
     params = read_yaml()
-    vh = VideoDataHandler(params) 
+    vh = videoHandler(params) 
     v = Vocab(params,vh.downloaded)

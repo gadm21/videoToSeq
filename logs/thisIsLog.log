@@ -5,3 +5,40 @@ INFO     2020-11-25 20:56:47,035 embeddings saved
 
 INFO     2020-11-25 20:57:53,581 word2ix loaded
 INFO     2020-11-25 20:57:53,590 embeddings loaded
+WARNING  2020-11-26 23:47:00,061 From C:\Users\gad\Desktop\repos\videoToSeq\src\model.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+WARNING  2020-11-26 23:48:07,017 From C:\Users\gad\Desktop\repos\videoToSeq\src\model.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+WARNING  2020-11-26 23:50:52,366 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-26 23:51:02,296  mcnn model created!
+WARNING  2020-11-26 23:51:29,266 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-26 23:51:37,962  mcnn model created!
+WARNING  2020-11-26 23:54:21,739 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-26 23:54:29,723  mcnn model created!
+WARNING  2020-11-26 23:55:23,587 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-26 23:55:31,216  mcnn model created!
+WARNING  2020-11-26 23:57:07,966 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-26 23:57:19,424  mcnn model created!
+WARNING  2020-11-26 23:57:51,963 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-26 23:58:00,241  mcnn model created!
+INFO     2020-11-26 23:58:02,535 cutoff model built!
+INFO     2020-11-27 00:04:20,559 word2ix loaded
+INFO     2020-11-27 00:04:20,657 embeddings loaded
+INFO     2020-11-27 00:04:40,033 word2ix loaded
+INFO     2020-11-27 00:04:40,035 embeddings loaded
+INFO     2020-11-27 00:04:48,065 word2ix loaded
+INFO     2020-11-27 00:04:48,068 embeddings loaded

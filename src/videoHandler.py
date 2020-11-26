@@ -1,5 +1,5 @@
 
-from the_utils import *
+from utils import *
 import os
 import urllib.parse
 import urllib.request
@@ -7,7 +7,10 @@ from pytube import YouTube
 from moviepy.editor import *
 
 
-class VideoDataHandler():
+#TODO extract audio & frames 
+#TODO get random caption from a video id
+
+class videoHandler():
 
     # ResNet
     SHAPE = (224, 224)
