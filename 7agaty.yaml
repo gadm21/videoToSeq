@@ -20,3 +20,8 @@ CAPTION_LEN : 15
 LIMIT_FRAMES : 40
 AUDIO_TimeSample : 80 
 AUDIO_n_mfcc : 40
+
+
+BS: 5
+stepsPerEpoch: 3
+epochs: 2

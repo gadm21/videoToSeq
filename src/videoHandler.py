@@ -7,10 +7,18 @@ from pytube import YouTube
 from moviepy.editor import *
 
 
-#TODO extract audio & frames 
-#TODO get random caption from a video id
+'''
+TODO add a function to extract audio & frames 
 
-class videoHandler():
+TODO add function get_video() which takes a video_id and does the following:
+    1-  if the video is downloaded jump to step 6
+    2- download the video
+    3- clip the video from start_point to end_point 
+    4- keep only the frames until the frame limit
+    5- save the video(which is by now a number of frame = LIMIT_FRAMES)
+    6- return the video, its captions, and its id
+'''
+class VideoHandler():
 
     # ResNet
     SHAPE = (224, 224)
@@ -47,7 +55,6 @@ class videoHandler():
         '''
         self.create_vid2cap()
 
-        self.process()
 
 
     def process(self):
@@ -64,13 +71,8 @@ class videoHandler():
                 log('debug',"cannot download {} ".format(sample[0]['video_id']+'.mp4')) 
 
 
-    def downloadVideo(self, video, trials =2 ):
-        url = video['url'] 
-        sTime = video['start time'] 
-        eTime = video['end time'] 
-        videoName = video['video_id'] + '.mp4'
-        if videoName in os.listdir(self.vids_dir) : 
-            return True, os.path.join(self.vids_dir, videoName)
+    def downloadVideo(self, videoName, url, sTime, eTime, trials =2 ):
+        
 
         def on_downloaded(stream, fileHandle):   
             clip = VideoFileClip(fileHandle).subclip(sTime, eTime) 
@@ -86,6 +88,9 @@ class videoHandler():
             
             return True, os.path.join(self.vids_dir, stream.title+'.mp4')
         except:
+            print('failed to download:{}'.format(videoName)) 
+            return False, None 
+
             if trials : 
                 print("{} retrying...".format(videoName))
                 self.downloadVideo(video, trials-1)
@@ -93,6 +98,17 @@ class videoHandler():
                 print("could not download {}".format(videoName))
                 return False, None
 
+    def get_video(self, video):
+
+        url = video['url'] 
+        sTime = video['start time'] 
+        eTime = video['end time'] 
+        videoName = video['video_id'] + '.mp4'
+        if videoName in os.listdir(self.vids_dir) : 
+            return True, os.path.join(self.vids_dir, videoName)
+        
+        f = self.downloadVideo(videoName, url, sTime, eTime) 
+        
 
 
     def create_vid2cap(self):
@@ -110,11 +126,19 @@ class videoHandler():
 
 
 
-def get_sample(raw_data):
-    
-    sample = random.choice(raw_data['videos']) 
-    video_id = sample['video_id']
+    def get_random_videos(self, n=1):
+        
+        #ids =[data['video_id'] for data in np.random.choice(self.raw_data['videos'], n) ]
+        ids = ['video'+str(i) for i in np.arange(4)]
 
-    sentences = [sent['caption'] for sent in raw_data['sentences'] if sent['video_id'] == video_id]
+        video_metadata = [self.vid2cap[id][0] for id in ids]
+        captions = [self.vid2cap[id][1:] for id in ids]
 
-    return sample, sentences 
+        #sentences = [sent['caption'] for sent in raw_data['sentences'] if sent['video_id'] == video_id]
+
+   
+
+
+if __name__ == '__main__': 
+    videoHandler = VideoHandler(read_yaml()) 
+    videoHandler.get_random_videos(3)

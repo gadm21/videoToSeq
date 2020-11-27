@@ -23,10 +23,7 @@ import tensorflow as tf
 import tensorflow.keras.backend as K
 
 
-'''
-TODO add function get_video() which takes a video_id and does the following:
-    1- 
-'''
+
 
 class VModel:
 

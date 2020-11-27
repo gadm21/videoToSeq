@@ -6,9 +6,12 @@ import os
 import numpy as np
 import pickle
 
-#TODO rewrite vocab to include the embeddings and vocab from the 
-#raw data not from downloaded videos so that it is not limited
-#to the captions of the downloaded videos
+'''
+TODO get random caption from a video id
+TODO rewrite vocab to include the embeddings and vocab from the 
+    raw data not from downloaded videos so that it is not limited
+    to the captions of the downloaded videos
+'''
 
 class Vocab:
 
