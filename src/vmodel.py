@@ -1,6 +1,6 @@
 
 from utils import *
-from videoHandler import videoHandler
+from VideoHandler import VideoHandler
 
 import numpy as np
 import os
@@ -116,19 +116,12 @@ class VModel:
         return shape
 
     def build_cutoff_model(self):
-        base = ResNet50(include_top=False, weights='imagenet') 
-        self.co_model = base 
-        #self.co_model._make_predict_function() # so that first predict() will be faster
-        self.graph = tf.compat.v1.get_default_graph() 
-        log('info', 'cutoff model built!')
+        base = ResNet50(include_top=False, weights='imagenet', pooling='avg') 
+        self.co_model = Model(base.input, base.output) 
 
     def preprocess_partial_model(self, frames):
-        frames_in = np.asarray([image.img_to_array(frame) for frame in frames])
-        frames_in = preprocess_input(frames_in) 
-        with self.graph.as_default():
-            frames_out = self.co_model.predict(frames_in) 
-            frames_out = np.array([frame.flatten() for frame in frames_out])
-        return frames_out 
+        return self.co_model.predict(preprocess_input(frames))
+        
 
     def get_model(self):
         return self.model 
@@ -142,5 +135,5 @@ class VModel:
 
 if __name__ == '__main__':
     params = read_yaml() 
-    vmodel = Model(params) 
-    vmodel.plot_model() 
+    vmodel = VModel(params) 
+    vmodel.co_model.summary()

@@ -49,9 +49,9 @@ def show_image(frame):
 
 
 def tokenize_caption(caption):
-    caption = re.sub('[^a-zA-Z]+', ' ', caption).lower()
-    caption = caption.split()
-    return caption
+    #caption = re.sub('[^a-zA-Z]+', ' ', caption).lower()
+    return list(filter(lambda x : len(x) > 1 , re.split('\W+', caption.lower())))
+    #return list(re.split('\W+', caption))
 
 
 def get_embeddings(n=300):

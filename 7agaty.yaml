@@ -2,9 +2,9 @@ training_data : 'train_2017/data.json'
 vids_dir : 'data/videos/' 
 caps_dir: 'data/captions/'
 
-glove_file: 'data/glove_file'
-embeddings_file: 'data/embeddings.pickle'  
-word2ix_file: 'data/word2ix.pickle' 
+glove_file: 'innocent_data/glove_file'
+embeddings_file: 'innocent_data/embeddings.pickle'  
+word2ix_file: 'innocent_data/word2ix.pickle' 
 
 categories: ['all']
 
@@ -17,7 +17,7 @@ WORD_MIN_FREQ : 5
 VOCAB_SIZE : 9448
 CAPTION_LEN : 15
 
-FRAME_SIZE: 200
+FRAME_SIZE: 150
 FRAMES_LIMIT : 20
 AUDIO_TimeSample : 80 
 AUDIO_n_mfcc : 40

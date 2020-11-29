@@ -22,12 +22,7 @@ TODO add function get_video() which takes a video_id and does the following:
 
 
 class VideoHandler():
-
-    # ResNet
-    SHAPE = (224, 224)
-
-    LIMIT_FRAMES = 40
-    AUDIO_FEATURE = (80, 40)  # TimeSamples, n_mfcc
+    
 
     def __init__(self, params):
 
@@ -150,10 +145,8 @@ class VideoHandler():
                 print("video not found")
                 videos_metadata.append( self.vid2cap[np.random.choice(list(self.vid2cap.keys()))])
 
-        videos = [[cv2.resize(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), self.frame_size) for frame in video.iter_frames()][:20] for video in video_clips]
+        videos = [np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:20]) for video in video_clips]
 
-        videos = np.array(videos, dtype= float) 
-        print(videos.shape) 
 
         return videos, captions
 

@@ -1,279 +1,185 @@
-INFO     2020-11-25 20:56:47,019 vocab built
-INFO     2020-11-25 20:56:47,020 vocab saved
-INFO     2020-11-25 20:56:47,029 embeddings created
-INFO     2020-11-25 20:56:47,035 embeddings saved
-
-INFO     2020-11-25 20:57:53,581 word2ix loaded
-INFO     2020-11-25 20:57:53,590 embeddings loaded
-WARNING  2020-11-26 23:47:00,061 From C:\Users\gad\Desktop\repos\videoToSeq\src\model.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+INFO     2020-11-29 01:59:25,479 vocab built
+INFO     2020-11-29 01:59:25,564 vocab saved
+INFO     2020-11-29 01:59:25,591 embeddings created
+INFO     2020-11-29 01:59:25,603 embeddings saved
+INFO     2020-11-29 02:01:03,581 vocab built
+INFO     2020-11-29 02:01:03,584 vocab saved
+INFO     2020-11-29 02:01:03,585 embeddings created
+INFO     2020-11-29 02:01:03,587 embeddings saved
+INFO     2020-11-29 02:01:31,404 word2ix loaded
+INFO     2020-11-29 02:01:31,423 embeddings loaded
+INFO     2020-11-29 02:01:52,981 vocab built
+INFO     2020-11-29 02:01:52,984 vocab saved
+INFO     2020-11-29 02:01:52,986 embeddings created
+INFO     2020-11-29 02:01:52,992 embeddings saved
+INFO     2020-11-29 02:04:39,787 vocab built
+INFO     2020-11-29 02:04:39,791 vocab saved
+INFO     2020-11-29 02:04:39,858 embeddings loaded
+INFO     2020-11-29 02:06:35,117 vocab built
+INFO     2020-11-29 02:06:35,120 vocab saved
+INFO     2020-11-29 02:06:35,121 embeddings loaded
+INFO     2020-11-29 02:09:38,816 vocab built
+INFO     2020-11-29 02:09:38,818 vocab saved
+INFO     2020-11-29 02:09:38,819 embeddings loaded
+INFO     2020-11-29 02:10:52,457 vocab built
+INFO     2020-11-29 02:10:52,459 vocab saved
+INFO     2020-11-29 02:10:52,459 embeddings loaded
+INFO     2020-11-29 02:12:09,946 vocab built
+INFO     2020-11-29 02:12:09,952 vocab saved
+INFO     2020-11-29 02:12:09,953 embeddings loaded
+INFO     2020-11-29 02:12:40,980 vocab built
+INFO     2020-11-29 02:13:15,806 word2ix loaded
+INFO     2020-11-29 02:13:15,807 embeddings loaded
+INFO     2020-11-29 02:13:51,631 vocab built
+INFO     2020-11-29 02:13:51,634 vocab saved
+INFO     2020-11-29 02:13:51,942 embeddings created
+INFO     2020-11-29 02:13:52,199 embeddings saved
+INFO     2020-11-29 02:13:55,275 word2ix loaded
+INFO     2020-11-29 02:13:55,391 embeddings loaded
+INFO     2020-11-29 02:16:09,228 word2ix loaded
+INFO     2020-11-29 02:25:01,103 vocab built
+INFO     2020-11-29 02:25:01,107 vocab saved
+WARNING  2020-11-29 02:25:01,431 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
-WARNING  2020-11-26 23:48:07,017 From C:\Users\gad\Desktop\repos\videoToSeq\src\model.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+INFO     2020-11-29 02:25:09,927  mcnn model created!
+WARNING  2020-11-29 02:25:16,371 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-29 02:25:45,442 word2ix loaded
+WARNING  2020-11-29 02:25:45,786 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
-WARNING  2020-11-26 23:50:52,366 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+INFO     2020-11-29 02:25:54,633  mcnn model created!
+WARNING  2020-11-29 02:26:02,608 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-29 02:26:42,554 word2ix loaded
+WARNING  2020-11-29 02:26:42,993 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
-INFO     2020-11-26 23:51:02,296  mcnn model created!
-WARNING  2020-11-26 23:51:29,266 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+INFO     2020-11-29 02:26:51,494  mcnn model created!
+WARNING  2020-11-29 02:26:59,901 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-29 02:29:39,740 vocab built
+INFO     2020-11-29 02:29:39,743 vocab saved
+WARNING  2020-11-29 02:29:40,026 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
-INFO     2020-11-26 23:51:37,962  mcnn model created!
-WARNING  2020-11-26 23:54:21,739 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+INFO     2020-11-29 02:29:48,336  mcnn model created!
+WARNING  2020-11-29 02:29:55,630 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-29 02:31:26,826 vocab built
+INFO     2020-11-29 02:31:26,832 vocab saved
+WARNING  2020-11-29 02:31:27,142 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
-INFO     2020-11-26 23:54:29,723  mcnn model created!
-WARNING  2020-11-26 23:55:23,587 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+INFO     2020-11-29 02:31:35,316  mcnn model created!
+WARNING  2020-11-29 02:31:41,680 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-29 02:32:58,726 vocab built
+INFO     2020-11-29 02:32:58,729 vocab saved
+WARNING  2020-11-29 02:32:58,943 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
-INFO     2020-11-26 23:55:31,216  mcnn model created!
-WARNING  2020-11-26 23:57:07,966 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+INFO     2020-11-29 02:33:06,540  mcnn model created!
+WARNING  2020-11-29 02:33:15,820 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-29 02:34:08,750 vocab built
+INFO     2020-11-29 02:34:08,756 vocab saved
+WARNING  2020-11-29 02:34:09,121 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
-INFO     2020-11-26 23:57:19,424  mcnn model created!
-WARNING  2020-11-26 23:57:51,963 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:38: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+INFO     2020-11-29 02:34:17,355  mcnn model created!
+WARNING  2020-11-29 02:34:25,258 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-29 02:35:16,149 vocab built
+INFO     2020-11-29 02:35:16,154 vocab saved
+WARNING  2020-11-29 02:35:16,488 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
-INFO     2020-11-26 23:58:00,241  mcnn model created!
-INFO     2020-11-26 23:58:02,535 cutoff model built!
-INFO     2020-11-27 00:04:20,559 word2ix loaded
-INFO     2020-11-27 00:04:20,657 embeddings loaded
-INFO     2020-11-27 00:04:40,033 word2ix loaded
-INFO     2020-11-27 00:04:40,035 embeddings loaded
-INFO     2020-11-27 00:04:48,065 word2ix loaded
-INFO     2020-11-27 00:04:48,068 embeddings loaded
-INFO     2020-11-28 19:04:17,417 init started
-INFO     2020-11-28 19:04:54,076 init started
-INFO     2020-11-28 19:04:54,396 init finished successfully
-INFO     2020-11-28 19:11:20,391 init started
-INFO     2020-11-28 19:11:20,845 init finished successfully
-INFO     2020-11-28 19:17:09,156 init started
-INFO     2020-11-28 19:17:09,353 init finished successfully
-INFO     2020-11-28 19:18:38,929 init started
-INFO     2020-11-28 19:21:18,215 init started
-INFO     2020-11-28 19:21:18,377 init finished successfully
-INFO     2020-11-28 19:23:00,195 init started
-INFO     2020-11-28 19:23:00,529 init finished successfully
-INFO     2020-11-28 19:25:39,369 init started
-INFO     2020-11-28 19:25:39,544 init finished successfully
-INFO     2020-11-28 19:27:29,928 init started
-INFO     2020-11-28 19:27:30,128 init finished successfully
-INFO     2020-11-28 19:28:07,830 init started
-INFO     2020-11-28 19:28:08,156 init finished successfully
-WARNING  2020-11-28 19:28:19,922 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 17/61, at time 8.50/30.04 sec. Using the last valid frame instead.
+INFO     2020-11-29 02:35:24,539  mcnn model created!
+WARNING  2020-11-29 02:35:31,010 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
   UserWarning)
 
-WARNING  2020-11-28 19:28:19,924 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 18/61, at time 9.00/30.04 sec. Using the last valid frame instead.
+INFO     2020-11-29 02:39:12,797 vocab built
+INFO     2020-11-29 02:39:12,803 vocab saved
+INFO     2020-11-29 02:39:50,058 vocab built
+INFO     2020-11-29 02:39:50,061 vocab saved
+INFO     2020-11-29 02:42:43,268 vocab built
+INFO     2020-11-29 02:42:43,272 vocab saved
+INFO     2020-11-29 02:43:03,543 vocab built
+INFO     2020-11-29 02:43:03,547 vocab saved
+INFO     2020-11-29 02:43:33,852 vocab built
+INFO     2020-11-29 02:43:33,859 vocab saved
+WARNING  2020-11-29 02:43:34,166 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-29 02:43:42,869  mcnn model created!
+WARNING  2020-11-29 02:43:50,358 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
   UserWarning)
 
-WARNING  2020-11-28 19:28:19,924 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 19/61, at time 9.50/30.04 sec. Using the last valid frame instead.
+INFO     2020-11-29 02:44:46,670 vocab built
+INFO     2020-11-29 02:44:46,673 vocab saved
+WARNING  2020-11-29 02:44:46,943 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-29 02:44:54,047  mcnn model created!
+WARNING  2020-11-29 02:45:02,719 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
   UserWarning)
 
-WARNING  2020-11-28 19:28:19,925 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 20/61, at time 10.00/30.04 sec. Using the last valid frame instead.
+INFO     2020-11-29 02:45:40,644 vocab built
+INFO     2020-11-29 02:45:40,648 vocab saved
+INFO     2020-11-29 02:45:50,168 vocab built
+INFO     2020-11-29 02:45:50,173 vocab saved
+INFO     2020-11-29 02:46:00,199 vocab built
+INFO     2020-11-29 02:46:00,205 vocab saved
+INFO     2020-11-29 02:55:32,344 vocab built
+INFO     2020-11-29 02:55:32,347 vocab saved
+WARNING  2020-11-29 02:55:32,592 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-29 02:55:41,150 vocab built
+INFO     2020-11-29 02:55:41,156 vocab saved
+INFO     2020-11-29 02:56:04,053 vocab built
+INFO     2020-11-29 02:56:04,061 vocab saved
+INFO     2020-11-29 03:03:44,359 vocab built
+INFO     2020-11-29 03:03:44,363 vocab saved
+INFO     2020-11-29 03:05:24,941 vocab built
+INFO     2020-11-29 03:05:24,944 vocab saved
+INFO     2020-11-29 03:07:18,807 vocab built
+INFO     2020-11-29 03:07:18,811 vocab saved
+INFO     2020-11-29 03:07:34,943 vocab built
+INFO     2020-11-29 03:07:34,946 vocab saved
+INFO     2020-11-29 03:11:10,101 vocab built
+INFO     2020-11-29 03:11:10,106 vocab saved
+WARNING  2020-11-29 03:11:10,381 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-29 03:11:17,492  mcnn model created!
+WARNING  2020-11-29 03:11:23,388 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
   UserWarning)
 
-WARNING  2020-11-28 19:28:19,925 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 21/61, at time 10.50/30.04 sec. Using the last valid frame instead.
+INFO     2020-11-29 03:11:50,040 vocab built
+INFO     2020-11-29 03:11:50,043 vocab saved
+WARNING  2020-11-29 03:11:50,260 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-29 03:11:57,480  mcnn model created!
+WARNING  2020-11-29 03:12:04,219 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
   UserWarning)
 
-WARNING  2020-11-28 19:28:19,926 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 22/61, at time 11.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,926 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 23/61, at time 11.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,927 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 24/61, at time 12.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,927 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 25/61, at time 12.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,927 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 26/61, at time 13.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,928 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 27/61, at time 13.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,929 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 28/61, at time 14.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,930 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 29/61, at time 14.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,932 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/61, at time 15.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,933 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 31/61, at time 15.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,934 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 32/61, at time 16.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,936 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 33/61, at time 16.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,937 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 34/61, at time 17.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,938 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 35/61, at time 17.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,940 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 36/61, at time 18.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,941 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 37/61, at time 18.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,942 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 38/61, at time 19.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,944 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 39/61, at time 19.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,946 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 40/61, at time 20.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,948 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 41/61, at time 20.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,951 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 42/61, at time 21.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,953 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 43/61, at time 21.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,955 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 44/61, at time 22.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,957 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 45/61, at time 22.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,959 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 46/61, at time 23.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,961 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 47/61, at time 23.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,962 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 48/61, at time 24.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,963 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 49/61, at time 24.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,965 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 50/61, at time 25.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,966 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 51/61, at time 25.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,968 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 52/61, at time 26.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,969 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 53/61, at time 26.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,971 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 54/61, at time 27.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:19,972 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 55/61, at time 27.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:20,007 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 56/61, at time 28.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:20,009 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 57/61, at time 28.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:20,011 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 58/61, at time 29.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:20,013 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 59/61, at time 29.50/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:28:20,016 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 60/61, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-INFO     2020-11-28 19:31:21,233 init started
-INFO     2020-11-28 19:31:21,415 init finished successfully
-WARNING  2020-11-28 19:31:37,760 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 60/61, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-INFO     2020-11-28 19:34:50,262 init started
-INFO     2020-11-28 19:34:50,427 init finished successfully
-INFO     2020-11-28 19:35:16,119 init started
-INFO     2020-11-28 19:35:16,287 init finished successfully
-INFO     2020-11-28 19:35:51,967 init started
-INFO     2020-11-28 19:35:52,138 init finished successfully
-WARNING  2020-11-28 19:36:18,978 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 60/61, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:36:22,767 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video19.mp4, 518400 bytes wanted but 0 bytes read,at frame 50/51, at time 16.67/16.67 sec. Using the last valid frame instead.
-  UserWarning)
-
-INFO     2020-11-28 19:37:15,155 init started
-INFO     2020-11-28 19:37:15,396 init finished successfully
-INFO     2020-11-28 19:37:30,746 init started
-INFO     2020-11-28 19:37:30,909 init finished successfully
-INFO     2020-11-28 19:37:55,414 init started
-INFO     2020-11-28 19:37:55,583 init finished successfully
-WARNING  2020-11-28 19:38:30,970 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 60/61, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:38:34,741 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video19.mp4, 518400 bytes wanted but 0 bytes read,at frame 50/51, at time 16.67/16.67 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:43:16,355 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 60/61, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 19:43:20,709 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video19.mp4, 518400 bytes wanted but 0 bytes read,at frame 50/51, at time 16.67/16.67 sec. Using the last valid frame instead.
-  UserWarning)
-
-INFO     2020-11-28 19:46:25,184 init started
-INFO     2020-11-28 19:46:25,349 init finished successfully
-INFO     2020-11-28 19:46:40,784 init started
-INFO     2020-11-28 19:46:40,944 init finished successfully
-INFO     2020-11-28 19:47:11,004 init started
-INFO     2020-11-28 19:47:11,171 init finished successfully
-WARNING  2020-11-28 19:47:56,094 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-INFO     2020-11-28 19:59:28,530 init started
-INFO     2020-11-28 19:59:28,915 init finished successfully
-INFO     2020-11-28 20:00:46,871 init started
-INFO     2020-11-28 20:02:10,975 init started
-INFO     2020-11-28 20:02:11,297 init finished successfully
-INFO     2020-11-28 20:02:28,302 init started
-INFO     2020-11-28 20:02:28,507 init finished successfully
-INFO     2020-11-28 20:02:55,714 init started
-INFO     2020-11-28 20:02:55,875 init finished successfully
-INFO     2020-11-28 20:03:59,443 init started
-INFO     2020-11-28 20:03:59,611 init finished successfully
-INFO     2020-11-28 20:04:33,073 init started
-INFO     2020-11-28 20:04:33,310 init finished successfully
-INFO     2020-11-28 20:04:47,891 init started
-INFO     2020-11-28 20:04:48,052 init finished successfully
-INFO     2020-11-28 20:05:18,921 init started
-INFO     2020-11-28 20:05:19,084 init finished successfully
-WARNING  2020-11-28 22:40:57,651 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 22:41:58,559 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 22:42:18,009 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 23:08:42,220 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 23:09:31,434 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 23:10:53,983 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 23:11:45,569 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
-  UserWarning)
-
-WARNING  2020-11-28 23:12:07,106 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+INFO     2020-11-29 03:12:51,806 vocab built
+INFO     2020-11-29 03:12:51,810 vocab saved
+WARNING  2020-11-29 03:12:52,148 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-29 03:12:59,095  mcnn model created!
+WARNING  2020-11-29 03:13:06,474 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
   UserWarning)
 
