@@ -71,7 +71,7 @@ class VideoHandler():
                 log('debug', "cannot download {} ".format(
                     sample[0]['video_id']+'.mp4'))
 
-    def downloadVideo(self, videoPath, url, sTime, eTime, trials=2):
+    def downloadVideo(self, videoPath, url, sTime, eTime, trials=1):
 
         def on_downloaded(stream, fileHandle):
             original_clip = VideoFileClip(fileHandle)
@@ -94,7 +94,7 @@ class VideoHandler():
             return True
 
         except:
-            if trials: self.downloadVideo(video, trials-1)
+            if trials: self.downloadVideo(videoPath, url, sTime, eTime, trials-1)
             else: return False
 
     def get_video(self, video):
@@ -124,10 +124,9 @@ class VideoHandler():
 
     def get_random_videos(self, n=1):
 
-        #ids =[data['video_id'] for data in np.random.choice(self.raw_data['videos'], n) ]
+        ids =[data['video_id'] for data in np.random.choice(self.raw_data['videos'], n) ]
         #ids = ['video'+str(i) for i in np.arange(4)]
-        ids = ['video5', 'video7', 'video19']
-        print("ids:", ids)
+        #ids = [np.random.choice(['video5', 'video7', 'video19'])] 
 
         videos_metadata = [self.vid2cap[id][0] for id in ids]
         captions = [self.vid2cap[id][1:] for id in ids]
@@ -142,8 +141,8 @@ class VideoHandler():
                 video_clips.append(video)
                 captions.append(np.random.choice(all_captions))
             else:
-                print("video not found")
-                videos_metadata.append( self.vid2cap[np.random.choice(list(self.vid2cap.keys()))])
+                newkey = np.random.choice(list(self.vid2cap.keys()))
+                videos_metadata.append( self.vid2cap[newkey][0])
 
         videos = [np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:20]) for video in video_clips]
 

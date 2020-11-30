@@ -19,10 +19,11 @@ CAPTION_LEN : 15
 
 FRAME_SIZE: 150
 FRAMES_LIMIT : 20
+VIDEO_VEC: 2048
 AUDIO_TimeSample : 80 
 AUDIO_n_mfcc : 40
 
 
-BS: 5
-stepsPerEpoch: 3
-epochs: 2
+BS: 1
+stepsPerEpoch: 2
+epochs: 3

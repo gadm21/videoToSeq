@@ -45,17 +45,19 @@ class VModel:
         log('debug', "creating model (CNN cutoff) with Vocab size: %d" % self.params['VOCAB_SIZE'])
 
         # _____________________________________________________________________________________
-        c_model_input = Input(shape=(self.params['CAPTION_LEN'] + 1, self.params['OUTDIM_EMB']))
-        dense_1 = Dense(512, kernel_initializer='random_normal')
-        c_model_2nd = TimeDistributed(dense_1)(c_model_input) 
-        c_model_final = LSTM(512, return_sequences=True, kernel_initializer='random_normal')(c_model_2nd) 
+        dense_1 = Dense(200, kernel_initializer='random_normal', activation='relu')
+
+        c_model_input = Input(shape= (self.params['CAPTION_LEN'],))
+        c_model_embeds = Embedding(self.params['VOCAB_SIZE'], self.params['OUTDIM_EMB'])(c_model_input)
+        c_model_2nd = TimeDistributed(dense_1)(c_model_embeds) 
+        c_model_final = LSTM(128, return_sequences=True, kernel_initializer='random_normal')(c_model_2nd) 
         #c_model = Model(inputs=c_model_input, outputs= c_model_final, name='caption_model') 
         #print(c_model.summary()) 
         #tf.keras.utils.plot_model(c_model, 'c_model.png', show_shapes=True) 
         # _____________________________________________________________________________________
         
 
-
+        '''
         # ___________________________________________________________________________________
         a_model_input = Input(shape=( self.params['AUDIO_TimeSample'], self.params['AUDIO_n_mfcc']))
         a_model_2nd = GRU(128, dropout=0.2, recurrent_dropout=0.2, return_sequences=True)(a_model_input) 
@@ -68,7 +70,7 @@ class VModel:
         #print(a_model.summary()) 
         #tf.keras.utils.plot_model(a_model, to_file='a_model.png', show_shapes=True) 
         # ___________________________________________________________________________________
-
+        '''
 
 
 
@@ -76,30 +78,31 @@ class VModel:
         dense_i = Dense(1024, kernel_initializer='random_normal') 
         gru_i = GRU(1024, return_sequences=False, kernel_initializer='random_normal') 
 
-        i_model_input = Input(shape = self.get_cutoff_shape())
+        i_model_input = Input(shape = (self.params['FRAMES_LIMIT'], self.params['VIDEO_VEC']), name='video')
         i_model_2nd = TimeDistributed(dense_i)(i_model_input) 
         i_model_3rd = TimeDistributed(Dropout(0.2))(i_model_2nd) 
         i_model_4th = TimeDistributed(BatchNormalization(-1))(i_model_3rd)
         i_model_4th = Activation('tanh')(i_model_4th)
         i_model_5th = Bidirectional(gru_i)(i_model_4th) 
-        i_model_final = RepeatVector(self.params['CAPTION_LEN']+1)(i_model_5th) 
+        i_model_final = RepeatVector(self.params['CAPTION_LEN'])(i_model_5th) 
         #i_model = Model(inputs=i_model_input, outputs=i_model_final, name='frames_model')
         #print(i_model.summary()) 
         #tf.keras.utils.plot_model(i_model, to_file='i_model.png', show_shapes=True) 
         # _____________________________________________________________________________
         
-        lstm_concatted = LSTM(1024, return_sequences=True, kernel_initializer='random_normal', recurrent_regularizer=l2(0.01))
+        lstm_concatted = LSTM(int(self.params['VOCAB_SIZE']*(3//4)), kernel_initializer='random_normal', recurrent_regularizer=l2(0.01))
         dense_concatted = Dense(self.params['VOCAB_SIZE'], kernel_initializer='random_normal')
         opt = RMSprop(lr=0.001, rho=0.9, epsilon=1e-8, decay=0)
 
-        concatted = Concatenate(-1)([c_model_final, a_model_final, i_model_final])
+        concatted = Concatenate(-1)([c_model_final, i_model_final])
         concatted = TimeDistributed(Dropout(0.2))(concatted)
-        concatted = lstm_concatted(concatted) 
-        concatted = TimeDistributed(dense_concatted)(concatted) 
+        concatted = TimeDistributed(Dense(int(self.params['VOCAB_SIZE']//2), activation='relu'))(concatted) 
+        concatted = lstm_concatted(concatted)
+        concatted = dense_concatted(concatted) 
         concatted = Activation('softmax')(concatted) 
 
         
-        model = Model(inputs=[c_model_input, a_model_input, i_model_input], outputs=concatted)
+        model = Model(inputs=[c_model_input, i_model_input], outputs=concatted)
         model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
         #tf.keras.utils.plot_model(model, to_file='total.png', show_shapes=True) 
         
@@ -127,8 +130,8 @@ class VModel:
         return self.model 
     
     def plot_model(self):
-        tf.keras.utils.plot_model(self.model, 'model.png', show_shapes=True) 
-        tf.keras.utils.plot_model(self.model, 'model2.png', show_shapes=True, show_layer_names=False) 
+        tf.keras.utils.plot_model(self.model, 'visuals/model.png', show_shapes=True, show_layer_names=False) 
+        tf.keras.utils.plot_model(self.model, 'visuals/more_specific_model.png', show_shapes=True) 
 
 
 
@@ -137,3 +140,4 @@ if __name__ == '__main__':
     params = read_yaml() 
     vmodel = VModel(params) 
     vmodel.co_model.summary()
+    vmodel.plot_model() 

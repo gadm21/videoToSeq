@@ -6,6 +6,7 @@ import os
 import numpy as np
 import pickle
 
+
 '''
 TODO get random caption from a video id
 TODO rewrite vocab to include the embeddings and vocab from the 
@@ -89,10 +90,10 @@ class Vocab:
         caption = ['seq_start'] + caption + ['seq_end']
         
         caption = [self.word2ix.get(word, self.word2ix['seq_unkown']) for word in caption]  
-        caption += [self.padding_element]*(self.params['CAPTION_LEN']-len(caption))
+        #caption += [self.padding_element]*(self.params['CAPTION_LEN']-len(caption))
         
         return caption
-
+        
 
 if __name__ == "__main__":
     params = read_yaml()

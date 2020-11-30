@@ -183,3 +183,845 @@ INFO     2020-11-29 03:12:59,095  mcnn model created!
 WARNING  2020-11-29 03:13:06,474 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
   UserWarning)
 
+INFO     2020-11-30 02:24:48,148 vocab built
+INFO     2020-11-30 02:24:48,177 vocab saved
+WARNING  2020-11-30 02:24:48,443 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:25:00,501  mcnn model created!
+WARNING  2020-11-30 02:25:12,035 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:28:14,714 vocab built
+INFO     2020-11-30 02:28:14,718 vocab saved
+WARNING  2020-11-30 02:28:14,932 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:28:21,609  mcnn model created!
+WARNING  2020-11-30 02:28:28,121 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:29:49,318 vocab built
+INFO     2020-11-30 02:29:49,322 vocab saved
+WARNING  2020-11-30 02:29:49,604 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:29:56,339  mcnn model created!
+WARNING  2020-11-30 02:30:02,522 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:31:15,564 vocab built
+INFO     2020-11-30 02:31:15,568 vocab saved
+WARNING  2020-11-30 02:31:15,784 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:31:22,437  mcnn model created!
+WARNING  2020-11-30 02:31:28,664 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:32:45,346 vocab built
+INFO     2020-11-30 02:32:45,350 vocab saved
+WARNING  2020-11-30 02:32:45,567 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:32:52,221  mcnn model created!
+WARNING  2020-11-30 02:32:58,853 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:33:46,315 vocab built
+INFO     2020-11-30 02:33:46,318 vocab saved
+WARNING  2020-11-30 02:33:46,540 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:33:53,134  mcnn model created!
+WARNING  2020-11-30 02:33:59,890 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:43:03,680 vocab built
+INFO     2020-11-30 02:43:03,684 vocab saved
+WARNING  2020-11-30 02:43:04,029 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:43:12,280  mcnn model created!
+WARNING  2020-11-30 02:43:20,631 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:44:01,224 vocab built
+INFO     2020-11-30 02:44:01,228 vocab saved
+WARNING  2020-11-30 02:44:01,443 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:44:08,115  mcnn model created!
+WARNING  2020-11-30 02:44:15,058 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:44:55,794 vocab built
+INFO     2020-11-30 02:44:55,797 vocab saved
+WARNING  2020-11-30 02:44:56,010 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:45:03,485  mcnn model created!
+WARNING  2020-11-30 02:45:11,273 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:51:06,292 vocab built
+INFO     2020-11-30 02:51:06,298 vocab saved
+WARNING  2020-11-30 02:51:06,579 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:51:14,889  mcnn model created!
+WARNING  2020-11-30 02:51:22,456 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 02:59:51,397 vocab built
+INFO     2020-11-30 02:59:51,402 vocab saved
+WARNING  2020-11-30 02:59:51,719 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 02:59:59,455  mcnn model created!
+WARNING  2020-11-30 03:00:07,904 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 03:00:39,103 vocab built
+INFO     2020-11-30 03:00:39,108 vocab saved
+WARNING  2020-11-30 03:00:39,446 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 03:00:47,581  mcnn model created!
+WARNING  2020-11-30 03:00:53,809 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 03:11:36,776 vocab built
+INFO     2020-11-30 03:11:36,781 vocab saved
+WARNING  2020-11-30 03:11:37,095 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 03:11:44,979  mcnn model created!
+WARNING  2020-11-30 03:11:51,672 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 03:13:30,591 vocab built
+INFO     2020-11-30 03:13:30,594 vocab saved
+WARNING  2020-11-30 03:13:30,806 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 03:13:37,428  mcnn model created!
+WARNING  2020-11-30 03:13:43,591 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 03:20:48,513 vocab built
+INFO     2020-11-30 03:20:48,517 vocab saved
+WARNING  2020-11-30 03:20:48,815 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 03:20:56,896  mcnn model created!
+WARNING  2020-11-30 03:21:03,498 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 03:27:06,945 vocab built
+INFO     2020-11-30 03:27:06,949 vocab saved
+WARNING  2020-11-30 03:27:07,279 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 03:27:15,128  mcnn model created!
+WARNING  2020-11-30 03:27:22,337 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 03:39:38,966 vocab built
+INFO     2020-11-30 03:39:38,971 vocab saved
+WARNING  2020-11-30 03:39:39,291 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 03:39:46,544  mcnn model created!
+WARNING  2020-11-30 03:39:53,191 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 15:42:26,135 vocab built
+INFO     2020-11-30 15:42:26,165 vocab saved
+WARNING  2020-11-30 15:42:26,511 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 15:42:35,656  mcnn model created!
+WARNING  2020-11-30 15:42:52,537 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-11-30 15:45:01,523 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+WARNING  2020-11-30 15:45:56,358 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 15:46:02,120  mcnn model created!
+WARNING  2020-11-30 15:51:15,487 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+WARNING  2020-11-30 15:52:09,508 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 15:52:16,125  mcnn model created!
+INFO     2020-11-30 15:53:22,795 vocab built
+INFO     2020-11-30 15:53:22,798 vocab saved
+WARNING  2020-11-30 15:53:22,997 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 15:53:28,827  mcnn model created!
+WARNING  2020-11-30 15:53:36,668 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 16:01:27,510 vocab built
+INFO     2020-11-30 16:01:27,513 vocab saved
+WARNING  2020-11-30 16:01:27,738 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:01:33,382  mcnn model created!
+WARNING  2020-11-30 16:01:39,794 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 16:02:34,268 vocab built
+INFO     2020-11-30 16:02:34,272 vocab saved
+WARNING  2020-11-30 16:02:34,482 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:02:40,167  mcnn model created!
+WARNING  2020-11-30 16:02:46,452 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 16:07:20,427 vocab built
+INFO     2020-11-30 16:07:20,430 vocab saved
+WARNING  2020-11-30 16:07:20,649 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:07:26,538  mcnn model created!
+WARNING  2020-11-30 16:07:30,272 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 16:22:16,282 vocab built
+INFO     2020-11-30 16:22:16,300 vocab saved
+WARNING  2020-11-30 16:22:16,742 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:22:32,623  mcnn model created!
+INFO     2020-11-30 16:24:05,755 vocab built
+INFO     2020-11-30 16:24:05,760 vocab saved
+WARNING  2020-11-30 16:24:06,081 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:24:13,527  mcnn model created!
+WARNING  2020-11-30 16:24:22,164 Model was constructed with shape (None, 15, 300) for input Tensor("tokens:0", shape=(None, 15, 300), dtype=float32), but it was called on an input with incompatible shape (None, None).
+INFO     2020-11-30 16:25:16,655 vocab built
+INFO     2020-11-30 16:25:16,660 vocab saved
+WARNING  2020-11-30 16:25:16,879 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:25:22,950  mcnn model created!
+WARNING  2020-11-30 16:25:28,776 Model was constructed with shape (None, None, 2048) for input Tensor("video:0", shape=(None, None, 2048), dtype=float32), but it was called on an input with incompatible shape (None, None).
+WARNING  2020-11-30 16:30:55,551 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+WARNING  2020-11-30 16:31:02,737 Functional inputs must come from `tf.keras.Input` (thus holding past layer metadata), they cannot be the output of a previous non-Input layer. Here, a tensor specified as input to "functional" was not an Input tensor, it was generated by layer embedding.
+Note that input tensors are instantiated via `tensor = tf.keras.Input(shape)`.
+The tensor that caused the issue was: embedding/embedding_lookup/Identity_1:0
+WARNING  2020-11-30 16:37:57,560 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+WARNING  2020-11-30 16:38:05,129 Functional inputs must come from `tf.keras.Input` (thus holding past layer metadata), they cannot be the output of a previous non-Input layer. Here, a tensor specified as input to "functional" was not an Input tensor, it was generated by layer embedding.
+Note that input tensors are instantiated via `tensor = tf.keras.Input(shape)`.
+The tensor that caused the issue was: embedding/embedding_lookup/Identity_1:0
+WARNING  2020-11-30 16:38:53,176 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:39:00,188  mcnn model created!
+INFO     2020-11-30 16:41:33,294 vocab built
+INFO     2020-11-30 16:41:33,302 vocab saved
+WARNING  2020-11-30 16:41:33,601 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:41:39,266  mcnn model created!
+WARNING  2020-11-30 16:41:43,332 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-11-30 16:41:45,813 Model was constructed with shape (None, 15) for input Tensor("input_1:0", shape=(None, 15), dtype=float32), but it was called on an input with incompatible shape (None, None, None).
+WARNING  2020-11-30 16:41:45,813 Model was constructed with shape (None, None, 2048) for input Tensor("video:0", shape=(None, None, 2048), dtype=float32), but it was called on an input with incompatible shape (None, None).
+WARNING  2020-11-30 16:49:39,110 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+WARNING  2020-11-30 16:50:05,793 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:50:10,802  mcnn model created!
+WARNING  2020-11-30 16:52:31,013 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:52:35,931  mcnn model created!
+INFO     2020-11-30 16:52:58,406 vocab built
+INFO     2020-11-30 16:52:58,411 vocab saved
+WARNING  2020-11-30 16:52:58,855 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:53:02,987  mcnn model created!
+WARNING  2020-11-30 16:53:09,134 Model was constructed with shape (None, 15) for input Tensor("input_1:0", shape=(None, 15), dtype=float32), but it was called on an input with incompatible shape (None, None, None).
+WARNING  2020-11-30 16:53:09,134 Model was constructed with shape (None, None, 2048) for input Tensor("video:0", shape=(None, None, 2048), dtype=float32), but it was called on an input with incompatible shape (None, None).
+WARNING  2020-11-30 16:54:19,739 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:54:25,752  mcnn model created!
+WARNING  2020-11-30 16:59:53,302 From src/vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 16:59:57,699  mcnn model created!
+INFO     2020-11-30 17:02:16,975 vocab built
+INFO     2020-11-30 17:02:16,978 vocab saved
+WARNING  2020-11-30 17:02:17,187 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:02:20,887  mcnn model created!
+WARNING  2020-11-30 17:02:26,324 Model was constructed with shape (None, 15) for input Tensor("input_1:0", shape=(None, 15), dtype=float32), but it was called on an input with incompatible shape (None, None, None).
+WARNING  2020-11-30 17:02:26,324 Model was constructed with shape (None, 20, 2048) for input Tensor("video:0", shape=(None, 20, 2048), dtype=float32), but it was called on an input with incompatible shape (None, None).
+INFO     2020-11-30 17:07:21,354 vocab built
+INFO     2020-11-30 17:07:21,361 vocab saved
+WARNING  2020-11-30 17:07:21,667 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:07:27,350  mcnn model created!
+WARNING  2020-11-30 17:07:32,346 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-11-30 17:07:34,664 Model was constructed with shape (None, 15) for input Tensor("input_1:0", shape=(None, 15), dtype=float32), but it was called on an input with incompatible shape (None, None, None).
+WARNING  2020-11-30 17:07:34,664 Model was constructed with shape (None, 20, 2048) for input Tensor("video:0", shape=(None, 20, 2048), dtype=float32), but it was called on an input with incompatible shape (None, None).
+INFO     2020-11-30 17:14:07,661 vocab built
+INFO     2020-11-30 17:14:07,665 vocab saved
+WARNING  2020-11-30 17:14:08,078 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:14:12,648  mcnn model created!
+WARNING  2020-11-30 17:14:16,520 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-11-30 17:14:18,458 Model was constructed with shape (None, 15) for input Tensor("input_1:0", shape=(None, 15), dtype=float32), but it was called on an input with incompatible shape (None, None, None).
+WARNING  2020-11-30 17:14:18,458 Model was constructed with shape (None, None, 2048) for input Tensor("video:0", shape=(None, None, 2048), dtype=float32), but it was called on an input with incompatible shape (None, None).
+INFO     2020-11-30 17:17:00,048 vocab built
+INFO     2020-11-30 17:17:00,052 vocab saved
+WARNING  2020-11-30 17:17:00,317 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:23:45,157 vocab built
+INFO     2020-11-30 17:23:45,160 vocab saved
+WARNING  2020-11-30 17:23:45,360 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:24:05,060 vocab built
+INFO     2020-11-30 17:24:05,065 vocab saved
+WARNING  2020-11-30 17:24:05,324 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:24:09,608  mcnn model created!
+WARNING  2020-11-30 17:24:17,423 Model was constructed with shape (None, 15) for input Tensor("input_1:0", shape=(None, 15), dtype=float32), but it was called on an input with incompatible shape (None, None, None).
+WARNING  2020-11-30 17:24:17,424 Model was constructed with shape (None, 20, 2048) for input Tensor("video:0", shape=(None, 20, 2048), dtype=float32), but it was called on an input with incompatible shape (None, None).
+INFO     2020-11-30 17:27:08,082 vocab built
+INFO     2020-11-30 17:27:08,086 vocab saved
+WARNING  2020-11-30 17:27:08,480 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:27:13,896  mcnn model created!
+WARNING  2020-11-30 17:28:24,046 Gradients do not exist for variables ['time_distributed_1/kernel:0', 'time_distributed_1/bias:0', 'time_distributed_3/gamma:0', 'time_distributed_3/beta:0', 'embedding/embeddings:0', 'time_distributed/kernel:0', 'time_distributed/bias:0', 'bidirectional/forward_gru/gru_cell_1/kernel:0', 'bidirectional/forward_gru/gru_cell_1/recurrent_kernel:0', 'bidirectional/forward_gru/gru_cell_1/bias:0', 'bidirectional/backward_gru/gru_cell_2/kernel:0', 'bidirectional/backward_gru/gru_cell_2/recurrent_kernel:0', 'bidirectional/backward_gru/gru_cell_2/bias:0', 'lstm/lstm_cell/kernel:0', 'lstm/lstm_cell/recurrent_kernel:0', 'lstm/lstm_cell/bias:0', 'time_distributed_5/kernel:0', 'time_distributed_5/bias:0', 'lstm_1/lstm_cell_1/kernel:0', 'lstm_1/lstm_cell_1/bias:0', 'dense_2/kernel:0', 'dense_2/bias:0'] when minimizing the loss.
+WARNING  2020-11-30 17:28:24,047 Gradients do not exist for variables ['time_distributed_1/kernel:0', 'time_distributed_1/bias:0', 'time_distributed_3/gamma:0', 'time_distributed_3/beta:0', 'embedding/embeddings:0', 'time_distributed/kernel:0', 'time_distributed/bias:0', 'bidirectional/forward_gru/gru_cell_1/kernel:0', 'bidirectional/forward_gru/gru_cell_1/recurrent_kernel:0', 'bidirectional/forward_gru/gru_cell_1/bias:0', 'bidirectional/backward_gru/gru_cell_2/kernel:0', 'bidirectional/backward_gru/gru_cell_2/recurrent_kernel:0', 'bidirectional/backward_gru/gru_cell_2/bias:0', 'lstm/lstm_cell/kernel:0', 'lstm/lstm_cell/recurrent_kernel:0', 'lstm/lstm_cell/bias:0', 'time_distributed_5/kernel:0', 'time_distributed_5/bias:0', 'lstm_1/lstm_cell_1/kernel:0', 'lstm_1/lstm_cell_1/bias:0', 'dense_2/kernel:0', 'dense_2/bias:0'] when minimizing the loss.
+INFO     2020-11-30 17:31:14,594 vocab built
+INFO     2020-11-30 17:31:14,600 vocab saved
+WARNING  2020-11-30 17:31:15,037 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:31:20,542  mcnn model created!
+WARNING  2020-11-30 17:31:28,419 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 17:35:03,346 vocab built
+INFO     2020-11-30 17:35:03,349 vocab saved
+WARNING  2020-11-30 17:35:03,628 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:35:09,354  mcnn model created!
+WARNING  2020-11-30 17:35:31,640 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 17:38:59,493 vocab built
+INFO     2020-11-30 17:38:59,497 vocab saved
+WARNING  2020-11-30 17:38:59,684 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:39:03,308  mcnn model created!
+INFO     2020-11-30 17:39:13,090 init started
+INFO     2020-11-30 17:40:10,533 vocab built
+INFO     2020-11-30 17:40:10,539 vocab saved
+WARNING  2020-11-30 17:40:10,797 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:40:15,220  mcnn model created!
+INFO     2020-11-30 17:40:23,994 init started
+INFO     2020-11-30 17:40:30,085 init started
+INFO     2020-11-30 17:40:36,775 init started
+INFO     2020-11-30 17:43:49,754 vocab built
+INFO     2020-11-30 17:43:49,759 vocab saved
+WARNING  2020-11-30 17:43:50,056 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:43:53,946  mcnn model created!
+INFO     2020-11-30 17:44:02,758 init started
+INFO     2020-11-30 17:44:09,938 init started
+INFO     2020-11-30 17:44:18,757 init started
+INFO     2020-11-30 17:44:19,067 init finished successfully
+INFO     2020-11-30 17:50:44,750 init started
+INFO     2020-11-30 17:50:50,732 init started
+INFO     2020-11-30 17:50:58,579 init started
+INFO     2020-11-30 17:51:10,252 init started
+INFO     2020-11-30 17:51:10,439 init finished successfully
+INFO     2020-11-30 17:52:17,515 init started
+INFO     2020-11-30 17:52:23,555 init started
+INFO     2020-11-30 17:52:30,397 init started
+INFO     2020-11-30 17:52:38,329 init started
+INFO     2020-11-30 17:52:46,038 init started
+INFO     2020-11-30 17:52:51,925 init started
+INFO     2020-11-30 17:52:59,102 init started
+INFO     2020-11-30 17:53:05,569 init started
+INFO     2020-11-30 17:53:12,767 init started
+INFO     2020-11-30 17:53:19,916 init started
+INFO     2020-11-30 17:53:26,248 init started
+INFO     2020-11-30 17:53:33,047 init started
+INFO     2020-11-30 17:53:39,089 init started
+INFO     2020-11-30 17:53:44,996 init started
+INFO     2020-11-30 17:53:50,774 init started
+INFO     2020-11-30 17:54:05,589 init started
+INFO     2020-11-30 17:54:11,659 init started
+INFO     2020-11-30 17:54:19,627 init started
+INFO     2020-11-30 17:54:26,285 init started
+INFO     2020-11-30 17:54:32,536 init started
+INFO     2020-11-30 17:54:38,774 init started
+INFO     2020-11-30 17:54:46,764 init started
+INFO     2020-11-30 17:54:53,368 init started
+INFO     2020-11-30 17:55:02,728 init started
+INFO     2020-11-30 17:55:10,877 init started
+INFO     2020-11-30 17:55:20,050 init started
+INFO     2020-11-30 17:55:28,916 init started
+INFO     2020-11-30 17:55:37,516 init started
+INFO     2020-11-30 17:55:46,006 init started
+INFO     2020-11-30 17:55:55,425 init started
+INFO     2020-11-30 17:56:03,147 init started
+INFO     2020-11-30 17:56:03,324 init finished successfully
+INFO     2020-11-30 17:56:49,154 init started
+INFO     2020-11-30 17:56:56,589 init started
+INFO     2020-11-30 17:57:02,756 init started
+INFO     2020-11-30 17:57:09,492 init started
+INFO     2020-11-30 17:57:15,993 init started
+INFO     2020-11-30 17:57:22,120 init started
+INFO     2020-11-30 17:57:28,869 init started
+INFO     2020-11-30 17:57:35,421 init started
+INFO     2020-11-30 17:57:42,062 init started
+INFO     2020-11-30 17:57:48,715 init started
+INFO     2020-11-30 17:57:55,151 init started
+INFO     2020-11-30 17:58:01,771 init started
+INFO     2020-11-30 17:58:07,428 init started
+INFO     2020-11-30 17:58:13,225 init started
+INFO     2020-11-30 17:58:19,045 init started
+INFO     2020-11-30 17:58:24,956 init started
+INFO     2020-11-30 17:58:30,974 init started
+INFO     2020-11-30 17:58:36,925 init started
+INFO     2020-11-30 17:59:22,748 vocab built
+INFO     2020-11-30 17:59:22,754 vocab saved
+WARNING  2020-11-30 17:59:22,933 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 17:59:26,338  mcnn model created!
+INFO     2020-11-30 17:59:34,379 init started
+INFO     2020-11-30 17:59:40,949 init started
+INFO     2020-11-30 17:59:47,424 init started
+INFO     2020-11-30 17:59:54,034 init started
+INFO     2020-11-30 18:00:00,124 init started
+INFO     2020-11-30 18:00:06,330 init started
+INFO     2020-11-30 18:00:12,527 init started
+INFO     2020-11-30 18:00:18,652 init started
+INFO     2020-11-30 18:00:24,771 init started
+INFO     2020-11-30 18:00:31,003 init started
+INFO     2020-11-30 18:00:37,864 init started
+INFO     2020-11-30 18:00:38,038 init finished successfully
+INFO     2020-11-30 18:01:39,486 init started
+INFO     2020-11-30 18:01:45,177 init started
+INFO     2020-11-30 18:01:50,672 init started
+INFO     2020-11-30 18:01:56,429 init started
+INFO     2020-11-30 18:02:02,210 init started
+INFO     2020-11-30 18:02:07,865 init started
+INFO     2020-11-30 18:02:13,366 init started
+INFO     2020-11-30 18:02:19,079 init started
+INFO     2020-11-30 18:02:24,832 init started
+INFO     2020-11-30 18:02:30,646 init started
+INFO     2020-11-30 18:02:36,242 init started
+INFO     2020-11-30 18:02:41,775 init started
+INFO     2020-11-30 18:02:47,559 init started
+INFO     2020-11-30 18:02:53,255 init started
+INFO     2020-11-30 18:02:59,045 init started
+INFO     2020-11-30 18:03:05,267 init started
+INFO     2020-11-30 18:03:11,413 init started
+INFO     2020-11-30 18:03:17,995 init started
+INFO     2020-11-30 18:03:24,079 init started
+INFO     2020-11-30 18:03:30,246 init started
+INFO     2020-11-30 18:03:36,408 init started
+INFO     2020-11-30 18:03:42,577 init started
+INFO     2020-11-30 18:03:48,669 init started
+INFO     2020-11-30 18:03:54,836 init started
+INFO     2020-11-30 18:04:01,028 init started
+INFO     2020-11-30 18:04:07,031 init started
+INFO     2020-11-30 18:04:13,072 init started
+INFO     2020-11-30 18:04:19,223 init started
+INFO     2020-11-30 18:04:25,244 init started
+INFO     2020-11-30 18:04:31,465 init started
+INFO     2020-11-30 18:04:37,699 init started
+INFO     2020-11-30 18:04:43,473 init started
+INFO     2020-11-30 18:04:49,391 init started
+INFO     2020-11-30 18:04:56,114 init started
+INFO     2020-11-30 18:05:02,775 init started
+INFO     2020-11-30 18:05:09,752 init started
+INFO     2020-11-30 18:05:09,939 init finished successfully
+INFO     2020-11-30 18:05:57,487 init started
+INFO     2020-11-30 18:06:03,094 init started
+INFO     2020-11-30 18:06:08,585 init started
+INFO     2020-11-30 18:06:14,191 init started
+INFO     2020-11-30 18:06:19,811 init started
+INFO     2020-11-30 18:06:26,034 init started
+INFO     2020-11-30 18:06:32,078 init started
+INFO     2020-11-30 18:06:38,188 init started
+INFO     2020-11-30 18:06:44,090 init started
+INFO     2020-11-30 18:06:50,380 init started
+INFO     2020-11-30 18:06:56,590 init started
+INFO     2020-11-30 18:07:02,721 init started
+INFO     2020-11-30 18:07:08,924 init started
+INFO     2020-11-30 18:07:15,033 init started
+INFO     2020-11-30 18:07:21,253 init started
+INFO     2020-11-30 18:07:21,411 init finished successfully
+INFO     2020-11-30 18:07:58,992 init started
+INFO     2020-11-30 18:08:04,863 init started
+INFO     2020-11-30 18:08:10,787 init started
+INFO     2020-11-30 18:08:16,610 init started
+INFO     2020-11-30 18:08:22,359 init started
+INFO     2020-11-30 18:08:29,076 init started
+INFO     2020-11-30 18:08:35,643 init started
+INFO     2020-11-30 18:08:42,261 init started
+INFO     2020-11-30 18:08:49,161 init started
+INFO     2020-11-30 18:08:49,348 init finished successfully
+INFO     2020-11-30 18:09:41,533 init started
+INFO     2020-11-30 18:09:48,029 init started
+INFO     2020-11-30 18:09:54,581 init started
+INFO     2020-11-30 18:10:01,044 init started
+INFO     2020-11-30 18:10:10,499 init started
+INFO     2020-11-30 18:10:17,944 init started
+INFO     2020-11-30 18:10:24,099 init started
+INFO     2020-11-30 18:10:31,240 init started
+INFO     2020-11-30 18:10:37,368 init started
+INFO     2020-11-30 18:10:43,439 init started
+INFO     2020-11-30 18:10:49,779 init started
+INFO     2020-11-30 18:10:56,200 init started
+INFO     2020-11-30 18:11:03,202 init started
+INFO     2020-11-30 18:11:09,445 init started
+INFO     2020-11-30 18:11:15,523 init started
+INFO     2020-11-30 18:11:21,718 init started
+INFO     2020-11-30 18:11:28,107 init started
+INFO     2020-11-30 18:11:34,342 init started
+INFO     2020-11-30 18:11:40,668 init started
+INFO     2020-11-30 18:11:46,758 init started
+INFO     2020-11-30 18:11:53,244 init started
+INFO     2020-11-30 18:11:59,798 init started
+INFO     2020-11-30 18:12:06,463 init started
+INFO     2020-11-30 18:12:12,844 init started
+INFO     2020-11-30 18:12:13,016 init finished successfully
+INFO     2020-11-30 18:12:49,263 init started
+INFO     2020-11-30 18:12:54,926 init started
+INFO     2020-11-30 18:13:00,515 init started
+INFO     2020-11-30 18:13:06,220 init started
+INFO     2020-11-30 18:13:11,779 init started
+INFO     2020-11-30 18:13:17,813 init started
+INFO     2020-11-30 18:13:23,843 init started
+INFO     2020-11-30 18:13:29,789 init started
+INFO     2020-11-30 18:13:35,883 init started
+INFO     2020-11-30 18:13:42,181 init started
+INFO     2020-11-30 18:13:48,813 init started
+INFO     2020-11-30 18:13:55,357 init started
+INFO     2020-11-30 18:14:01,824 init started
+INFO     2020-11-30 18:14:08,355 init started
+INFO     2020-11-30 18:14:15,811 init started
+INFO     2020-11-30 18:14:21,603 init started
+INFO     2020-11-30 18:14:27,774 init started
+INFO     2020-11-30 18:14:34,284 init started
+INFO     2020-11-30 18:14:40,544 init started
+INFO     2020-11-30 18:14:46,722 init started
+INFO     2020-11-30 18:14:53,910 init started
+INFO     2020-11-30 18:15:00,213 init started
+INFO     2020-11-30 18:15:06,692 init started
+INFO     2020-11-30 18:15:12,524 init started
+INFO     2020-11-30 18:15:18,662 init started
+INFO     2020-11-30 18:15:24,612 init started
+INFO     2020-11-30 18:15:24,780 init finished successfully
+INFO     2020-11-30 18:17:59,540 vocab built
+INFO     2020-11-30 18:17:59,543 vocab saved
+WARNING  2020-11-30 18:17:59,730 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:40: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-11-30 18:18:03,500  mcnn model created!
+INFO     2020-11-30 18:18:12,379 init started
+INFO     2020-11-30 18:18:18,749 init started
+INFO     2020-11-30 18:18:24,910 init started
+INFO     2020-11-30 18:18:31,048 init started
+INFO     2020-11-30 18:18:36,768 init started
+INFO     2020-11-30 18:18:42,708 init started
+INFO     2020-11-30 18:18:48,918 init started
+INFO     2020-11-30 18:18:54,918 init started
+INFO     2020-11-30 18:19:01,079 init started
+INFO     2020-11-30 18:19:07,028 init started
+INFO     2020-11-30 18:19:13,018 init started
+INFO     2020-11-30 18:19:19,068 init started
+INFO     2020-11-30 18:19:25,577 init started
+INFO     2020-11-30 18:19:32,028 init started
+INFO     2020-11-30 18:19:37,637 init started
+INFO     2020-11-30 18:19:43,077 init started
+INFO     2020-11-30 18:19:49,027 init started
+INFO     2020-11-30 18:19:55,420 init started
+INFO     2020-11-30 18:20:03,356 init started
+INFO     2020-11-30 18:20:14,006 init started
+INFO     2020-11-30 18:20:21,018 init started
+INFO     2020-11-30 18:20:27,626 init started
+INFO     2020-11-30 18:20:33,939 init started
+INFO     2020-11-30 18:20:39,746 init started
+INFO     2020-11-30 18:20:39,906 init finished successfully
+INFO     2020-11-30 18:21:36,179 init started
+INFO     2020-11-30 18:21:42,846 init started
+INFO     2020-11-30 18:21:50,236 init started
+INFO     2020-11-30 18:21:56,685 init started
+INFO     2020-11-30 18:21:56,857 init finished successfully
+INFO     2020-11-30 18:22:43,393 init started
+INFO     2020-11-30 18:22:49,873 init started
+INFO     2020-11-30 18:22:56,064 init started
+INFO     2020-11-30 18:23:02,384 init started
+INFO     2020-11-30 18:23:08,523 init started
+INFO     2020-11-30 18:23:14,472 init started
+INFO     2020-11-30 18:23:24,179 init started
+INFO     2020-11-30 18:23:31,803 init started
+INFO     2020-11-30 18:23:38,449 init started
+INFO     2020-11-30 18:23:45,212 init started
+INFO     2020-11-30 18:23:52,082 init started
+INFO     2020-11-30 18:23:58,854 init started
+INFO     2020-11-30 18:24:05,024 init started
+INFO     2020-11-30 18:24:11,912 init started
+INFO     2020-11-30 18:24:18,926 init started
+INFO     2020-11-30 18:24:25,652 init started
+INFO     2020-11-30 18:24:32,234 init started
+INFO     2020-11-30 18:24:38,852 init started
+INFO     2020-11-30 18:24:45,132 init started
+INFO     2020-11-30 18:24:51,431 init started
+INFO     2020-11-30 18:24:57,952 init started
+INFO     2020-11-30 18:25:08,661 init started
+INFO     2020-11-30 18:25:15,031 init started
+INFO     2020-11-30 18:25:21,561 init started
+INFO     2020-11-30 18:25:25,329 init started
+INFO     2020-11-30 18:25:29,040 init finished successfully
+INFO     2020-11-30 18:29:52,775 init started
+INFO     2020-11-30 18:30:03,197 init started
+INFO     2020-11-30 18:30:15,945 init started
+INFO     2020-11-30 18:30:25,674 init started
+INFO     2020-11-30 18:30:32,065 init started
+INFO     2020-11-30 18:30:43,424 init started
+INFO     2020-11-30 18:30:53,003 init started
+INFO     2020-11-30 18:31:01,373 init started
+INFO     2020-11-30 18:31:10,584 init started
+INFO     2020-11-30 18:31:17,543 init started
+INFO     2020-11-30 18:31:27,343 init started
+INFO     2020-11-30 18:31:34,742 init started
+INFO     2020-11-30 18:31:42,443 init started
+INFO     2020-11-30 18:31:49,115 init started
+INFO     2020-11-30 18:31:58,366 init started
+INFO     2020-11-30 18:32:06,952 init started
+INFO     2020-11-30 18:32:15,386 init started
+INFO     2020-11-30 18:32:26,152 init started
+INFO     2020-11-30 18:32:34,944 init started
+INFO     2020-11-30 18:32:48,752 init started
+INFO     2020-11-30 18:32:57,651 init started
+INFO     2020-11-30 18:33:06,896 init started
+INFO     2020-11-30 18:33:14,551 init started
+INFO     2020-11-30 18:33:24,446 init started
+INFO     2020-11-30 18:33:32,450 init started
+INFO     2020-11-30 18:33:39,770 init started
+INFO     2020-11-30 18:33:49,018 init started
+INFO     2020-11-30 18:33:57,510 init started
+INFO     2020-11-30 18:34:05,809 init started
+INFO     2020-11-30 18:34:06,254 init finished successfully
+INFO     2020-11-30 18:35:36,257 init started
+INFO     2020-11-30 18:35:42,330 init started
+INFO     2020-11-30 18:35:42,506 init finished successfully
+INFO     2020-11-30 18:36:09,487 init started
+INFO     2020-11-30 18:36:15,895 init started
+INFO     2020-11-30 18:36:22,958 init started
+INFO     2020-11-30 18:36:29,078 init started
+INFO     2020-11-30 18:36:35,568 init started
+INFO     2020-11-30 18:36:42,179 init started
+INFO     2020-11-30 18:36:48,236 init started
+INFO     2020-11-30 18:36:54,307 init started
+INFO     2020-11-30 18:37:00,606 init started
+INFO     2020-11-30 18:37:07,776 init started
+WARNING  2020-11-30 18:37:10,139 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video28.mp4, 691200 bytes wanted but 0 bytes read,at frame 251/252, at time 10.04/10.06 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-11-30 18:37:17,344 init started
+INFO     2020-11-30 18:37:24,626 init started
+INFO     2020-11-30 18:37:36,463 init started
+INFO     2020-11-30 18:37:44,675 init started
+INFO     2020-11-30 18:37:51,547 init started
+INFO     2020-11-30 18:37:57,759 init started
+INFO     2020-11-30 18:38:06,445 init started
+INFO     2020-11-30 18:38:13,664 init started
+INFO     2020-11-30 18:38:20,434 init started
+INFO     2020-11-30 18:38:26,224 init started
+INFO     2020-11-30 18:38:33,934 init started
+INFO     2020-11-30 18:38:40,264 init started
+INFO     2020-11-30 18:38:46,974 init started
+INFO     2020-11-30 18:38:56,715 init started
+INFO     2020-11-30 18:39:03,854 init started
+INFO     2020-11-30 18:39:10,063 init started
+INFO     2020-11-30 18:39:16,254 init started
+INFO     2020-11-30 18:39:22,313 init started
+INFO     2020-11-30 18:39:30,383 init started
+INFO     2020-11-30 18:39:35,833 init started
+INFO     2020-11-30 18:39:42,993 init started
+INFO     2020-11-30 18:39:43,157 init finished successfully
+INFO     2020-11-30 18:40:12,723 init started
+INFO     2020-11-30 18:40:12,889 init finished successfully
+INFO     2020-11-30 18:41:47,481 init started
+INFO     2020-11-30 18:41:53,460 init started
+INFO     2020-11-30 18:42:00,545 init started
+INFO     2020-11-30 18:42:06,320 init started
+INFO     2020-11-30 18:42:12,159 init started
+INFO     2020-11-30 18:42:17,569 init started
+INFO     2020-11-30 18:42:24,199 init started
+INFO     2020-11-30 18:42:31,761 init started
+INFO     2020-11-30 18:42:31,951 init finished successfully
+INFO     2020-11-30 18:44:47,006 init started
+INFO     2020-11-30 18:44:54,180 init started
+INFO     2020-11-30 18:45:00,486 init started
+INFO     2020-11-30 18:45:05,783 init started
+INFO     2020-11-30 18:45:11,816 init started
+INFO     2020-11-30 18:45:18,176 init started
+INFO     2020-11-30 18:45:24,926 init started
+INFO     2020-11-30 18:45:32,466 init started
+INFO     2020-11-30 18:45:39,386 init started
+INFO     2020-11-30 18:45:45,405 init started
+INFO     2020-11-30 18:45:51,495 init started
+INFO     2020-11-30 18:45:57,645 init started
+INFO     2020-11-30 18:46:04,455 init started
+INFO     2020-11-30 18:46:11,705 init started
+INFO     2020-11-30 18:46:18,575 init started
+INFO     2020-11-30 18:46:25,030 init started
+INFO     2020-11-30 18:46:31,174 init started
+INFO     2020-11-30 18:46:36,974 init started
+INFO     2020-11-30 18:46:43,406 init started
+INFO     2020-11-30 18:46:50,227 init started
+INFO     2020-11-30 18:46:56,065 init started
+INFO     2020-11-30 18:47:02,434 init started
+INFO     2020-11-30 18:47:08,162 init started
+INFO     2020-11-30 18:47:13,934 init started
+INFO     2020-11-30 18:47:20,033 init started
+INFO     2020-11-30 18:47:26,113 init started
+INFO     2020-11-30 18:47:32,183 init started
+INFO     2020-11-30 18:47:38,283 init started
+INFO     2020-11-30 18:47:46,179 init started
+INFO     2020-11-30 18:47:51,803 init started
+INFO     2020-11-30 18:47:58,382 init started
+INFO     2020-11-30 18:47:58,556 init finished successfully
+INFO     2020-11-30 18:48:27,772 init started
+INFO     2020-11-30 18:48:34,102 init started
+INFO     2020-11-30 18:48:40,742 init started
+INFO     2020-11-30 18:48:47,007 init started
+INFO     2020-11-30 18:48:53,761 init started
+INFO     2020-11-30 18:48:59,592 init started
+INFO     2020-11-30 18:49:05,883 init started
+INFO     2020-11-30 18:49:12,233 init started
+INFO     2020-11-30 18:49:18,212 init started
+INFO     2020-11-30 18:49:24,423 init started
+INFO     2020-11-30 18:49:30,124 init started
+INFO     2020-11-30 18:49:36,184 init started
+INFO     2020-11-30 18:49:42,383 init started
+INFO     2020-11-30 18:49:48,434 init started
+INFO     2020-11-30 18:49:55,112 init started
+INFO     2020-11-30 18:50:00,961 init started
+INFO     2020-11-30 18:50:07,082 init started
+INFO     2020-11-30 18:50:13,371 init started
+INFO     2020-11-30 18:50:19,489 init started
+INFO     2020-11-30 18:50:25,751 init started
+INFO     2020-11-30 18:50:32,294 init started
+INFO     2020-11-30 18:50:38,067 init started
+INFO     2020-11-30 18:50:44,340 init started
+INFO     2020-11-30 18:50:50,660 init started
+INFO     2020-11-30 18:50:56,869 init started
+INFO     2020-11-30 18:51:06,661 init started
+INFO     2020-11-30 18:51:17,909 init started
+INFO     2020-11-30 18:51:23,628 init started
+INFO     2020-11-30 18:51:29,850 init started
+INFO     2020-11-30 18:51:36,034 init started
+INFO     2020-11-30 18:51:41,879 init started
+INFO     2020-11-30 18:51:47,398 init started
+INFO     2020-11-30 18:51:54,097 init started
+INFO     2020-11-30 18:52:00,957 init started
+INFO     2020-11-30 18:52:07,078 init started
+INFO     2020-11-30 18:52:13,298 init started
+INFO     2020-11-30 18:52:19,788 init started
+INFO     2020-11-30 18:52:26,018 init started
+INFO     2020-11-30 18:52:34,667 init started
+INFO     2020-11-30 18:52:40,386 init started
+INFO     2020-11-30 18:52:46,720 init started
+INFO     2020-11-30 18:52:53,468 init started
+INFO     2020-11-30 18:52:59,577 init started
+INFO     2020-11-30 18:53:06,055 init started
+INFO     2020-11-30 18:53:13,266 init started
+INFO     2020-11-30 18:53:20,240 init started
+INFO     2020-11-30 18:53:27,136 init started
+INFO     2020-11-30 18:53:33,376 init started
+INFO     2020-11-30 18:53:39,825 init started
+INFO     2020-11-30 18:53:46,405 init started
+INFO     2020-11-30 18:53:52,427 init started
+INFO     2020-11-30 18:53:58,339 init started
+INFO     2020-11-30 18:54:04,183 init started
+INFO     2020-11-30 18:54:10,166 init started
+INFO     2020-11-30 18:54:17,135 init started
+INFO     2020-11-30 18:54:24,005 init started
+INFO     2020-11-30 18:54:29,430 init started
+INFO     2020-11-30 18:54:35,577 init started
+INFO     2020-11-30 18:54:42,995 init started
+INFO     2020-11-30 18:54:49,676 init started
+INFO     2020-11-30 18:54:56,614 init started
+INFO     2020-11-30 18:55:03,074 init started
+INFO     2020-11-30 18:55:09,475 init started
+INFO     2020-11-30 18:55:15,254 init started
+INFO     2020-11-30 18:55:21,983 init started
+INFO     2020-11-30 18:55:28,584 init started
+INFO     2020-11-30 18:55:34,775 init started
+INFO     2020-11-30 18:55:40,915 init started
+INFO     2020-11-30 18:55:47,683 init started
+INFO     2020-11-30 18:55:53,543 init started
+INFO     2020-11-30 18:55:59,325 init started
+INFO     2020-11-30 18:56:06,553 init started
+INFO     2020-11-30 18:56:18,026 init started
+INFO     2020-11-30 18:56:25,612 init started
+INFO     2020-11-30 18:56:32,554 init started
+INFO     2020-11-30 18:56:39,394 init started
+INFO     2020-11-30 18:56:48,095 init started
+INFO     2020-11-30 18:57:00,382 init started
+INFO     2020-11-30 18:57:00,612 init finished successfully
+INFO     2020-11-30 18:57:53,691 init started
+INFO     2020-11-30 18:57:59,952 init started
+INFO     2020-11-30 18:58:05,793 init started
+INFO     2020-11-30 18:58:11,351 init started
+INFO     2020-11-30 18:58:17,073 init started
+INFO     2020-11-30 18:58:22,848 init started
+INFO     2020-11-30 18:58:30,571 init started
+INFO     2020-11-30 18:58:36,741 init started
+INFO     2020-11-30 18:58:42,932 init started
+INFO     2020-11-30 18:58:49,005 init started
+INFO     2020-11-30 18:58:55,120 init started
+INFO     2020-11-30 18:59:00,991 init started
+INFO     2020-11-30 18:59:07,280 init started
+INFO     2020-11-30 18:59:15,455 init started
+INFO     2020-11-30 18:59:21,090 init started
+INFO     2020-11-30 18:59:21,305 init finished successfully
