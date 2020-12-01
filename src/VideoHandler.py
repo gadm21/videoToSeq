@@ -7,6 +7,7 @@ from pytube import YouTube
 from moviepy.editor import *
 import math
 import cv2
+import time 
 
 '''
 TODO add a function to extract audio & frames 
@@ -73,6 +74,7 @@ class VideoHandler():
 
     def downloadVideo(self, videoPath, url, sTime, eTime, trials=1):
 
+        time.sleep(1)
         def on_downloaded(stream, fileHandle):
             original_clip = VideoFileClip(fileHandle)
             clip = original_clip.subclip(sTime, eTime)
@@ -93,7 +95,9 @@ class VideoHandler():
             stream.download(self.originals_dir)
             return True
 
-        except:
+        except Exception as e:
+            print("error:",e) 
+            return False 
             if trials: self.downloadVideo(videoPath, url, sTime, eTime, trials-1)
             else: return False
 
