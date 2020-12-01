@@ -1,11 +1,12 @@
 
 from utils import *
 from VideoHandler import VideoHandler
+from vocab import Vocab
 
+import matplotlib.pyplot as plt
 import numpy as np
 import os
 import sys
-from vocab import Vocab
 
 
 from tensorflow.keras.applications import ResNet50
@@ -15,6 +16,7 @@ from tensorflow.keras.layers import Embedding, Conv2D, MaxPooling2D, LSTM, GRU, 
 from tensorflow.keras.layers import TimeDistributed, Dense, Input, GlobalAveragePooling2D, Bidirectional
 from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.optimizers import RMSprop
+from tensorflow.keras.callbacks import LearningRateScheduler
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.regularizers import l2
 
@@ -23,6 +25,33 @@ import tensorflow as tf
 import tensorflow.keras.backend as K
 
 
+
+class LearningRateDecay:
+	def plot(self, epochs, title="Learning Rate Schedule"):
+		# compute the set of learning rates for each corresponding
+		# epoch
+		lrs = [self(i) for i in epochs]
+		# the learning rate schedule
+		plt.style.use("ggplot")
+		plt.figure()
+		plt.plot(epochs, lrs)
+		plt.title(title)
+		plt.xlabel("Epoch #")
+		plt.ylabel("Learning Rate")
+
+class StepDecay(LearningRateDecay):
+	def __init__(self, initAlpha=0.01, factor=0.25, dropEvery=10):
+		# store the base initial learning rate, drop factor, and
+		# epochs to drop every
+		self.initAlpha = initAlpha
+		self.factor = factor
+		self.dropEvery = dropEvery
+	def __call__(self, epoch):
+		# compute the learning rate for the current epoch
+		exp = np.floor((1 + epoch) / self.dropEvery)
+		alpha = self.initAlpha * (self.factor ** exp)
+		# return the learning rate
+		return float(alpha)
 
 
 class VModel:
@@ -34,6 +63,7 @@ class VModel:
         if not self.params['cutoff_only']:
             self.build_mcnn()
         self.build_cutoff_model()
+        self.callbacks = []
         
 
     def train_model(self):
@@ -92,6 +122,9 @@ class VModel:
         
         lstm_concatted = LSTM(int(self.params['VOCAB_SIZE']*(3//4)), kernel_initializer='random_normal', recurrent_regularizer=l2(0.01))
         dense_concatted = Dense(self.params['VOCAB_SIZE'], kernel_initializer='random_normal')
+        
+        schedule = StepDecay(initAlpha=1e-1, factor=0.25, dropEvery=10)
+        self.callbacks.append(LearningRateScheduler(schedule))
         opt = RMSprop(lr=0.001, rho=0.9, epsilon=1e-8, decay=0)
 
         concatted = Concatenate(-1)([c_model_final, i_model_final])
