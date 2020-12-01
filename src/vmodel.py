@@ -70,13 +70,13 @@ class VModel:
 
     def __init__(self, params):
 
+        self.callbacks = []
         self.params = params
         self.model_path = params['model_path']
 
         if not self.params['cutoff_only']:
             self.build_mcnn()
         self.build_cutoff_model()
-        self.callbacks = []
         
 
     def train_model(self):
@@ -152,7 +152,7 @@ class VModel:
             mode = 'max',
             save_best_only=True)
         self.callbacks.append(LearningRateScheduler(schedule))
-        self.callbacks.append(model_checkpoint)
+        self.callbacks.append(model_checkpoint_callback)
         opt = RMSprop(lr=0.001, rho=0.9, epsilon=1e-8, decay=0)
         
         model = Model(inputs=[c_model_input, i_model_input], outputs=concatted)
