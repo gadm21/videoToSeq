@@ -17,6 +17,7 @@ from tensorflow.keras.layers import TimeDistributed, Dense, Input, GlobalAverage
 from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.optimizers import RMSprop
 from tensorflow.keras.callbacks import LearningRateScheduler
+from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.regularizers import l2
 
@@ -54,11 +55,23 @@ class StepDecay(LearningRateDecay):
 		return float(alpha)
 
 
+
+
+
+
+
+
+
+
+
+
+
 class VModel:
 
     def __init__(self, params):
 
         self.params = params
+        self.model_path = params['model_path']
 
         if not self.params['cutoff_only']:
             self.build_mcnn()
@@ -122,10 +135,6 @@ class VModel:
         
         lstm_concatted = LSTM(int(self.params['VOCAB_SIZE']*(3//4)), kernel_initializer='random_normal', recurrent_regularizer=l2(0.01))
         dense_concatted = Dense(self.params['VOCAB_SIZE'], kernel_initializer='random_normal')
-        
-        schedule = StepDecay(initAlpha=1e-1, factor=0.25, dropEvery=10)
-        self.callbacks.append(LearningRateScheduler(schedule))
-        opt = RMSprop(lr=0.001, rho=0.9, epsilon=1e-8, decay=0)
 
         concatted = Concatenate(-1)([c_model_final, i_model_final])
         concatted = TimeDistributed(Dropout(0.2))(concatted)
@@ -134,6 +143,17 @@ class VModel:
         concatted = dense_concatted(concatted) 
         concatted = Activation('softmax')(concatted) 
 
+
+        schedule = StepDecay(initAlpha=1e-1, factor=0.25, dropEvery=10)
+        model_checkpoint_callback = ModelCheckpoint(
+            filepath = self.model_path,
+            save_weights_only= True,
+            monitor = 'accuracy',
+            mode = 'max',
+            save_best_only=True)
+        self.callbacks.append(LearningRateScheduler(schedule))
+        self.callbacks.append(model_checkpoint)
+        opt = RMSprop(lr=0.001, rho=0.9, epsilon=1e-8, decay=0)
         
         model = Model(inputs=[c_model_input, i_model_input], outputs=concatted)
         model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
