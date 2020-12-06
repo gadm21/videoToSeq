@@ -76,7 +76,7 @@ class VModel:
         self.params = params
         self.model_path = params['model_path']
         if not os.path.exists(self.model_path):
-            os.makedirs(model_path)
+            os.makedirs(self.model_path)
         if self.params['learning']:
             self.train_model()
 
