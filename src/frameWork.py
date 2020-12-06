@@ -1,5 +1,8 @@
 
 
+import os
+os.environ["TF_FORCE_GPU_ALLOW_GROWTH"]="true"
+
 from utils import * 
 from VideoHandler import * 
 from vocab import * 
