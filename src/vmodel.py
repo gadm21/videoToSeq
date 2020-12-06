@@ -75,14 +75,15 @@ class VModel:
         self.callbacks = []
         self.params = params
         self.model_path = params['model_path']
-
+        if not os.path.exists(self.model_path):
+            os.makedirs(model_path)
         if self.params['learning']:
             self.train_model()
 
         self.build_mcnn()
         self.build_cutoff_model()
 
-        if len(os.listdir(self.params['model_path'])) :
+        if len(os.listdir(self.model_path)) :
             self.load_mcnn_weights() 
 
         
