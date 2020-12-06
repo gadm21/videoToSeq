@@ -1075,3 +1075,27 @@ WARNING  2020-12-06 14:06:53,042 From C:\Users\gad\Desktop\repos\videoToSeq\src\
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
 INFO     2020-12-06 14:06:59,436  mcnn model created!
+INFO     2020-12-06 15:52:09,545 vocab built
+INFO     2020-12-06 15:52:09,594 vocab saved
+WARNING  2020-12-06 15:52:09,899 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:91: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-12-06 15:52:15,916  mcnn model created!
+INFO     2020-12-06 15:54:33,070 vocab built
+INFO     2020-12-06 15:54:33,077 vocab saved
+WARNING  2020-12-06 15:54:33,270 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:91: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-12-06 15:54:36,704  mcnn model created!
+WARNING  2020-12-06 15:57:39,430 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video8676.mp4, 664320 bytes wanted but 0 bytes read,at frame 31/32, at time 15.50/15.52 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-06 15:59:33,912 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video2324.mp4, 691200 bytes wanted but 0 bytes read,at frame 24/25, at time 24.00/24.01 sec. Using the last valid frame instead.
+  UserWarning)
+
+INFO     2020-12-06 16:01:22,597 vocab built
+INFO     2020-12-06 16:01:22,601 vocab saved
+WARNING  2020-12-06 16:01:22,849 From C:\Users\gad\Desktop\repos\videoToSeq\src\vmodel.py:91: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+INFO     2020-12-06 16:01:26,619  mcnn model created!

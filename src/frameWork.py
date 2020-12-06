@@ -53,8 +53,8 @@ class FrameWork():
     def train(self):
         print("started training...")
         dg = self.data_generator() 
-        self.vmodel.model.fit(dg, steps_per_epoch=self.params['stepsPerEpoch'], epochs=self.params['epochs'])
-
+        self.vmodel.model.fit(dg, steps_per_epoch=self.params['stepsPerEpoch'], epochs=self.params['epochs'], callbacks = self.vmodel.callbacks)
+        print("ending this shit, peacfully...")
     
 
     def dev_train(self):

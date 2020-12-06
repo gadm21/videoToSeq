@@ -76,19 +76,28 @@ class VModel:
         self.params = params
         self.model_path = params['model_path']
 
-        if not self.params['cutoff_only']:
-            self.build_mcnn()
+        if self.params['learning']:
+            self.train_model()
+
+        self.build_mcnn()
         self.build_cutoff_model()
+
+        if len(os.listdir(self.params['model_path'])) :
+            self.load_mcnn_weights() 
+
         
 
     def train_model(self):
         K.set_learning_phase(1)
 
-    def build_mcnn(self):
-        if self.params['learning']:
-            self.train_model()
-        log('debug', "creating model (CNN cutoff) with Vocab size: %d" % self.params['VOCAB_SIZE'])
+    def load_mcnn_weights(self): 
+        print("loading weights...")
+        self.model.load_weights(self.params['model_path'])
 
+    def build_mcnn(self):
+
+        #log('debug', "creating model (CNN cutoff) with Vocab size: %d" % self.params['VOCAB_SIZE'])
+        print("building model...")
         # _____________________________________________________________________________________
         dense_1 = Dense(200, kernel_initializer='random_normal', activation='relu')
 
@@ -153,9 +162,9 @@ class VModel:
             monitor = 'accuracy',
             mode = 'max',
             save_best_only=True)
-        self.callbacks.append(LearningRateScheduler(schedule))
+        #self.callbacks.append(LearningRateScheduler(schedule))
         self.callbacks.append(model_checkpoint_callback)
-        opt = RMSprop(lr=0.001, rho=0.9, epsilon=1e-8, decay=0)
+        opt = RMSprop(lr=0.000001, rho=0.9, epsilon=1e-8, decay=0)
         
         model = Model(inputs=[c_model_input, i_model_input], outputs=concatted)
         model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])

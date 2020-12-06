@@ -26,5 +26,5 @@ AUDIO_n_mfcc : 40
 
 
 BS: 1
-stepsPerEpoch: 2
+stepsPerEpoch: 1
 epochs: 1
