@@ -25,6 +25,6 @@ AUDIO_TimeSample : 80
 AUDIO_n_mfcc : 40
 
 
-BS: 2
-stepsPerEpoch: 5
-epochs: 3
+BS: 1
+stepsPerEpoch: 2
+epochs: 1

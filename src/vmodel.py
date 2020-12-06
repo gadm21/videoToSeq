@@ -3,7 +3,7 @@ from utils import *
 from VideoHandler import VideoHandler
 from vocab import Vocab
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 import os
 import sys
@@ -33,12 +33,14 @@ class LearningRateDecay:
 		# epoch
 		lrs = [self(i) for i in epochs]
 		# the learning rate schedule
-		plt.style.use("ggplot")
-		plt.figure()
-		plt.plot(epochs, lrs)
-		plt.title(title)
-		plt.xlabel("Epoch #")
-		plt.ylabel("Learning Rate")
+        
+		#plt.style.use("ggplot")
+		#plt.figure()
+		#plt.plot(epochs, lrs)
+		#plt.title(title)
+		#plt.xlabel("Epoch #")
+		#plt.ylabel("Learning Rate")
+        
 
 class StepDecay(LearningRateDecay):
 	def __init__(self, initAlpha=0.01, factor=0.25, dropEvery=10):
