@@ -29,6 +29,7 @@ class VideoHandler():
 
         self.params = params
         self.frame_size = (self.params['FRAME_SIZE'], self.params['FRAME_SIZE'])
+        self.frames_num = self.params['FRAMES_LIMIT']
         self.raw_data = read_json(params['training_data'])
         
 
@@ -111,6 +112,14 @@ class VideoHandler():
         if os.path.exists(videoPath) or self.downloadVideo(videoPath, url, sTime, eTime):
             return VideoFileClip(videoPath)
         else: return None
+
+    def get_video_onCloud(self, video_name, videos_path):
+        video_name += '.mp4' 
+        if video_name not in os.listdir(videos_path): return None 
+        video_path = os.path.join(videos_path, video_name) 
+        video = VideoFileClip(video_path) 
+        return np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:self.frames_num])
+
 
     def create_vid2cap(self):
 
