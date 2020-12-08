@@ -185,6 +185,8 @@ class VModel:
 
     def build_cutoff_model(self):
         base = ResNet50(include_top=False, weights='imagenet', pooling='avg') 
+        for layer in base.layers : 
+            layer.trainable = False 
         self.co_model = Model(base.input, base.output) 
 
     def preprocess_partial_model(self, frames):
