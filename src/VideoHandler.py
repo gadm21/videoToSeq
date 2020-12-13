@@ -75,7 +75,8 @@ class VideoHandler():
 
     def downloadVideo(self, videoPath, url, sTime, eTime, trials=1):
 
-        time.sleep(1)
+        waitingTime = np.random.randint(3, 10)
+        time.sleep(waitingTime)
         def on_downloaded(stream, fileHandle):
             original_clip = VideoFileClip(fileHandle)
             clip = original_clip.subclip(sTime, eTime)
