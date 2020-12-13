@@ -93,15 +93,16 @@ class VideoHandler():
             yt.register_on_complete_callback(on_downloaded)
             stream = yt.streams.filter(subtype='mp4').first()
             if stream is None:
-                return False
+                return False, False 
             stream.download(self.originals_dir)
-            return True
+            return True, False 
 
         except Exception as e:
-            print("error:",e) 
-            return False 
-            if trials: self.downloadVideo(videoPath, url, sTime, eTime, trials-1)
-            else: return False
+            if 'http' in e.lower() : return False, True
+            else: return False, False
+
+            #if trials: self.downloadVideo(videoPath, url, sTime, eTime, trials-1)
+            #else: return False
 
     def get_video(self, video):
 
@@ -110,9 +111,12 @@ class VideoHandler():
         eTime = video['end time']
         videoName = video['video_id'] + '.mp4'
         videoPath = os.path.join(self.vids_dir, videoName)
-        if os.path.exists(videoPath) or self.downloadVideo(videoPath, url, sTime, eTime):
-            return VideoFileClip(videoPath)
-        else: return None
+        if os.path.exists(videoPath): return VideoFileClip(videoPath) 
+        exist, http_flag = self.downloadVideo(videoPath, url, sTime, eTime) :
+        if exist : return videoFileClip(videoPath) 
+        
+        if http_flag : return False
+        else: return True 
 
     def get_video_onCloud(self, video_name, videos_path):
         video_name += '.mp4' 
