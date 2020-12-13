@@ -98,7 +98,7 @@ class VideoHandler():
             return True, False 
 
         except Exception as e:
-            if 'http' in e.lower() : return False, True
+            if 'http' in str(e).lower() : return False, True
             else: return False, False
 
             #if trials: self.downloadVideo(videoPath, url, sTime, eTime, trials-1)
