@@ -113,7 +113,7 @@ class VideoHandler():
         videoPath = os.path.join(self.vids_dir, videoName)
         if os.path.exists(videoPath): return VideoFileClip(videoPath) 
         exist, http_flag = self.downloadVideo(videoPath, url, sTime, eTime) 
-        if exist : return videoFileClip(videoPath) 
+        if exist : return VideoFileClip(videoPath) 
         
         if http_flag : return False
         else: return True 
