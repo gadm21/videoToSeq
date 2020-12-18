@@ -48,11 +48,12 @@ def show_image(frame):
 '''
 
 
+def tokenize_caption2(caption):
+    stop_words = get_stop_words() 
+    return list(filter(lambda x : len(x) > 2 and x not in stop_words, re.split('\W+', caption.lower())))
+    
 def tokenize_caption(caption):
-    #caption = re.sub('[^a-zA-Z]+', ' ', caption).lower()
     return list(filter(lambda x : len(x) > 1 , re.split('\W+', caption.lower())))
-    #return list(re.split('\W+', caption))
-
 
 def get_embeddings(n=300):
     '''
@@ -61,4 +62,36 @@ def get_embeddings(n=300):
     '''
     embeds = np.random.randint(0,2, n) - np.random.rand(n)
     return embeds
+
+def get_categories():
+    params = read_yaml() 
+    categories = [] 
+    with open(params['categories_file'], 'r') as f :
+        categories = f.read().split('\n') 
+    return categories
+
+def which_category(num):
+    if num < 0 or num > 19 : return None 
+
+    cats = get_categories() 
+    for cat in cats : 
+        if str(num) in cat :
+            target = cat.split('\\')[0] 
+            return target 
+    return None 
+
+
+def get_stop_words():
+    params = read_yaml()
+    words = []
+    with open(params['stop_words_file'], 'r') as f : 
+        words = f.read().split('\n')
+    return words
+
+if __name__=='__main__':
+    cats = get_categories() 
+    
+    print(cats)
+    for cat in cats : 
+        if 'science' in cat : print('yes') 
 

@@ -22,11 +22,16 @@ class Vocab:
         self.params = params
         self.raw_data = read_json(params['training_data'])
         self.captions = self.raw_data['sentences']
-
+        self.videos = self.raw_data['videos']
         self.specialWords = ['seq_start', 'seq_end', 'seq_unkown', 'seq_extra']
+        self.padding_element = None
 
+        self.vocab = dict() 
+        self.vid2cap = dict() 
+
+        self.create_vid2cap() 
         self.build_vocab()
-        self.load_embeddings()
+        #self.load_embeddings()
 
     def load_embeddings(self):
 
@@ -51,14 +56,11 @@ class Vocab:
             pickle.dump(self.embeddings, f)
 
     def build_vocab(self):
-        if os.path.exists(self.params['word2ix_file']) and False:
-            with open(self.params['word2ix_file'], 'rb') as f:
-                self.word2ix = pickle.load(f)
-
-            self.ix2word = {index: word for word,
-                            index in self.word2ix.items()}
+        if os.path.exists(self.params['word2ix_file']) :
+            with open(self.params['word2ix_file'], 'rb') as f: self.word2ix = pickle.load(f)
+            self.ix2word = {index: word for word, index in self.word2ix.items()}
             self.vocab = [word for word in self.word2ix.keys()]
-            log('info', 'word2ix loaded')
+            print("{} vocab loaded".format(len(self.vocab)))
 
         else:
 
@@ -78,25 +80,36 @@ class Vocab:
             self.ix2word = {index: word for index,
                             word in enumerate(self.vocab)}
             self.padding_element = self.word2ix['seq_extra']
-            log('info', 'vocab built')
+            print("vocab built")
 
             with open(self.params['word2ix_file'], 'wb') as f:
                 pickle.dump(self.word2ix, f)
 
-            log('info', 'vocab saved')
+            print("vocab saved")
 
     def caption2seq(self, caption):
         caption = tokenize_caption(caption)[:self.params['CAPTION_LEN'] - 2]
         caption = ['seq_start'] + caption + ['seq_end']
         
-        caption = [self.word2ix.get(word, self.word2ix['seq_unkown']) for word in caption]  
-        #caption += [self.padding_element]*(self.params['CAPTION_LEN']-len(caption))
-        
-        return caption
-        
+        return [self.word2ix.get(word, self.word2ix['seq_unkown']) for word in caption]  
+
+    def create_vid2cap(self):
+        for video in self.videos: self.vid2cap[video['video_id']] = [video]
+
+        for sentence in self.captions :
+            if sentence['video_id'] not in self.vid2cap: continue
+            self.vid2cap[sentence['video_id']].append(sentence['caption'])
+
+    def get_caption_samples_based_on_category(self, num):
+        all = [ vid  for vid in list(v.vid2cap.values()) if str(num) in str(vid[0]['category'])]
+        samples = [np.random.choice(info[1:]) for info in [vid for vid in all[:30]]]
+        return samples
+
 
 if __name__ == "__main__":
     params = read_yaml()
-    #vh = VideoHandler(params)
     v = Vocab(params)
-    v.caption2seq('video of sdkjfl cat and baby')
+    print(v.vocab[-10:])
+    
+
+    
