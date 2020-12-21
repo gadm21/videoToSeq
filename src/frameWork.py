@@ -25,11 +25,13 @@ class FrameWork():
             in_seq += [self.vocab.padding_element]*(self.params['CAPTION_LEN']-len(in_seq))
             return in_seq
         
-
+        print("data_generator")
         while True : 
-            
+            print("while True")
             videos, captions  = self.vHandler.get_random_videos(n = self.params['BS'])
+            print("videos type:{}  captions type:{}".format(type(videos), type(captions)))
             videos = [self.vmodel.preprocess_frames(video) for video in videos] 
+            print("processed videos type:", type(videos))
             captions = [self.vocab.caption2seq(caption) for caption in captions]
             in_vids, in_seqs, out_seqs = [], [], [] 
             
@@ -41,10 +43,15 @@ class FrameWork():
                     out_seq = to_categorical([caption[i]], num_classes=self.params['VOCAB_SIZE'])[0]
                     in_seqs.append(in_seq)
                     out_seqs.append(out_seq)
-                    
+            
+            print("__________________________________________________________")
+            print("{}_{}_{}".format(type(in_vids), type(in_seqs), type(out_seq)))
             in_vids = np.asarray(in_vids) 
             in_seqs = np.asarray(in_seqs)
             out_seqs = np.asarray(out_seqs) 
+
+            print("{}_{}_{}".format(type(in_vids), type(in_seqs), type(out_seq)))
+            print("{}_{}_{}".format(in_vids.shape, in_seqs.shape, out_seqs.shape))
             
             yield ([in_seqs, in_vids], out_seqs)
             

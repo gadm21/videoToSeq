@@ -242,9 +242,12 @@ class VModel:
         self.build_model()
         
     def preprocess_frames(self, video):
-        video = list(video)
-        video = list(map(lambda frame: self.rescale(frame), video))
-        return np.array(video) 
+        
+        video = [frame / 255.0 for frame in list(video)]
+        video = np.array(video, dtype= np.float32)
+
+        return video
+        
 
     def build_model(self):
         
