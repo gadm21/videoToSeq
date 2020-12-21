@@ -97,8 +97,12 @@ class VideoHandler():
         sTime = video['start time']
         eTime = video['end time']
         videoName = video['video_id'] + '.mp4'
+        print("getting video:{}".format(videoName))
+
         videoPath = os.path.join(self.vids_dir, videoName)
         if os.path.exists(videoPath): return VideoFileClip(videoPath) 
+        
+        print("downloading video:{}".format(videoName))
         exist, http_flag = self.downloadVideo(videoPath, url, sTime, eTime) 
         if exist : return VideoFileClip(videoPath) 
         

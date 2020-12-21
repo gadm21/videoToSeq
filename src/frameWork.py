@@ -27,6 +27,7 @@ class FrameWork():
         
 
         while True : 
+            
             videos, captions  = self.vHandler.get_random_videos(n = self.params['BS'])
             videos = [self.vmodel.preprocess_frames(video) for video in videos] 
             captions = [self.vocab.caption2seq(caption) for caption in captions]
@@ -48,7 +49,7 @@ class FrameWork():
             yield ([in_seqs, in_vids], out_seqs)
             
     def train(self):
-        print("started training...")
+        print("training...")
         dg = self.data_generator() 
         self.vmodel.model.fit(dg, steps_per_epoch=self.params['stepsPerEpoch'], epochs=self.params['epochs'], callbacks = self.vmodel.callbacks)
         print("ending training, peacfully...")
