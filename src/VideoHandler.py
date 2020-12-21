@@ -158,7 +158,7 @@ class VideoHandler():
                 captions.append(np.random.choice(all_captions))
                 
 
-        videos = [np.array([cv2.resize(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), self.frame_size) for frame in video.iter_frames()][:20]) for video in video_clips]
+        videos = [np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:20]) for video in video_clips]
 
 
         return videos, captions
