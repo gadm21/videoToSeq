@@ -18,7 +18,6 @@ class FrameWork():
         self.vocab = Vocab(params)
         self.vmodel = VModel(params) 
 
-
     def data_generator(self):
 
         def split_sequence(seq, i):
@@ -27,14 +26,12 @@ class FrameWork():
             return in_seq
         
 
-
         while True : 
             videos, captions  = self.vHandler.get_random_videos(n = self.params['BS'])
-            videos = [self.vmodel.preprocess_partial_model(video) for video in videos] 
+            videos = [self.vmodel.preprocess_frames(video) for video in videos] 
             captions = [self.vocab.caption2seq(caption) for caption in captions]
             in_vids, in_seqs, out_seqs = [], [], [] 
             
-
             for video, caption in zip(videos, captions):        
 
                 for i in range(1, len(caption)):
@@ -54,7 +51,7 @@ class FrameWork():
         print("started training...")
         dg = self.data_generator() 
         self.vmodel.model.fit(dg, steps_per_epoch=self.params['stepsPerEpoch'], epochs=self.params['epochs'], callbacks = self.vmodel.callbacks)
-        print("ending this shit, peacfully...")
+        print("ending training, peacfully...")
     
 
     def dev_train(self):

@@ -30,6 +30,7 @@ import tensorflow as tf
 import tensorflow.keras.backend as K
 
 
+tf.get_logger().setLevel('INFO')
 
 class LearningRateDecay:
 	def plot(self, epochs, title="Learning Rate Schedule"):
@@ -231,14 +232,19 @@ class VModel:
 
     def __init__(self, params):
 
+        K.clear_session()
+
         self.callbacks = []
         self.params = params
         self.model_path = params['model_path']
-        K.clear_session()
+        self.rescale = Rescaling(1. / 255)
 
         self.build_model()
         
-
+    def preprocess_frames(self, video):
+        video = list(video)
+        video = list(map(lambda frame: self.rescale(frame), video))
+        return np.array(video) 
 
     def build_model(self):
         
@@ -250,52 +256,89 @@ class VModel:
         dense_i = Dense(1024, kernel_initializer='random_normal') 
         gru_i = GRU(1024, return_sequences=False, kernel_initializer='random_normal') 
 
+        v_model_input = Input(shape = ( self.params['FRAMES_LIMIT'], self.params['FRAME_SIZE'], self.params['FRAME_SIZE'], 1))
 
-        v_model_input = Input(shape = ( self.params['FRAME_SIZE'], self.params['FRAME_SIZE'], 1))
+        v_model = TimeDistributed(conv2d_1)(v_model_input)
+        v_model = TimeDistributed(MaxPooling2D(2, 2))(v_model)
+        v_model = TimeDistributed(Dropout(0.2))(v_model) 
+        v_model = TimeDistributed(BatchNormalization())(v_model)
 
-        v_model = MaxPooling2D(2, 2)(conv2d_1(v_model_input))
-        v_model = Dropout(0.2)(v_model) 
-        v_model = BatchNormalization()(v_model)
-
-        v_model = MaxPooling2D(2, 2)(conv2d_2(v_model))
-        v_model = Dropout(0.2)(v_model) 
-        v_model = BatchNormalization()(v_model)
-
-        v_model = MaxPooling2D(2, 2)(conv2d_3(v_model))
-        v_model = Dropout(0.2)(v_model) 
-        v_model = BatchNormalization()(v_model)
-
-        v_model = conv2d_4(v_model) 
-        v_model = Flatten()(v_model)
+        v_model = TimeDistributed(conv2d_2)(v_model) 
+        v_model = TimeDistributed(MaxPooling2D(2, 2))(v_model)
+        v_model = TimeDistributed(Dropout(0.2))(v_model) 
+        v_model = TimeDistributed(BatchNormalization())(v_model)
 
 
+        v_model = TimeDistributed(conv2d_3)(v_model)
+        v_model = TimeDistributed(MaxPooling2D(2, 2))(v_model)
+        v_model = TimeDistributed(Dropout(0.2))(v_model) 
+        v_model = TimeDistributed(BatchNormalization())(v_model)
 
+        v_model = TimeDistributed(conv2d_4)(v_model) 
+        v_model = TimeDistributed(Flatten())(v_model)
+
+        
 
         #________________c_model layers_________________________
+        dense_1 = Dense(200, activation='relu')
+
+        c_model_input = Input(shape= (self.params['CAPTION_LEN']))
+        c_model_embeds = Embedding(self.params['VOCAB_SIZE'], self.params['OUTDIM_EMB'])(c_model_input) 
+        c_model = TimeDistributed(dense_1)(c_model_embeds)        
+        c_model = TimeDistributed(Dropout(0.2))(c_model) 
+        c_model = TimeDistributed(BatchNormalization())(c_model)
+        c_model = GRU(self.params['OUTDIM_EMB']*2)(c_model)
+        c_model = RepeatVector(self.params['FRAMES_LIMIT'])(c_model) 
+
+
+
+        #_______________concattenated layers_____________________
+
+        concatted = Concatenate(-1)([v_model, c_model])
+
+        concatted = TimeDistributed(Dense(1000, activation='tanh'))(concatted)
+        concatted = TimeDistributed(Dropout(0.2))(concatted)
+        concatted = TimeDistributed(BatchNormalization())(concatted)
+        concatted = Bidirectional(GRU(1000, activation='relu'))(concatted)
+        concatted = Dense(1000, activation='tanh')(concatted) 
+
+        final = Dense(self.params['VOCAB_SIZE'], activation='softmax')(concatted)
+
+
+
+
+
+
+
+        self.model = Model(inputs=[v_model_input, c_model_input], outputs=final)
+
+
+        self.model.compile(
+            loss= 'categorical_crossentropy',
+            optimizer= RMSprop(lr = self.params['learning_rate'], epsilon = 1e-8, rho = 0.9),
+            metrics=["accuracy"]
+        )
         
-
-
-
-
-
-        model = Model(inputs=v_model_input, outputs=v_model)
         
+        print("model built")
 
+
+        '''
         lr_polynomial_decay = PolynomialDecay()
         opt = RMSprop(lr=0.01, rho=0.9, epsilon=1e-8, decay=0.5)
         model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
         
         self.frame_model = model 
-        
-        
-        
-
+        '''
+    
     def plot_model(self):
-        tf.keras.utils.plot_model(self.model, 'visuals/model.png', show_shapes=True, show_layer_names=False) 
-        tf.keras.utils.plot_model(self.model, 'visuals/more_specific_model.png', show_shapes=True) 
+        tf.keras.utils.plot_model(self.model, 'visuals/light_model.png', show_shapes=True, show_layer_names=False) 
+        tf.keras.utils.plot_model(self.model, 'visuals/specific_light_model.png', show_shapes=True) 
 
 
 
 
 if __name__ == '__main__':
     params = read_yaml() 
+    vmodel = VModel(params)
+

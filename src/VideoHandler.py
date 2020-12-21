@@ -60,19 +60,6 @@ class VideoHandler():
         '''
         self.create_vid2cap()
 
-    def process(self):
-
-        for i in range(9):
-
-            sample = self.vid2cap['video'+str(i)]
-            f, path = self.downloadVideo(sample[0])
-            if f:
-                log('debug', "{} downloaded".format(sample[0]['video_id']))
-                self.downloaded.append(sample)
-            else:
-                log('debug', "cannot download {} ".format(
-                    sample[0]['video_id']+'.mp4'))
-
     def downloadVideo(self, videoPath, url, sTime, eTime, trials=1):
 
         waitingTime = np.random.randint(3, 10)
@@ -140,14 +127,14 @@ class VideoHandler():
                 continue
             self.vid2cap[sentence['video_id']].append(sentence['caption'])
 
+
     def get_random_videos(self, n=1):
 
         ids =[data['video_id'] for data in np.random.choice(self.raw_data['videos'], n) ]
-        #ids = ['video'+str(i) for i in np.arange(4)]
-        #ids = [np.random.choice(['video5', 'video7', 'video19'])] 
 
         videos_metadata = [self.vid2cap[id][0] for id in ids]
         captions = [self.vid2cap[id][1:] for id in ids]
+
 
         video_clips = []
         captions = []
@@ -155,17 +142,39 @@ class VideoHandler():
         for video_metadata in videos_metadata:
             video = self.get_video(video_metadata)
             all_captions = self.vid2cap[video_metadata['video_id']][1:]
-            if video is not None: 
+
+            if isinstance(video, bool): 
+                if video :
+                    newkey = np.random.choice(list(self.vid2cap.keys()))
+                    videos_metadata.append( self.vid2cap[newkey][0])
+                else :
+                    raise Exception('Sorry, I cannot download more videos because YouTube thinks I am a robot, I AM ')
+            else :
                 video_clips.append(video)
                 captions.append(np.random.choice(all_captions))
-            else:
-                newkey = np.random.choice(list(self.vid2cap.keys()))
-                videos_metadata.append( self.vid2cap[newkey][0])
+                
 
         videos = [np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:20]) for video in video_clips]
 
 
         return videos, captions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     videoHandler = VideoHandler(read_yaml())
