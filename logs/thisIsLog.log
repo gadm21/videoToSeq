@@ -1099,3 +1099,21 @@ WARNING  2020-12-06 16:01:22,849 From C:\Users\gad\Desktop\repos\videoToSeq\src\
 Instructions for updating:
 Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
 INFO     2020-12-06 16:01:26,619  mcnn model created!
+INFO     2020-12-21 01:12:23,630 Generating dataset cifar10 (C:\Users\gad\tensorflow_datasets\cifar10\3.0.2)
+INFO     2020-12-21 01:12:24,044 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz into C:\Users\gad\tensorflow_datasets\downloads\cs.toronto.edu_kriz_cifar-10-binaryODHPtIjLh3oLcXirEISTO7dkzyKjRCuol6lV8Wc6C7s.tar.gz.tmp.02ae8d0354cd4476a67b4e1a2728aeee...
+INFO     2020-12-21 01:16:10,715 Done writing C:\/Users/gad/tensorflow_datasets/cifar10/3.0.2.incomplete8GYRW6/cifar10-train.tfrecord. Shard lengths: [50000]
+INFO     2020-12-21 01:16:21,522 Done writing C:\/Users/gad/tensorflow_datasets/cifar10/3.0.2.incomplete8GYRW6/cifar10-test.tfrecord. Shard lengths: [10000]
+INFO     2020-12-21 01:16:21,528 Skipping computing stats for mode ComputeStatsMode.SKIP.
+INFO     2020-12-21 01:16:21,804 Constructing tf.data.Dataset for split None, from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+INFO     2020-12-21 01:18:22,864 Load dataset info from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+INFO     2020-12-21 01:18:23,035 Reusing dataset cifar10 (C:\Users\gad\tensorflow_datasets\cifar10\3.0.2)
+INFO     2020-12-21 01:18:23,036 Constructing tf.data.Dataset for split None, from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+INFO     2020-12-21 01:20:34,144 Load dataset info from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+INFO     2020-12-21 01:20:34,144 Reusing dataset cifar10 (C:\Users\gad\tensorflow_datasets\cifar10\3.0.2)
+INFO     2020-12-21 01:20:34,144 Constructing tf.data.Dataset for split None, from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+INFO     2020-12-21 01:21:09,415 Load dataset info from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+INFO     2020-12-21 01:21:09,415 Reusing dataset cifar10 (C:\Users\gad\tensorflow_datasets\cifar10\3.0.2)
+INFO     2020-12-21 01:21:09,415 Constructing tf.data.Dataset for split None, from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+INFO     2020-12-21 01:21:45,635 Load dataset info from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+INFO     2020-12-21 01:21:45,637 Reusing dataset cifar10 (C:\Users\gad\tensorflow_datasets\cifar10\3.0.2)
+INFO     2020-12-21 01:21:45,637 Constructing tf.data.Dataset for split None, from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
