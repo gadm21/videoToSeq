@@ -1117,3 +1117,37 @@ INFO     2020-12-21 01:21:09,415 Constructing tf.data.Dataset for split None, fr
 INFO     2020-12-21 01:21:45,635 Load dataset info from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
 INFO     2020-12-21 01:21:45,637 Reusing dataset cifar10 (C:\Users\gad\tensorflow_datasets\cifar10\3.0.2)
 INFO     2020-12-21 01:21:45,637 Constructing tf.data.Dataset for split None, from C:\Users\gad\tensorflow_datasets\cifar10\3.0.2
+WARNING  2020-12-25 16:48:05,258 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video0.mp4, 691200 bytes wanted but 0 bytes read,at frame 293/295, at time 11.72/11.76 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 16:48:05,821 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video1.mp4, 486000 bytes wanted but 0 bytes read,at frame 564/566, at time 22.56/22.60 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 16:48:06,201 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video2.mp4, 691200 bytes wanted but 0 bytes read,at frame 252/253, at time 10.08/10.11 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 16:48:06,594 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video3.mp4, 691200 bytes wanted but 0 bytes read,at frame 257/258, at time 10.28/10.29 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 16:48:07,011 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video4.mp4, 691200 bytes wanted but 0 bytes read,at frame 257/258, at time 10.28/10.29 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 16:48:07,101 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video5.mp4, 648000 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 16:51:31,555 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video0.mp4, 691200 bytes wanted but 0 bytes read,at frame 293/295, at time 11.72/11.76 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 16:51:33,671 Model was constructed with shape (None, 20, 150, 150, 3) for input Tensor("input_1:0", shape=(None, 20, 150, 150, 3), dtype=float32), but it was called on an input with incompatible shape (None, None).
+WARNING  2020-12-25 16:51:33,671 Model was constructed with shape (None, 12) for input Tensor("input_2:0", shape=(None, 12), dtype=float32), but it was called on an input with incompatible shape (None, None, None, None, None).
+WARNING  2020-12-25 16:51:51,242 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video0.mp4, 691200 bytes wanted but 0 bytes read,at frame 293/295, at time 11.72/11.76 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 16:51:51,435 Model was constructed with shape (None, 20, 150, 150, 3) for input Tensor("input_1:0", shape=(None, 20, 150, 150, 3), dtype=float32), but it was called on an input with incompatible shape (None, None).
+WARNING  2020-12-25 16:51:51,435 Model was constructed with shape (None, 12) for input Tensor("input_2:0", shape=(None, 12), dtype=float32), but it was called on an input with incompatible shape (None, None, None, None, None).
+WARNING  2020-12-25 17:49:51,100 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video0.mp4, 691200 bytes wanted but 0 bytes read,at frame 293/295, at time 11.72/11.76 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2020-12-25 17:51:40,445 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video0.mp4, 691200 bytes wanted but 0 bytes read,at frame 293/295, at time 11.72/11.76 sec. Using the last valid frame instead.
+  UserWarning)
+

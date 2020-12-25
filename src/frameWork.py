@@ -46,22 +46,21 @@ class FrameWork():
             
             print("__________________________________________________________")
             print("{}_{}_{}".format(type(in_vids), type(in_seqs), type(out_seq)))
-            in_vids = np.asarray(in_vids) 
-            in_seqs = np.asarray(in_seqs)
-            out_seqs = np.asarray(out_seqs) 
+            in_vids = np.asarray(in_vids).astype('float32')
+            in_seqs = np.asarray(in_seqs).astype('float32')
+            out_seqs = np.asarray(out_seqs).astype('float32') 
 
             print("{}_{}_{}".format(type(in_vids), type(in_seqs), type(out_seq)))
             print("{}_{}_{}".format(in_vids.shape, in_seqs.shape, out_seqs.shape))
             
-            yield ([in_seqs, in_vids], out_seqs)
+            yield ([in_vids, in_seqs], out_seqs)
             
     def train(self):
         print("training...")
-        dg = self.data_generator() 
+        dg = self.data_generator()
         self.vmodel.model.fit(dg, steps_per_epoch=self.params['stepsPerEpoch'], epochs=self.params['epochs'], callbacks = self.vmodel.callbacks)
         print("ending training, peacfully...")
     
-
     def dev_train(self):
 
         print("vocab::", len(self.vocab.vocab))
@@ -101,7 +100,8 @@ class FrameWork():
 
 
 
-        
+
+
 if __name__ == '__main__': 
     framework = FrameWork(read_yaml()) 
     framework.train() 

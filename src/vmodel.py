@@ -314,7 +314,7 @@ class VModel:
 
 
         self.model = Model(inputs=[v_model_input, c_model_input], outputs=final)
-
+      
 
         self.model.compile(
             loss= 'categorical_crossentropy',
@@ -322,7 +322,7 @@ class VModel:
             metrics=["accuracy"]
         )
         
-        
+        print(self.model.summary())
         print("model built")
 
 
@@ -344,4 +344,9 @@ class VModel:
 if __name__ == '__main__':
     params = read_yaml() 
     vmodel = VModel(params)
+    data1 = np.ones((4,20,150,150,3), dtype=np.float32)
+    data2 = np.ones((4,12), dtype=np.float32)
+    out = np.ones((4,2000), dtype=np.float32)
+    inp = [data1, data2]
+    vmodel.model.fit(inp,out, batch_size= 1, steps_per_epoch=3, epochs=3)
 
