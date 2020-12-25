@@ -85,10 +85,10 @@ class Vocab:
             with open(self.params['word2ix_file'], 'wb') as f:
                 pickle.dump(self.word2ix, f)
 
-            print("vocab saved... {} {} {}".format(len(self.vocab), len(list(self.word2ix.keys())), len(list(self.ix2word.keys()))))
+            #print("vocab saved... {} {} {}".format(len(self.vocab), len(list(self.word2ix.keys())), len(list(self.ix2word.keys()))))
 
     def caption2seq(self, caption):
-        print("caption2seq")
+        #print("caption2seq")
         caption = tokenize_caption(caption)[:self.params['CAPTION_LEN'] - 2]
         caption = ['seq_start'] + caption + ['seq_end']
         
@@ -102,7 +102,7 @@ class Vocab:
             self.vid2cap[sentence['video_id']].append(sentence['caption'])
 
     def get_caption_samples_based_on_category(self, num):
-        print("getcaptionsampelsebasedoncategory")
+        #print("getcaptionsampelsebasedoncategory")
         all = [ vid  for vid in list(v.vid2cap.values()) if str(num) in str(vid[0]['category'])]
         samples = [np.random.choice(info[1:]) for info in [vid for vid in all[:30]]]
         return samples

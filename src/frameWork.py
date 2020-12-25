@@ -25,13 +25,13 @@ class FrameWork():
             in_seq += [self.vocab.padding_element]*(self.params['CAPTION_LEN']-len(in_seq))
             return in_seq
         
-        print("data_generator")
+        
         while True : 
-            print("while True")
+            
             videos, captions  = self.vHandler.get_random_videos(n = self.params['BS'])
-            print("videos type:{}  captions type:{}".format(type(videos), type(captions)))
+            #print("videos type:{}  captions type:{}".format(type(videos), type(captions)))
             videos = [self.vmodel.preprocess_frames(video) for video in videos] 
-            print("processed videos type:", type(videos))
+            #print("processed videos type:", type(videos))
             captions = [self.vocab.caption2seq(caption) for caption in captions]
             in_vids, in_seqs, out_seqs = [], [], [] 
             
@@ -44,21 +44,23 @@ class FrameWork():
                     in_seqs.append(in_seq)
                     out_seqs.append(out_seq)
             
-            print("__________________________________________________________")
-            print("{}_{}_{}".format(type(in_vids), type(in_seqs), type(out_seq)))
+
             in_vids = np.asarray(in_vids).astype('float32')
             in_seqs = np.asarray(in_seqs).astype('float32')
             out_seqs = np.asarray(out_seqs).astype('float32') 
 
+            '''
             print("{}_{}_{}".format(type(in_vids), type(in_seqs), type(out_seq)))
             print("{}_{}_{}".format(in_vids.shape, in_seqs.shape, out_seqs.shape))
-            
+            '''
+
             yield ([in_vids, in_seqs], out_seqs)
             
     def train(self):
         print("training...")
         dg = self.data_generator()
-        self.vmodel.model.fit(dg, steps_per_epoch=self.params['stepsPerEpoch'], epochs=self.params['epochs'], callbacks = self.vmodel.callbacks)
+        self.vmodel.model.fit(dg, steps_per_epoch=self.params['stepsPerEpoch'], epochs=self.params['epochs'])
+        
         print("ending training, peacfully...")
     
     def dev_train(self):
