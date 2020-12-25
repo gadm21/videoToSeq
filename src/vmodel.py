@@ -286,7 +286,7 @@ class VModel:
         dense_1 = Dense(200, activation='relu')
 
         c_model_input = Input(shape= (self.params['CAPTION_LEN']))
-        c_model_embeds = Embedding(self.params['VOCAB_SIZE'], self.params['OUTDIM_EMB'])(c_model_input) 
+        c_model_embeds = Embedding(self.params['VOCAB_SIZE']+1, self.params['OUTDIM_EMB'])(c_model_input) 
         c_model = TimeDistributed(dense_1)(c_model_embeds)        
         c_model = TimeDistributed(Dropout(0.2))(c_model) 
         c_model = TimeDistributed(BatchNormalization())(c_model)
@@ -322,7 +322,7 @@ class VModel:
             metrics=["accuracy"]
         )
         
-        print(self.model.summary())
+        #self.plot_model()
         print("model built")
 
 
