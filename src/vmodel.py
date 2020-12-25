@@ -259,7 +259,7 @@ class VModel:
         dense_i = Dense(1024, kernel_initializer='random_normal') 
         gru_i = GRU(1024, return_sequences=False, kernel_initializer='random_normal') 
 
-        v_model_input = Input(shape = ( self.params['FRAMES_LIMIT'], self.params['FRAME_SIZE'], self.params['FRAME_SIZE'], 3))
+        v_model_input = Input(shape = ( self.params['FRAMES_LIMIT'], self.params['FRAME_SIZE'], self.params['FRAME_SIZE'], 1))
 
         v_model = TimeDistributed(conv2d_1)(v_model_input)
         v_model = TimeDistributed(MaxPooling2D(2, 2))(v_model)
