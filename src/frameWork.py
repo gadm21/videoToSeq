@@ -28,13 +28,22 @@ class FrameWork():
         
         while True : 
             
+            input_1 = np.ones((2,20,2048), dtype = np.float32)
+            input_2 = np.ones((2,12), dtype = np.float32)
+            output = np.ones((2, 2000), dtype = np.float32)
+
+            yield ([input_1, input_2], output)
+
             videos, captions  = self.vHandler.get_random_videos(n = BS)
             #print("videos type:{}  captions type:{}".format(type(videos), type(captions)))
             videos = [self.vmodel.preprocess_frames(video) for video in videos] 
-            #print("processed videos type:", type(videos))
+            videos = [self.vmodel.vid2vec(video) for video in videos] 
+            
             captions = [self.vocab.caption2seq(caption) for caption in captions]
             in_vids, in_seqs, out_seqs = [], [], [] 
             
+
+
             for video, caption in zip(videos, captions):        
 
                 for i in range(1, len(caption)):
@@ -49,10 +58,8 @@ class FrameWork():
             in_seqs = np.asarray(in_seqs).astype('float32')
             out_seqs = np.asarray(out_seqs).astype('float32') 
 
-            '''
             print("{}_{}_{}".format(type(in_vids), type(in_seqs), type(out_seq)))
             print("{}_{}_{}".format(in_vids.shape, in_seqs.shape, out_seqs.shape))
-            '''
 
             yield ([in_vids, in_seqs], out_seqs)
             

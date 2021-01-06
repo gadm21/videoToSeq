@@ -135,8 +135,8 @@ class VideoHandler():
 
     def get_random_videos(self, n=1):
 
-        ids =[data['video_id'] for data in np.random.choice(self.raw_data['videos'], n) ]
-        #ids = ['video0', 'video1', 'video2', 'video3', 'video4', 'video5'][:n]
+        #ids =[data['video_id'] for data in np.random.choice(self.raw_data['videos'], n) ]
+        ids = ['video0', 'video1', 'video2', 'video3', 'video4', 'video5'][:n]
         #ids =[data[:-4] for data in np.random.choice(os.listdir(fw.vHandler.vids_dir), n) ]
 
         videos_metadata = [self.vid2cap[id][0] for id in ids]
@@ -161,7 +161,7 @@ class VideoHandler():
                 captions.append(np.random.choice(all_captions))
                 
 
-        videos = [np.array([cv2.resize(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), self.frame_size) for frame in video.iter_frames()][:20]) for video in video_clips]
+        videos = [np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:20]) for video in video_clips]
 
 
         return videos, captions

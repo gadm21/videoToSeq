@@ -240,6 +240,7 @@ class VModel:
 
         self.build_cnn_model()
         self.build_model()
+        self.compile_model()
     
 
 
@@ -281,31 +282,32 @@ class VModel:
 
 
         #________________c_model layers_________________________
-        input_1 = Input(shape = (params['CAPTION_LEN']))
-        embedding_1 = Embedding(params['VOCAB_SIZE'], params['OUTDIM_EMB'])(input_1) 
+        input_1 = Input(shape = (self.params['CAPTION_LEN']))
+        embedding_1 = Embedding(self.params['VOCAB_SIZE'], self.params['OUTDIM_EMB'])(input_1) 
         lstm_1 = LSTM(150, return_sequences=True)(embedding_1) 
         time_dist_1 = TimeDistributed(Dense(100, activation='relu'))(lstm_1) 
         
         #_______________v_model layers____________________________
 
-        input_2 = Input(shape=(params['FRAMES_LIMIT'], params['VIDEO_VEC'])) 
+        input_2 = Input(shape=(self.params['FRAMES_LIMIT'], self.params['VIDEO_VEC'])) 
         time_dist_2 = TimeDistributed(Dense(1024, activation='relu'))(input_2)
         time_dist_2 = TimeDistributed(Dropout(0.2))(time_dist_2) 
         lstm_2 = LSTM(500)(time_dist_2)
-        rep_vec = RepeatVector(params['CAPTION_LEN'])(lstm_2)  
+        rep_vec = RepeatVector(self.params['CAPTION_LEN'])(lstm_2)  
 
 
         #_______________concattenated layers_____________________
         concatted = Concatenate(2)([lstm_1, rep_vec]) 
         flattened = LSTM(100)(concatted) 
-        final = Dense(params['VOCAB_SIZE'], activation='softmax')(flattened) 
+        final = Dense(self.params['VOCAB_SIZE'], activation='softmax')(flattened) 
 
         self.model = Model(inputs = [input_1, input_2], outputs = final) 
-        print(self.model.summary()) 
+        
+        self.plot_model()
         print("model built")
 
 
-    def compile_model():
+    def compile_model(self):
         self.model.compile(
             loss= 'categorical_crossentropy',
             optimizer= RMSprop(lr = self.params['learning_rate'], epsilon = 1e-8, rho = 0.9),
