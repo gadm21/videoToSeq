@@ -297,7 +297,7 @@ class VModel:
 
 
         #_______________concattenated layers_____________________
-        concatted = Concatenate(2)([lstm_1, rep_vec]) 
+        concatted = Concatenate(2)([time_dist_1, rep_vec]) 
         flattened = LSTM(100)(concatted) 
         final = Dense(self.params['VOCAB_SIZE'], activation='softmax')(flattened) 
 

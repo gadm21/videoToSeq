@@ -26,6 +26,6 @@ AUDIO_n_mfcc : 40
 
 
 learning_rate : 0.001
-BS: 2
-stepsPerEpoch: 2
-epochs: 3
+BS: 30
+stepsPerEpoch: 100
+epochs: 2
