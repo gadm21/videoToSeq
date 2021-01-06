@@ -14,7 +14,7 @@ categories: ['all']
 
 learning : true
 
-OUTDIM_EMB : 300
+OUTDIM_EMB : 150
 VOCAB_SIZE : 2000
 CAPTION_LEN : 12
 

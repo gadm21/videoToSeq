@@ -9,8 +9,8 @@ import os
 import sys
 
 
-from tensorflow.keras.applications import ResNet50
-from tensorflow.keras.applications.resnet50 import preprocess_input
+from tensorflow.keras.applications.inception_v3 import InceptionV3
+from tensorflow.keras.applications.inception_v3 import preprocess_input
 from tensorflow.keras.layers import Dropout, Flatten, RepeatVector, Activation, Concatenate
 from tensorflow.keras.layers import Embedding, Conv2D, MaxPooling2D, LSTM, GRU, BatchNormalization
 from tensorflow.keras.layers import TimeDistributed, Dense, Input, GlobalAveragePooling2D, Bidirectional
@@ -237,21 +237,37 @@ class VModel:
         self.callbacks = []
         self.params = params
         self.model_path = params['model_path']
-        self.rescale = Rescaling(1. / 255)
 
+        self.build_cnn_model()
         self.build_model()
-        
+    
+
+
     def preprocess_frames(self, video):
         
-        video = [frame / 255.0 for frame in list(video)]
+        video = [self.preprocessing_func(frame) for frame in list(video)]
         video = np.array(video, dtype= np.float32)
 
         return video
         
+    def vid2vec(self, video):
+        return self.cnn_model.predict(video) 
+
+    def build_cnn_model(self):
+        self.preprocessing_func = preprocess_input
+        
+        self.cnn_model = InceptionV3(input_shape = (self.params['FRAME_SIZE'], self.params['FRAME_SIZE'], 3), include_top = False, pooling = 'avg') 
+    
+        for layer in self.cnn_model.layers:
+            layer.trainable = False 
+ 
+        #print(self.cnn_model.summary())
+
 
     def build_model(self):
-        
-        #_______________v_model layers____________________________
+
+        #_________________________________________________________
+        #_______________custom layers____________________________
         conv2d_1 = Conv2D(5, 7, dilation_rate=3, activation='relu')
         conv2d_2 = Conv2D(7, 5, dilation_rate=2, activation='tanh')
         conv2d_3 = Conv2D(10, 3, dilation_rate=2, activation='relu')
@@ -259,80 +275,42 @@ class VModel:
         dense_i = Dense(1024, kernel_initializer='random_normal') 
         gru_i = GRU(1024, return_sequences=False, kernel_initializer='random_normal') 
 
-        v_model_input = Input(shape = ( self.params['FRAMES_LIMIT'], self.params['FRAME_SIZE'], self.params['FRAME_SIZE'], 1))
+        dense_1 = Dense(200, activation='relu')
+        #_________________________________________________________
+        #_________________________________________________________
 
-        v_model = TimeDistributed(conv2d_1)(v_model_input)
-        v_model = TimeDistributed(MaxPooling2D(2, 2))(v_model)
-        v_model = TimeDistributed(Dropout(0.2))(v_model) 
-        v_model = TimeDistributed(BatchNormalization())(v_model)
-
-        v_model = TimeDistributed(conv2d_2)(v_model) 
-        v_model = TimeDistributed(MaxPooling2D(2, 2))(v_model)
-        v_model = TimeDistributed(Dropout(0.2))(v_model) 
-        v_model = TimeDistributed(BatchNormalization())(v_model)
-
-
-        v_model = TimeDistributed(conv2d_3)(v_model)
-        v_model = TimeDistributed(MaxPooling2D(2, 2))(v_model)
-        v_model = TimeDistributed(Dropout(0.2))(v_model) 
-        v_model = TimeDistributed(BatchNormalization())(v_model)
-
-        v_model = TimeDistributed(conv2d_4)(v_model) 
-        v_model = TimeDistributed(Flatten())(v_model)
-
-        
 
         #________________c_model layers_________________________
-        dense_1 = Dense(200, activation='relu')
+        input_1 = Input(shape = (params['CAPTION_LEN']))
+        embedding_1 = Embedding(params['VOCAB_SIZE'], params['OUTDIM_EMB'])(input_1) 
+        lstm_1 = LSTM(150, return_sequences=True)(embedding_1) 
+        time_dist_1 = TimeDistributed(Dense(100, activation='relu'))(lstm_1) 
+        
+        #_______________v_model layers____________________________
 
-        c_model_input = Input(shape= (self.params['CAPTION_LEN']))
-        c_model_embeds = Embedding(self.params['VOCAB_SIZE']+1, self.params['OUTDIM_EMB'])(c_model_input) 
-        c_model = TimeDistributed(dense_1)(c_model_embeds)        
-        c_model = TimeDistributed(Dropout(0.2))(c_model) 
-        c_model = TimeDistributed(BatchNormalization())(c_model)
-        c_model = GRU(self.params['OUTDIM_EMB']*2)(c_model)
-        c_model = RepeatVector(self.params['FRAMES_LIMIT'])(c_model) 
-
+        input_2 = Input(shape=(params['FRAMES_LIMIT'], params['VIDEO_VEC'])) 
+        time_dist_2 = TimeDistributed(Dense(1024, activation='relu'))(input_2)
+        time_dist_2 = TimeDistributed(Dropout(0.2))(time_dist_2) 
+        lstm_2 = LSTM(500)(time_dist_2)
+        rep_vec = RepeatVector(params['CAPTION_LEN'])(lstm_2)  
 
 
         #_______________concattenated layers_____________________
+        concatted = Concatenate(2)([lstm_1, rep_vec]) 
+        flattened = LSTM(100)(concatted) 
+        final = Dense(params['VOCAB_SIZE'], activation='softmax')(flattened) 
 
-        concatted = Concatenate(-1)([v_model, c_model])
-
-        concatted = TimeDistributed(Dense(1000, activation='tanh'))(concatted)
-        concatted = TimeDistributed(Dropout(0.2))(concatted)
-        concatted = TimeDistributed(BatchNormalization())(concatted)
-        concatted = Bidirectional(GRU(1000, activation='relu'))(concatted)
-        concatted = Dense(1000, activation='tanh')(concatted) 
-
-        final = Dense(self.params['VOCAB_SIZE'], activation='softmax')(concatted)
+        self.model = Model(inputs = [input_1, input_2], outputs = final) 
+        print(self.model.summary()) 
+        print("model built")
 
 
-
-
-
-
-
-        self.model = Model(inputs=[v_model_input, c_model_input], outputs=final)
-      
-
+    def compile_model():
         self.model.compile(
             loss= 'categorical_crossentropy',
             optimizer= RMSprop(lr = self.params['learning_rate'], epsilon = 1e-8, rho = 0.9),
             metrics=["accuracy"]
         )
-        
-        #self.plot_model()
-        print("model built")
-
-
-        '''
-        lr_polynomial_decay = PolynomialDecay()
-        opt = RMSprop(lr=0.01, rho=0.9, epsilon=1e-8, decay=0.5)
-        model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
-        
-        self.frame_model = model 
-        '''
     
     def plot_model(self):
         tf.keras.utils.plot_model(self.model, 'visuals/light_model.png', show_shapes=True, show_layer_names=False) 
@@ -344,9 +322,17 @@ class VModel:
 if __name__ == '__main__':
     params = read_yaml() 
     vmodel = VModel(params)
-    data1 = np.ones((4,20,150,150,3), dtype=np.float32)
-    data2 = np.ones((4,12), dtype=np.float32)
-    out = np.ones((4,2000), dtype=np.float32)
-    inp = [data1, data2]
-    vmodel.model.fit(inp,out, batch_size= 1, steps_per_epoch=3, epochs=3)
+    
+    sample = np.ones((20, params['FRAME_SIZE'],params['FRAME_SIZE'],3), dtype = np.float32)
+    output = vmodel.vid2vec(vmodel.preprocess_frames(sample)) 
+
+    output_vid = np.array([output], dtype = np.float32)
+    output_seq = np.array([np.ones(params['CAPTION_LEN'], dtype = np.float32)])
+    output = [output_seq, output_vid]
+    print(sample.shape, " ", output_vid.shape, " ", output_seq.shape)
+    
+    output2 = vmodel.model.predict(output)
+
+    print(output2.shape)
+
 

@@ -1160,3 +1160,9 @@ WARNING  2020-12-25 19:24:12,341 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-pa
 WARNING  2020-12-25 19:28:37,970 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video6741.mp4, 691200 bytes wanted but 0 bytes read,at frame 30/31, at time 30.00/30.04 sec. Using the last valid frame instead.
   UserWarning)
 
+WARNING  2021-01-06 19:31:08,988 Model was constructed with shape (None, 150, 150, 3) for input Tensor("input_1:0", shape=(None, 150, 150, 3), dtype=float32), but it was called on an input with incompatible shape (None, 150, 3).
+WARNING  2021-01-06 19:34:45,321 Model was constructed with shape (None, 12) for input Tensor("input_3:0", shape=(None, 12), dtype=float32), but it was called on an input with incompatible shape (None, 20, 2048).
+WARNING  2021-01-06 19:39:15,403 Model was constructed with shape (None, 12) for input Tensor("input_3:0", shape=(None, 12), dtype=float32), but it was called on an input with incompatible shape (None, 20, 2048).
+WARNING  2021-01-06 19:40:01,233 Model was constructed with shape (None, 12) for input Tensor("input_3:0", shape=(None, 12), dtype=float32), but it was called on an input with incompatible shape (None, 20, 2048).
+WARNING  2021-01-06 19:43:03,614 Model was constructed with shape (None, 12) for input Tensor("input_3:0", shape=(None, 12), dtype=float32), but it was called on an input with incompatible shape (None, 20, 2048).
+WARNING  2021-01-06 19:43:03,614 Model was constructed with shape (None, 20, 2048) for input Tensor("input_2:0", shape=(None, 20, 2048), dtype=float32), but it was called on an input with incompatible shape (None, 12).
