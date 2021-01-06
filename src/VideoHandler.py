@@ -137,7 +137,7 @@ class VideoHandler():
 
         #ids =[data['video_id'] for data in np.random.choice(self.raw_data['videos'], n) ]
         #ids = ['video0', 'video1', 'video2', 'video3', 'video4', 'video5'][:n]
-        ids =[data[:-4] for data in np.random.choice(os.listdir(fw.vHandler.vids_dir), n) ]
+        ids =[data[:-4] for data in np.random.choice(os.listdir(self.vids_dir), n) ]
 
         videos_metadata = [self.vid2cap[id][0] for id in ids]
         captions = [self.vid2cap[id][1:] for id in ids]
