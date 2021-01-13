@@ -240,7 +240,7 @@ class VModel:
 
         self.build_cnn_model()
         self.build_model()
-        self.compile_model()
+        #self.compile_model()
     
 
 
@@ -307,10 +307,13 @@ class VModel:
         print("model built")
 
 
-    def compile_model(self):
+    def compile_model(self, lr = None):
+        if lr is None : 
+            lr = self.params['learning_rate']
+
         self.model.compile(
             loss= 'categorical_crossentropy',
-            optimizer= RMSprop(lr = self.params['learning_rate'], epsilon = 1e-8, rho = 0.9),
+            optimizer= RMSprop(lr = lr, epsilon = 1e-8, rho = 0.9),
             metrics=["accuracy"]
         )
     
