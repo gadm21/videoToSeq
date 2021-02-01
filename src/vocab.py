@@ -88,8 +88,9 @@ class Vocab:
             #print("vocab saved... {} {} {}".format(len(self.vocab), len(list(self.word2ix.keys())), len(list(self.ix2word.keys()))))
 
     def caption2seq(self, caption):
-        #print("caption2seq")
-        caption = tokenize_caption(caption)[:self.params['CAPTION_LEN'] - 2]
+        if isinstance(caption, str):
+            caption = tokenize_caption(caption)
+        caption = caption[:self.params['CAPTION_LEN'] - 2]
         caption = ['seq_start'] + caption + ['seq_end']
         
         return [self.word2ix.get(word, self.word2ix['seq_unkown']) for word in caption]  
@@ -107,6 +108,9 @@ class Vocab:
         samples = [np.random.choice(info[1:]) for info in [vid for vid in all[:30]]]
         return samples
 
+    def pad(self, seq):
+        seq += [self.padding_element] * max(0, self.params['CAPTION_LEN']-len(seq))
+        return seq
 
 if __name__ == "__main__":
     params = read_yaml()

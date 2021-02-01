@@ -240,7 +240,7 @@ class VModel:
 
         self.build_cnn_model()
         self.build_model()
-        #self.compile_model()
+        self.compile_model()
     
 
 

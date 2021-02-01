@@ -64,6 +64,43 @@ class FrameWork():
         
         print("ending training, peacfully...")
     
+    def predict(self, video = None, gt_caps = None):
+        if not video :
+            video, gt_caps = self.vHandler.get_random_videos(n=1)
+        
+        if gt_caps:
+            print("ground truth caption:", gt_caps[0]) 
+
+        preprocessed_video = self.vmodel.preprocess_frames(video)
+        videoVec = self.vmodel.vid2vec( preprocessed_video[0])
+        
+        caption_len = self.params['CAPTION_LEN']
+        current_len = 0
+        caption = ['seq_start']
+
+        while current_len < caption_len:
+            
+            padded_caption = self.vocab.pad(caption.copy())
+            in_seq_cap = np.array([self.vocab.word2ix.get(word, self.vocab.word2ix['seq_unkown']) for word in padded_caption], dtype = np.float32)
+            in_seq_cap = np.array([in_seq_cap]).astype(np.float32)
+            in_seq_vid = np.array([videoVec]).astype(np.float32)
+            
+            inputt = [in_seq_cap, in_seq_vid]
+            verbose_seq = [self.vocab.ix2word[word] for word in in_seq_cap[0].tolist()]
+            #print(verbose_seq)
+
+            pred = self.vmodel.model.predict(inputt)[0] 
+            ix = np.argmax(pred) 
+            word = self.vocab.ix2word.get(ix, 'seq_unkown')
+            caption.append(word) 
+            if word=='seq_end' : break
+
+            current_len += 1
+
+        predicted = ' '.join(caption)
+        return predicted
+        
+
     def dev_train(self):
 
         print("vocab::", len(self.vocab.vocab))
@@ -107,4 +144,4 @@ class FrameWork():
 
 if __name__ == '__main__': 
     framework = FrameWork(read_yaml()) 
-    framework.train() 
+    framework.predict() 
