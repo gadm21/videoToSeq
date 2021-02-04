@@ -55,6 +55,28 @@ def tokenize_caption2(caption):
 def tokenize_caption(caption):
     return list(filter(lambda x : len(x) > 1 , re.split('\W+', caption.lower())))
 
+def findWholeWord(w):
+    return re.compile(r'\b({0})\b'.format(w), flags=re.IGNORECASE).search
+
+def findWholeWords(words):
+    return [findWholeWord(word) for word in words]
+    
+def searchForWord(searchers, sentence):
+    for searcher in searchers :
+        if  searcher(sentence): return True 
+    return False
+
+def myPosTagger(pos):
+    if pos.startswith('V'): 
+        return 'v'
+    elif pos.startswith('N'): 
+        return 'n'
+    else:           
+        return None
+
+def SOV(word_pos):
+    return word_pos[0][1]=='n' and word_pos[1][1]=='v' and word_pos[2][1]=='n'
+
 def get_embeddings(n=300):
     '''
     remember that range of embeddings generated here is [-1,1] but 
