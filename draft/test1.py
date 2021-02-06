@@ -53,9 +53,17 @@ def run_test(videos, captions):
 
 if __name__ == '__main__':
     
+    sent = tokenize_caption('a teacher talks about how she teachers the children')
+    poss = nltk.pos_tag(sent) 
+    lems = [Word(word).lemmatize(myPosTagger(pos)) for (word, pos) in poss if pos[:2]=='NN' or pos[:2]=='VB']
+    print(lems)
+    print()
+    print(poss)
+    '''
     params = read_yaml()
     raw_data = read_json(params['training_data'])
     captions = raw_data['sentences']
     videos = raw_data['videos']
     run_test(videos, captions)
+    '''
     
