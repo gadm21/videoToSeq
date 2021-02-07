@@ -1,22 +1,21 @@
 training_data : 'train_2017/data.json' 
 vids_dir : 'data/videos/' 
-caps_dir: 'data/captions/'
+caps_dir: 'data/vocab/captions'
 model_path: 'data/checkpoint/'
 
-glove_file: 'innocent_data/glove_file'
-embeddings_file: 'innocent_data/embeddings.pickle'  
-word2ix_file: 'innocent_data/word2ix.pickle' 
-stop_words_file: 'innocent_data/stop_words.txt'
-categories_file: 'train_2017/category.txt'
+glove_file: 'data/vocab/glove/glove_200d.pickle'
+vocab_file: 'data/vocab/vocab.pickle'
+word2ix_file: 'data/vocab/word2ix.pickle' 
+ix2word_file: 'data/vocab/ix2word.pickle'
+stop_words_file: 'data/vocab/stop_words.txt'
 
-categories: ['all']
 
 
 learning : true
 
-OUTDIM_EMB : 150
-VOCAB_SIZE : 2000
-CAPTION_LEN : 12
+OUTDIM_EMB : 20
+VOCAB_SIZE : 97
+CAPTION_LEN : 6
 
 FRAME_SIZE: 150
 FRAMES_LIMIT : 20
@@ -25,7 +24,7 @@ AUDIO_TimeSample : 80
 AUDIO_n_mfcc : 40
 
 
-learning_rate : 0.001
+learning_rate : 0.00001
 BS: 30
 stepsPerEpoch: 100
 epochs: 2
