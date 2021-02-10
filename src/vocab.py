@@ -96,7 +96,7 @@ class Vocab:
 
     def create_vid2cap(self):
 
-        video_ids = [id[:-4] for id in os.listdir(params['vids_dir'])]
+        video_ids = [id[:-4] for id in os.listdir(self.params['vids_dir'])]
         for video_id in video_ids : self.vid2cap[video_id] = [] 
         
         for sentence in self.captions :
@@ -172,20 +172,19 @@ class Vocab:
         close_words.append(reference) 
     '''
 
+    def get_caption_by_id(self, video_id, max_captions=1):
+        #return self.vid2cap[video_id][1:max_captions+1]
+        return self.vid2cap[video_id][1]
 
     def caption2seq(self, caption):
         if isinstance(caption, str):
             caption = tokenize_caption(caption)
         caption = caption[:self.params['CAPTION_LEN'] - 2]
         caption = ['seq_start'] + caption + ['seq_end']
-        
+        #print("caption c2s:", caption) 
+
         return [self.word2ix.get(word, self.word2ix['seq_unkown']) for word in caption]  
 
-    def get_caption_samples_based_on_category(self, num):
-        #print("getcaptionsampelsebasedoncategory")
-        all = [ vid  for vid in list(v.vid2cap.values()) if str(num) in str(vid[0]['category'])]
-        samples = [np.random.choice(info[1:]) for info in [vid for vid in all[:30]]]
-        return samples
 
     def pad(self, seq):
         seq += [self.padding_element] * max(0, self.params['CAPTION_LEN']-len(seq))
@@ -195,9 +194,11 @@ class Vocab:
 if __name__ == "__main__":
     params = read_yaml()
     v = Vocab(params)
-    print(len(list(v.vocab.keys())))
     
-    
+    for full_caption, svo_caption in zip(v.full_captions, v.svo_captions):
+        print(full_caption)
+        print(svo_caption)
+        print()
     
 
     

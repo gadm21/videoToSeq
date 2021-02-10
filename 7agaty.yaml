@@ -15,7 +15,7 @@ learning : true
 
 OUTDIM_EMB : 20
 VOCAB_SIZE : 97
-CAPTION_LEN : 6
+CAPTION_LEN : 8
 
 FRAME_SIZE: 150
 FRAMES_LIMIT : 20
@@ -24,7 +24,7 @@ AUDIO_TimeSample : 80
 AUDIO_n_mfcc : 40
 
 
-learning_rate : 0.00001
-BS: 30
-stepsPerEpoch: 100
-epochs: 2
+learning_rate : 0.0001
+BS: 3
+stepsPerEpoch: 1
+epochs: 1

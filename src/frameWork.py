@@ -28,15 +28,17 @@ class FrameWork():
         
         while True : 
             
-            videos, captions  = self.vHandler.get_random_videos(n = BS)
-            #print("videos type:{}  captions type:{}".format(type(videos), type(captions)))
+            ids = np.random.choice([id[:-4] for id in os.listdir(self.params['vids_dir'])], BS)
+
+            videos = [self.vHandler.get_video_by_id(id) for id in ids] 
+            captions = [self.vocab.get_caption_by_id(id) for id in ids]
+            
             videos = [self.vmodel.preprocess_frames(video) for video in videos] 
             videos = [self.vmodel.vid2vec(video) for video in videos] 
             
             captions = [self.vocab.caption2seq(caption) for caption in captions]
             in_vids, in_seqs, out_seqs = [], [], [] 
             
-
 
             for video, caption in zip(videos, captions):        
 
@@ -52,8 +54,7 @@ class FrameWork():
             in_seqs = np.asarray(in_seqs).astype('float32')
             out_seqs = np.asarray(out_seqs).astype('float32') 
 
-            #print("{}_{}_{}".format(type(in_vids), type(in_seqs), type(out_seq)))
-            #print("{}_{}_{}".format(in_vids.shape, in_seqs.shape, out_seqs.shape))
+
 
             yield ([in_seqs, in_vids], out_seqs)
             
@@ -144,4 +145,4 @@ class FrameWork():
 
 if __name__ == '__main__': 
     framework = FrameWork(read_yaml()) 
-    framework.predict() 
+    framework.train() 

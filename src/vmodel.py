@@ -328,6 +328,7 @@ if __name__ == '__main__':
     params = read_yaml() 
     vmodel = VModel(params)
     
+    '''
     sample = np.ones((20, params['FRAME_SIZE'],params['FRAME_SIZE'],3), dtype = np.float32)
     output = vmodel.vid2vec(vmodel.preprocess_frames(sample)) 
 
@@ -339,5 +340,6 @@ if __name__ == '__main__':
     output2 = vmodel.model.predict(output)
 
     print(output2.shape)
+    '''
 
 

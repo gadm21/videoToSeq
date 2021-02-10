@@ -10,15 +10,22 @@ import cv2
 import time 
 
 '''
-TODO add a function to extract audio & frames 
 
-TODO add function get_video() which takes a video_id and does the following:
-    1-  if the video is downloaded jump to step 6
-    2- download the video
-    3- clip the video from start_point to end_point 
-    4- keep only the frames until the frame limit
-    5- save the video(which is by now a number of frame = LIMIT_FRAMES)
-    6- return the video, its captions, and its id
+    def create_vid2cap(self):
+
+        for video in self.raw_data['videos']:
+            if video['video_id'] in self.vid2cap:
+                log('warn', '{} is repeated'.format(video['video_id']))
+            self.vid2cap[video['video_id']] = [video]
+
+        for sentence in self.raw_data['sentences']:
+            if sentence['video_id'] not in self.vid2cap:
+                log('warn', '{} was not found in videos'.format(
+                    sentence['video_id']))
+                continue
+            self.vid2cap[sentence['video_id']].append(sentence['caption'])
+
+
 '''
 
 
@@ -34,16 +41,10 @@ class VideoHandler():
         
 
         self.vids_dir = params['vids_dir']
-        self.originals_dir = os.path.join(params['vids_dir'], 'originals')
         self.caps_dir = params['caps_dir']
-        self.categories = params['categories']
 
-        if not os.path.exists(self.vids_dir):
-            os.makedirs(self.vids_dir, exist_ok=True)
-        if not os.path.exists(self.caps_dir):
-            os.makedirs(self.caps_dir, exist_ok=True)
-        if not os.path.exists(self.originals_dir):
-            os.makedirs(self.originals_dir, exist_ok=True)
+        os.makedirs(self.vids_dir, exist_ok=True)
+        os.makedirs(self.caps_dir, exist_ok=True)
 
         self.downloaded = []
         self.vid2cap = dict()
@@ -58,7 +59,7 @@ class VideoHandler():
         The difference between downloaded and the value of vid2cap keys is that downloaded only
         has the information of already downloaded videos which can be used for training.
         '''
-        self.create_vid2cap()
+        #self.create_vid2cap()
 
     def downloadVideo(self, videoPath, url, sTime, eTime, trials=1):
 
@@ -110,34 +111,25 @@ class VideoHandler():
         if http_flag : return False
         else: return True 
 
-    def get_video_onCloud(self, video_name, videos_path):
-        video_name += '.mp4' 
-        if video_name not in os.listdir(videos_path): return None 
-        video_path = os.path.join(videos_path, video_name) 
+    def get_video_by_id(self, video_id):
+        video_name = video_id + '.mp4' 
+        if video_name not in os.listdir(self.vids_dir): return None 
+        video_path = os.path.join(self.vids_dir, video_name) 
         video = VideoFileClip(video_path) 
+        new_fps = math.ceil(self.frames_num / video.duration)
+        video = video.set_fps(new_fps)
+        
         return np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:self.frames_num])
 
 
-    def create_vid2cap(self):
 
-        for video in self.raw_data['videos']:
-            if video['video_id'] in self.vid2cap:
-                log('warn', '{} is repeated'.format(video['video_id']))
-            self.vid2cap[video['video_id']] = [video]
-
-        for sentence in self.raw_data['sentences']:
-            if sentence['video_id'] not in self.vid2cap:
-                log('warn', '{} was not found in videos'.format(
-                    sentence['video_id']))
-                continue
-            self.vid2cap[sentence['video_id']].append(sentence['caption'])
 
 
     def get_random_videos(self, n=1):
+        
+        ids = [id[:-4] for id in os.listdir(self.vids_dir)]
 
-        #ids =[data['video_id'] for data in np.random.choice(self.raw_data['videos'], n) ]
-        ids = ['video0', 'video1', 'video2', 'video3', 'video4', 'video5'][:n]
-        #ids =[data[:-4] for data in np.random.choice(os.listdir(self.vids_dir), n) ]
+        return [self.get_video_by_id(id) for id in ids] 
 
         videos_metadata = [self.vid2cap[id][0] for id in ids]
         captions = [self.vid2cap[id][1:] for id in ids]
@@ -184,5 +176,9 @@ class VideoHandler():
 
 
 if __name__ == '__main__':
+
+    #video_id = 
+    #frames_dir = r'C:\Users\gad\Desktop\repos\videoToSeq\frames'
     videoHandler = VideoHandler(read_yaml())
-    videoHandler.get_random_videos(1) 
+    #videoHandler.get_random_videos(1) 
+    
