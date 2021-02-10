@@ -194,11 +194,10 @@ class Vocab:
 if __name__ == "__main__":
     params = read_yaml()
     v = Vocab(params)
-    
-    for full_caption, svo_caption in zip(v.full_captions, v.svo_captions):
-        print(full_caption)
-        print(svo_caption)
-        print()
-    
+    #video_ids = ['video8331', 'video231', 'video2752', 'video226']
+
+    sentence = 'seq_start teacher write chalkboard seq_end seq_extra'
+    for word in tokenize_caption(sentence) :
+        print(v.word2ix[word])
 
     

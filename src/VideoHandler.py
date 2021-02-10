@@ -177,8 +177,14 @@ class VideoHandler():
 
 if __name__ == '__main__':
 
-    #video_id = 
-    #frames_dir = r'C:\Users\gad\Desktop\repos\videoToSeq\frames'
+    video_id = 'video8331'
+    frames_dir = r'C:\Users\gad\Desktop\repos\videoToSeq\frames'
     videoHandler = VideoHandler(read_yaml())
-    #videoHandler.get_random_videos(1) 
+    frames = list(videoHandler.get_video_by_id(video_id))
+    
+    for i, frame in enumerate(frames):
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        cv2.imwrite(os.path.join(frames_dir, str(i)+'.jpg'), frame) 
+
+    print("done")
     
