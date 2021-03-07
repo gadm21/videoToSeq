@@ -111,7 +111,7 @@ class MultiHeadSelfAttention(tf.keras.layers.Layer):
 
 class TransformerBlock(tf.keras.layers.Layer):
 
-    def __init__(self, embed_dim, num_heads, ff_dim, dropout=0.1, training):
+    def __init__(self, embed_dim, num_heads, ff_dim, dropout=0.1, training= True):
         super(TransformerBlock, self).__init__()
         self.att = MultiHeadSelfAttention(embed_dim, num_heads) 
         self.ffn = Sequential([Dense(ff_dim, activation='relu'), Dense(embed_dim)])
@@ -281,21 +281,21 @@ class VModel:
 
         #____________caption layers
         x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 10, ff_dim= int(word_emb*4), dropout=0.0, params['train'])(x_1)
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*4), dropout=0.0, params['train'])(x_1)
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*4), dropout=0.1, params['train'])(x_1)
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*2), dropout=0.0, params['train'])(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 10, ff_dim= int(word_emb*4), dropout=0.0, training= self.params['train'])(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*4), dropout=0.0, training= self.params['train'])(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*4), dropout=0.1, training= self.params['train'])(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*2), dropout=0.0, training= self.params['train'])(x_1)
         #x_1 = LSTM(150, return_sequences= True)(x_1)
         
 
 
 
         #____________frames layers
-        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 5, ff_dim= int(frame_emb*4), dropout=0.0, params['train'])(input_2)
-        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 5, ff_dim= int(frame_emb*2), dropout=0.1, params['train'])(x_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 4, ff_dim= int(frame_emb*4), dropout=0.0, training= self.params['train'])(input_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 4, ff_dim= int(frame_emb*2), dropout=0.1, training= self.params['train'])(x_2)
         x_2 = TimeDistributed(Dense(frame_emb//2, activation='relu'))(x_2)
-        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 5, ff_dim= int(frame_emb), dropout=0.0, params['train'])(x_2)
-        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 5, ff_dim= int(frame_emb), dropout=0.0, params['train'])(x_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb//2, num_heads= 4, ff_dim= int(frame_emb), dropout=0.0, training= self.params['train'])(x_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb//2, num_heads= 4, ff_dim= int(frame_emb), dropout=0.0, training= self.params['train'])(x_2)
 
         x_2 = LSTM(500, return_sequences = True)(x_2)
         x_2 = LSTM(500, return_sequences = False)(x_2)
@@ -307,8 +307,8 @@ class VModel:
         
         #___________concatenated layer
         c = Concatenate(2)([x_1, x_2])
-        c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*4), dropout=0.0, params['train'])(c)
-        c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*2), dropout=0.0, params['train'])(c)
+        c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*4), dropout=0.0, training= self.params['train'])(c)
+        c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*2), dropout=0.0, training= self.params['train'])(c)
         c = LSTM(300, return_sequences = True)(c)
         c = LSTM(300, return_sequences = False)(c)
         c = Dense(200, activation = 'relu')(c)
