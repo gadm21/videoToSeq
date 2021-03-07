@@ -120,7 +120,7 @@ class TransformerBlock(tf.keras.layers.Layer):
         self.dropout1 = Dropout(dropout) 
         self.dropout2 = Dropout(dropout) 
 
-    def call(self, inputs, training):
+    def call(self, inputs, training= True):
 
         attn_output = self.att(inputs) 
         attn_output = self.dropout1(attn_output, training = training) 
@@ -279,6 +279,8 @@ class VModel:
 
         #____________caption layers
         x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 3, ff_dim= int(word_emb*3), dropout=0.1)(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 3, ff_dim= int(word_emb*3), dropout=0.1)(x_1)
         x_1 = LSTM(150, return_sequences= True)(x_1)
         x_1 = LSTM(200, return_sequences= True)(x_1)
         if self.params['dropout']: x_1 = Dropout(0.1)(x_1)
