@@ -281,10 +281,10 @@ class VModel:
         x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
         x_1 = LSTM(150, return_sequences= True)(x_1)
         x_1 = LSTM(200, return_sequences= True)(x_1)
-        x_1 = Dropout(0.1)(x_1)
+        if self.params['dropout']: x_1 = Dropout(0.1)(x_1)
         x_1 = LSTM(300, return_sequences= True)(x_1)
         x_1 = LSTM(500, return_sequences= True)(x_1)
-        x_1 = Dropout(0.1)(x_1)
+        if self.params['dropout']: x_1 = Dropout(0.1)(x_1)
         x_1 = LSTM(500, return_sequences= True)(x_1)
 
 
@@ -292,7 +292,7 @@ class VModel:
         #____________frames layers
         x_2 = TimeDistributed(Dense(frame_emb//1.5, activation='relu'))(input_2)
         x_2 = TimeDistributed(Dense(frame_emb//2, activation='relu'))(x_2)
-        x_2 = TimeDistributed(Dropout(0.1))(x_2)
+        if self.params['dropout']: x_2 = TimeDistributed(Dropout(0.1))(x_2)
         x_2 = TimeDistributed(Dense(frame_emb//3, activation='relu'))(x_2)
         x_2 = LSTM(500, return_sequences = True)(x_2)
         x_2 = LSTM(500, return_sequences = False)(x_2)
@@ -306,7 +306,7 @@ class VModel:
         c = LSTM(1024, return_sequences = True)(c)
         c = LSTM(700, return_sequences = False)(c)
         c = Dense(300, activation = 'relu')(c)
-        c = Dropout(0.1)(c)
+        if self.params['dropout']: c = Dropout(0.1)(c)
         c = Dense(vocab_size, activation = 'softmax')(c)
 
         self.model = Model(inputs = [input_1, input_2], outputs = c) 
