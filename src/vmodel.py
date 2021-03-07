@@ -286,6 +286,9 @@ class VModel:
         x_1 = LSTM(500, return_sequences= True)(x_1)
         if self.params['dropout']: x_1 = Dropout(0.1)(x_1)
         x_1 = LSTM(500, return_sequences= True)(x_1)
+        x_1 = LSTM(300, return_sequences= True)(x_1)
+        x_1 = LSTM(200, return_sequences= True)(x_1)
+        x_1 = LSTM(100, return_sequences= True)(x_1)
 
 
 
@@ -296,16 +299,22 @@ class VModel:
         x_2 = TimeDistributed(Dense(frame_emb//3, activation='relu'))(x_2)
         x_2 = LSTM(500, return_sequences = True)(x_2)
         x_2 = LSTM(500, return_sequences = False)(x_2)
+        x_2 = Dense(300, activation = 'relu')(x_2)
+        x_2 = Dense(200, activation = 'relu')(x_2)
+        x_2 = Dense(150, activation = 'relu')(x_2)
+        
         x_2 = RepeatVector(self.params['CAPTION_LEN'])(x_2)
 
 
         
         #___________concatenated layer
         c = Concatenate(2)([x_1, x_2])
-        c = LSTM(1024, return_sequences = True)(c)
-        c = LSTM(1024, return_sequences = True)(c)
-        c = LSTM(700, return_sequences = False)(c)
-        c = Dense(300, activation = 'relu')(c)
+        c = LSTM(300, return_sequences = True)(c)
+        c = LSTM(300, return_sequences = True)(c)
+        c = LSTM(300, return_sequences = False)(c)
+        c = Dense(200, activation = 'relu')(c)
+        c = Dense(150, activation = 'relu')(c)
+        c = Dense(100, activation = 'relu')(c)
         if self.params['dropout']: c = Dropout(0.1)(c)
         c = Dense(vocab_size, activation = 'softmax')(c)
 
