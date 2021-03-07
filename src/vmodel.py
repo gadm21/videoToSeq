@@ -279,13 +279,13 @@ class VModel:
 
         #____________caption layers
         x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
-        x_1 = LSTM(word_emb*1.5, return_sequences= True)(x_1)
-        x_1 = LSTM(word_emb*2, return_sequences= True)(x_1)
+        x_1 = LSTM(150, return_sequences= True)(x_1)
+        x_1 = LSTM(200, return_sequences= True)(x_1)
         x_1 = Dropout(0.1)(x_1)
-        x_1 = LSTM(word_emb*4, return_sequences= True)(x_1)
-        x_1 = LSTM(word_emb*6, return_sequences= True)(x_1)
+        x_1 = LSTM(300, return_sequences= True)(x_1)
+        x_1 = LSTM(500, return_sequences= True)(x_1)
         x_1 = Dropout(0.1)(x_1)
-        x_1 = LSTM(word_emb*8, return_sequences= True)(x_1)
+        x_1 = LSTM(500, return_sequences= True)(x_1)
 
 
 
