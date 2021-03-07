@@ -111,7 +111,7 @@ class MultiHeadSelfAttention(tf.keras.layers.Layer):
 
 class TransformerBlock(tf.keras.layers.Layer):
 
-    def __init__(self, embed_dim, num_heads, ff_dim, dropout=0.1):
+    def __init__(self, embed_dim, num_heads, ff_dim, dropout=0.1, training):
         super(TransformerBlock, self).__init__()
         self.att = MultiHeadSelfAttention(embed_dim, num_heads) 
         self.ffn = Sequential([Dense(ff_dim, activation='relu'), Dense(embed_dim)])
@@ -119,15 +119,17 @@ class TransformerBlock(tf.keras.layers.Layer):
         self.norm_layer2 = LayerNormalization(epsilon=1e-6)
         self.dropout1 = Dropout(dropout) 
         self.dropout2 = Dropout(dropout) 
+        
+        self.training = training 
 
-    def call(self, inputs, training= True):
+    def call(self, inputs, training):
 
         attn_output = self.att(inputs) 
-        attn_output = self.dropout1(attn_output, training = training) 
+        attn_output = self.dropout1(attn_output, training = self.training) 
         out1 = self.norm_layer1(inputs+attn_output)
 
         ffn_output = self.ffn(out1)
-        ffn_output = self.dropout2(ffn_output, training = training) 
+        ffn_output = self.dropout2(ffn_output, training = self.training) 
         out2 = self.norm_layer2(out1 + ffn_output) 
 
         return out2
@@ -279,45 +281,38 @@ class VModel:
 
         #____________caption layers
         x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 10, ff_dim= int(word_emb*3), dropout=0.1)(x_1)
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*3), dropout=0.1)(x_1)
-        x_1 = LSTM(150, return_sequences= True)(x_1)
-        x_1 = LSTM(200, return_sequences= True)(x_1)
-        if self.params['dropout']: x_1 = Dropout(0.1)(x_1)
-        x_1 = LSTM(300, return_sequences= True)(x_1)
-        x_1 = LSTM(500, return_sequences= True)(x_1)
-        if self.params['dropout']: x_1 = Dropout(0.1)(x_1)
-        x_1 = LSTM(500, return_sequences= True)(x_1)
-        x_1 = LSTM(300, return_sequences= True)(x_1)
-        x_1 = LSTM(200, return_sequences= True)(x_1)
-        x_1 = LSTM(100, return_sequences= True)(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 10, ff_dim= int(word_emb*4), dropout=0.0, params['train'])(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*4), dropout=0.0, params['train'])(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*4), dropout=0.1, params['train'])(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*2), dropout=0.0, params['train'])(x_1)
+        #x_1 = LSTM(150, return_sequences= True)(x_1)
+        
 
 
 
         #____________frames layers
-        x_2 = TimeDistributed(Dense(frame_emb//1.5, activation='relu'))(input_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 5, ff_dim= int(frame_emb*4), dropout=0.0, params['train'])(input_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 5, ff_dim= int(frame_emb*2), dropout=0.1, params['train'])(x_2)
         x_2 = TimeDistributed(Dense(frame_emb//2, activation='relu'))(x_2)
-        if self.params['dropout']: x_2 = TimeDistributed(Dropout(0.1))(x_2)
-        x_2 = TimeDistributed(Dense(frame_emb//3, activation='relu'))(x_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 5, ff_dim= int(frame_emb), dropout=0.0, params['train'])(x_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 5, ff_dim= int(frame_emb), dropout=0.0, params['train'])(x_2)
+
         x_2 = LSTM(500, return_sequences = True)(x_2)
         x_2 = LSTM(500, return_sequences = False)(x_2)
         x_2 = Dense(300, activation = 'relu')(x_2)
-        x_2 = Dense(200, activation = 'relu')(x_2)
         x_2 = Dense(150, activation = 'relu')(x_2)
-        
         x_2 = RepeatVector(self.params['CAPTION_LEN'])(x_2)
 
 
         
         #___________concatenated layer
         c = Concatenate(2)([x_1, x_2])
-        c = LSTM(300, return_sequences = True)(c)
+        c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*4), dropout=0.0, params['train'])(c)
+        c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*2), dropout=0.0, params['train'])(c)
         c = LSTM(300, return_sequences = True)(c)
         c = LSTM(300, return_sequences = False)(c)
         c = Dense(200, activation = 'relu')(c)
-        c = Dense(150, activation = 'relu')(c)
         c = Dense(100, activation = 'relu')(c)
-        if self.params['dropout']: c = Dropout(0.1)(c)
         c = Dense(vocab_size, activation = 'softmax')(c)
 
         self.model = Model(inputs = [input_1, input_2], outputs = c) 
