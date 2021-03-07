@@ -78,15 +78,15 @@ class Vocab:
         self.raw_data = read_json(params['training_data'])
         self.captions = self.raw_data['sentences']
         self.videos = self.raw_data['videos']
+        self.vids_dir = self.params['vids_dir']
 
+        self.vid_caption = read_yaml(params['id_caption_file'])
         self.full_captions = [] 
         self.svo_captions = [] 
 
         self.specialWords = ['seq_start', 'seq_end', 'seq_unkown', 'seq_extra']
         self.padding_element = None
-
-        #self.vocab = set()
-        self.glove = self.load_glove()
+        
         self.vid2cap = dict() 
 
         self.create_vid2cap() 
@@ -97,8 +97,9 @@ class Vocab:
     def create_vid2cap(self):
 
         video_ids = [id[:-4] for id in os.listdir(self.params['vids_dir'])]
-        for video_id in video_ids : self.vid2cap[video_id] = [] 
+        for video_id in video_ids : self.vid2cap[video_id] = [self.vid_caption[video_id]] 
         
+        '''
         for sentence in self.captions :
             if sentence['video_id'] not in self.vid2cap: continue
             video_id = sentence['video_id']
@@ -111,21 +112,20 @@ class Vocab:
             caption = ' '.join(words)
             self.svo_captions.append((caption, video_id)) 
             self.vid2cap[video_id].append(caption)
+        '''
 
 
-    def load_glove(self):
-        with open(self.params['glove_file'], 'rb') as f:
-            return pickle.load(f)
-            
 
     def build_vocab(self):
         
+        
+        ids = [id[:-4] for id in os.listdir(self.vids_dir)]
         self.vocab = dict()
 
-        for caption, video_id in self.svo_captions:
-            for token in tokenize_caption(caption):
-                self.vocab[token] = self.vocab.get(token, 0) + 1
-
+        for id in ids :
+            for token in tokenize_caption(self.vid_caption[id]):
+                self.vocab[token] = self.vocab.get(token, 0)+ 1
+                
         self.vocab = {pair[0]:pair[1] for pair in
                         sorted(self.vocab.items(), key=lambda item: item[1], reverse=True)}
                                 
@@ -138,7 +138,7 @@ class Vocab:
         self.word2ix = {word: index for index, word in enumerate(vocabList)}
         self.ix2word = {index: word for index, word in enumerate(vocabList)}
         self.padding_element = self.word2ix['seq_extra']
-        print("vocab built")
+        print("{} vocab built".format(len(vocabList)))
 
         with open(self.params['vocab_file'], 'wb') as f: pickle.dump(self.vocab, f)
         with open(self.params['ix2word_file'], 'wb') as f: pickle.dump(self.ix2word, f)
@@ -174,7 +174,7 @@ class Vocab:
 
     def get_caption_by_id(self, video_id, max_captions=1):
         #return self.vid2cap[video_id][1:max_captions+1]
-        return self.vid2cap[video_id][1]
+        return self.vid2cap[video_id][0]
 
     def caption2seq(self, caption):
         if isinstance(caption, str):
@@ -194,10 +194,6 @@ class Vocab:
 if __name__ == "__main__":
     params = read_yaml()
     v = Vocab(params)
-    #video_ids = ['video8331', 'video231', 'video2752', 'video226']
-
-    sentence = 'seq_start teacher write chalkboard seq_end seq_extra'
-    for word in tokenize_caption(sentence) :
-        print(v.word2ix[word])
-
-    
+    print(v.word2ix)
+    print()
+    print(v.ix2word)

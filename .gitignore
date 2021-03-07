@@ -2,3 +2,5 @@
 /logs
 /data/vocab/glove
 /frames
+/__pycache__
+/data/checkpoint

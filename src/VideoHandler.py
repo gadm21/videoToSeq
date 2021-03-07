@@ -119,15 +119,16 @@ class VideoHandler():
         new_fps = math.ceil(self.frames_num / video.duration)
         video = video.set_fps(new_fps)
         
-        return np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:self.frames_num])
-
+        video = np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:self.frames_num])
+        #return [video]
+        return video
 
 
 
 
     def get_random_videos(self, n=1):
         
-        ids = [id[:-4] for id in os.listdir(self.vids_dir)]
+        ids = [id[:-4] for id in os.listdir(self.vids_dir)[:n]]
 
         return [self.get_video_by_id(id) for id in ids] 
 
@@ -172,11 +173,9 @@ class VideoHandler():
 
 
 
+def main():
 
-
-
-if __name__ == '__main__':
-
+    return 
     video_id = 'video8331'
     frames_dir = r'C:\Users\gad\Desktop\repos\videoToSeq\frames'
     videoHandler = VideoHandler(read_yaml())
@@ -187,4 +186,9 @@ if __name__ == '__main__':
         cv2.imwrite(os.path.join(frames_dir, str(i)+'.jpg'), frame) 
 
     print("done")
-    
+
+
+if __name__ == '__main__':
+    main()
+
+

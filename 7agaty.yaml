@@ -3,19 +3,21 @@ vids_dir : 'data/videos/'
 caps_dir: 'data/vocab/captions'
 model_path: 'data/checkpoint/'
 
+
 glove_file: 'data/vocab/glove/glove_200d.pickle'
 vocab_file: 'data/vocab/vocab.pickle'
 word2ix_file: 'data/vocab/word2ix.pickle' 
 ix2word_file: 'data/vocab/ix2word.pickle'
 stop_words_file: 'data/vocab/stop_words.txt'
+id_caption_file: 'data/id_caption.yaml'
 
 
+train: True
+load_weights: False
 
-learning : true
-
-OUTDIM_EMB : 20
-VOCAB_SIZE : 97
-CAPTION_LEN : 8
+OUTDIM_EMB : 100
+VOCAB_SIZE : 42
+CAPTION_LEN : 5
 
 FRAME_SIZE: 150
 FRAMES_LIMIT : 20
@@ -24,7 +26,7 @@ AUDIO_TimeSample : 80
 AUDIO_n_mfcc : 40
 
 
-learning_rate : 0.0001
-BS: 3
+learning_rate : 0.005
+BS: 12
 stepsPerEpoch: 1
-epochs: 1
+epochs: 100

@@ -18,7 +18,7 @@ from tensorflow.keras.layers import LayerNormalization
 from tensorflow.keras.layers.experimental.preprocessing import Rescaling
 
 from tensorflow.keras.models import Model, Sequential
-from tensorflow.keras.optimizers import RMSprop
+from tensorflow.keras.optimizers import RMSprop, Adadelta
 from tensorflow.keras.callbacks import LearningRateScheduler
 from tensorflow.keras.optimizers.schedules import PolynomialDecay
 from tensorflow.keras.callbacks import ModelCheckpoint
@@ -241,7 +241,7 @@ class VModel:
         self.build_cnn_model()
         self.build_model()
         self.compile_model()
-    
+        self.load_weights()
 
 
     def preprocess_frames(self, video):
@@ -266,46 +266,62 @@ class VModel:
 
 
     def build_model(self):
-
-        #_________________________________________________________
-        #_______________custom layers____________________________
-        conv2d_1 = Conv2D(5, 7, dilation_rate=3, activation='relu')
-        conv2d_2 = Conv2D(7, 5, dilation_rate=2, activation='tanh')
-        conv2d_3 = Conv2D(10, 3, dilation_rate=2, activation='relu')
-        conv2d_4 = Conv2D(15, 3,  activation='tanh')
-        dense_i = Dense(1024, kernel_initializer='random_normal') 
-        gru_i = GRU(1024, return_sequences=False, kernel_initializer='random_normal') 
-
-        dense_1 = Dense(200, activation='relu')
-        #_________________________________________________________
-        #_________________________________________________________
-
-
-        #________________c_model layers_________________________
-        input_1 = Input(shape = (self.params['CAPTION_LEN']))
-        embedding_1 = Embedding(self.params['VOCAB_SIZE'], self.params['OUTDIM_EMB'])(input_1) 
-        lstm_1 = LSTM(20, return_sequences=True)(embedding_1) 
-        time_dist_1 = TimeDistributed(Dense(20, activation='relu'))(lstm_1) 
         
-        #_______________v_model layers____________________________
+        
+        vocab_size = self.params['VOCAB_SIZE']
+        word_emb = self.params['OUTDIM_EMB']
+        frame_emb = self.params['VIDEO_VEC']
 
-        input_2 = Input(shape=(self.params['FRAMES_LIMIT'], self.params['VIDEO_VEC'])) 
-        time_dist_2 = TimeDistributed(Dense(1024, activation='relu'))(input_2)
-        time_dist_2 = TimeDistributed(Dropout(0.2))(time_dist_2) 
-        lstm_2 = LSTM(200)(time_dist_2)
-        rep_vec = RepeatVector(self.params['CAPTION_LEN'])(lstm_2)  
+        #__________________________Inputs
+        input_1 = Input(shape = (self.params['CAPTION_LEN']))
+        input_2 = Input(shape = (self.params['FRAMES_LIMIT'],frame_emb))
+        
+
+        #____________caption layers
+        x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
+        x_1 = LSTM(word_emb*1.5, return_sequences= True)(x_1)
+        x_1 = LSTM(word_emb*2, return_sequences= True)(x_1)
+        x_1 = Dropout(0.1)(x_1)
+        x_1 = LSTM(word_emb*4, return_sequences= True)(x_1)
+        x_1 = LSTM(word_emb*6, return_sequences= True)(x_1)
+        x_1 = Dropout(0.1)(x_1)
+        x_1 = LSTM(word_emb*8, return_sequences= True)(x_1)
 
 
-        #_______________concattenated layers_____________________
-        concatted = Concatenate(2)([time_dist_1, rep_vec]) 
-        flattened = LSTM(220)(concatted) 
-        final = Dense(self.params['VOCAB_SIZE'], activation='softmax')(flattened) 
 
-        self.model = Model(inputs = [input_1, input_2], outputs = final) 
+        #____________frames layers
+        x_2 = TimeDistributed(Dense(frame_emb//1.5, activation='relu'))(input_2)
+        x_2 = TimeDistributed(Dense(frame_emb//2, activation='relu'))(x_2)
+        x_2 = TimeDistributed(Dropout(0.1))(x_2)
+        x_2 = TimeDistributed(Dense(frame_emb//3, activation='relu'))(x_2)
+        x_2 = LSTM(500, return_sequences = True)(x_2)
+        x_2 = LSTM(500, return_sequences = False)(x_2)
+        x_2 = RepeatVector(self.params['CAPTION_LEN'])(x_2)
+
+
+        
+        #___________concatenated layer
+        c = Concatenate(2)([x_1, x_2])
+        c = LSTM(1024, return_sequences = True)(c)
+        c = LSTM(1024, return_sequences = True)(c)
+        c = LSTM(700, return_sequences = False)(c)
+        c = Dense(300, activation = 'relu')(c)
+        c = Dropout(0.1)(c)
+        c = Dense(vocab_size, activation = 'softmax')(c)
+
+        self.model = Model(inputs = [input_1, input_2], outputs = c) 
         
         self.plot_model()
         print("model built")
 
+
+    def load_weights(self):
+        if not self.params['load_weights'] : 
+            return
+        model_path = self.params['model_path']
+        if len(os.listdir(model_path)) == 3 :
+            print("loading weights...")
+            self.model.load_weights(model_path)
 
     def compile_model(self, lr = None):
         if lr is None : 
@@ -313,8 +329,9 @@ class VModel:
 
         self.model.compile(
             loss= 'categorical_crossentropy',
-            optimizer= RMSprop(lr = lr, epsilon = 1e-8, rho = 0.9),
+            optimizer= RMSprop(lr = lr),
             metrics=["accuracy"]
+
         )
     
     def plot_model(self):

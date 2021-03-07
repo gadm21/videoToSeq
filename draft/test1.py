@@ -53,9 +53,10 @@ def run_test(videos, captions):
 
 if __name__ == '__main__':
     
-    sent = tokenize_caption('a teacher talks about how she teachers the children')
+    sent = tokenize_caption('a teacher writes on a chalkboard')
+    sent.insert(0, 'a')
     poss = nltk.pos_tag(sent) 
-    lems = [Word(word).lemmatize(myPosTagger(pos)) for (word, pos) in poss if pos[:2]=='NN' or pos[:2]=='VB']
+    lems = [(Word(word).lemmatize(myPosTagger(pos)) )for (word, pos) in poss if pos[:2]=='NN' or pos[:2]=='VB']
     print(lems)
     print()
     print(poss)
