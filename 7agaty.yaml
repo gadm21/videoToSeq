@@ -15,6 +15,10 @@ id_caption_file: 'data/id_caption.yaml'
 train: True
 load_weights: False
 
+model_callback: False
+EStopping_callback: False
+LRS_callback: True 
+
 OUTDIM_EMB : 100
 VOCAB_SIZE : 42
 CAPTION_LEN : 5

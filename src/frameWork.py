@@ -252,8 +252,12 @@ class FrameWork():
 
         earlyStopping_callback = EarlyStopping( monitor= 'loss', patience=13)
 
-        return [] 
-        return [modelCheckpoint_callback, earlyStopping_callback]
+        callbacks = [] 
+        if self.params['model_callback']: callbacks.append(modelCheckpoint_callback)
+        if self.params['EStopping_callback']: callbacks.append(earlyStopping_callback)
+        if self.params['LRS_callback']: callbacks.append(lrScheduler_callback)
+        
+        return callbacks
 
 
     
