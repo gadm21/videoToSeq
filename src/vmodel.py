@@ -277,16 +277,6 @@ class VModel:
         #__________________________Inputs
         input_1 = Input(shape = (self.params['CAPTION_LEN']))
         input_2 = Input(shape = (self.params['FRAMES_LIMIT'],frame_emb))
-        
-
-        #____________caption layers
-        x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 10, ff_dim= int(word_emb*4), dropout=0.0, training= self.params['train'])(x_1)
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*4), dropout=0.0, training= self.params['train'])(x_1)
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*4), dropout=0.1, training= self.params['train'])(x_1)
-        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*2), dropout=0.0, training= self.params['train'])(x_1)
-        #x_1 = LSTM(150, return_sequences= True)(x_1)
-        
 
 
 
@@ -301,9 +291,28 @@ class VModel:
         x_2 = LSTM(500, return_sequences = False)(x_2)
         x_2 = Dense(300, activation = 'relu')(x_2)
         x_2 = Dense(150, activation = 'relu')(x_2)
-        x_2 = RepeatVector(self.params['CAPTION_LEN'])(x_2)
+        x_2 = Dense(word_emb)(x_2)
+        initial_state = [x_2, x_2]
+        #x_2 = RepeatVector(self.params['CAPTION_LEN'])(x_2)
 
 
+
+        #____________caption layers
+        x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 10, ff_dim= int(word_emb*4), dropout=0.0, training= self.params['train'])(x_1)
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 5, ff_dim= int(word_emb*2), dropout=0.0, training= self.params['train'])(x_1)
+        
+        x_1 = LSTM(word_emb, return_sequences= True)(inputs = x_1, initial_state = initial_state)
+        x_1 = LSTM(word_emb, return_sequences= False)( x_1)
+        x_1 = Dense(70)(x_1)
+        x_1 = Dense(vocab_size)(x_1)
+        
+
+
+
+
+
+        '''
         
         #___________concatenated layer
         c = Concatenate(2)([x_1, x_2])
@@ -316,7 +325,9 @@ class VModel:
         c = Dense(vocab_size, activation = 'softmax')(c)
 
         self.model = Model(inputs = [input_1, input_2], outputs = c) 
-        
+        '''
+        self.model = Model(inputs = [input_1, input_2], outputs = x_1)
+
         self.plot_model()
         print("model built")
 
