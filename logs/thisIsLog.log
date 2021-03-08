@@ -499,3 +499,27 @@ WARNING  2021-03-07 22:06:19,313 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-pa
 WARNING  2021-03-07 22:08:08,916 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video6188.mp4, 691200 bytes wanted but 0 bytes read,at frame 33/34, at time 16.50/16.51 sec. Using the last valid frame instead.
   UserWarning)
 
+WARNING  2021-03-08 12:55:05,038 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video1820.mp4, 535680 bytes wanted but 0 bytes read,at frame 22/23, at time 11.00/11.05 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2021-03-08 12:55:09,674 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video2262.mp4, 691200 bytes wanted but 0 bytes read,at frame 23/24, at time 11.50/11.52 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2021-03-08 12:57:10,132 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video6188.mp4, 691200 bytes wanted but 0 bytes read,at frame 33/34, at time 16.50/16.51 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2021-03-08 12:57:28,693 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video8133.mp4, 691200 bytes wanted but 0 bytes read,at frame 29/30, at time 14.50/14.53 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2021-03-08 15:43:24,131 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video1820.mp4, 535680 bytes wanted but 0 bytes read,at frame 22/23, at time 11.00/11.05 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2021-03-08 15:43:27,124 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video2262.mp4, 691200 bytes wanted but 0 bytes read,at frame 23/24, at time 11.50/11.52 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2021-03-08 15:45:00,008 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video6188.mp4, 691200 bytes wanted but 0 bytes read,at frame 33/34, at time 16.50/16.51 sec. Using the last valid frame instead.
+  UserWarning)
+
+WARNING  2021-03-08 15:45:06,283 C:\Users\gad\Anaconda3\envs\ved2seq\lib\site-packages\moviepy\video\io\ffmpeg_reader.py:130: UserWarning: Warning: in file data/videos/video8133.mp4, 691200 bytes wanted but 0 bytes read,at frame 29/30, at time 14.50/14.53 sec. Using the last valid frame instead.
+  UserWarning)
+
