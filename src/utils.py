@@ -3,7 +3,7 @@ import yaml
 import time 
 import random
 import logging
-logging.basicConfig(filename='logs/thisIsLog.log', format = '%(levelname)-8s %(asctime)s %(message)s' , level=logging.WARN)
+logging.basicConfig(filename='logs/thisIsLog.log', format = '%(levelname)-8s %(asctime)s %(message)s' , level=logging.INFO)
 import re
 import numpy as np
 #import cv2 

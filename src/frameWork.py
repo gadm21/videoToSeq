@@ -201,11 +201,19 @@ class DataGenerator(Sequence):
                 log('info', 'out sequence:{}'.format(out_seq))
                 log('info', '\n')
         log('info', 'ending loop over batch')
+         
         
-
         in_vids = np.asarray(in_vids).astype('float32')
         in_seqs = np.asarray(in_seqs).astype('float32')
         out_seqs = np.asarray(out_seqs).astype('float32') 
+        
+        indices = np.arange(in_vids.shape[0])
+        np.random.shuffle(indices)
+        in_vids = in_vids[indices, :, :]
+        in_seqs = in_seqs[indices, :]
+        out_seqs = out_seqs[indices, :]
+
+
 
         log('info', '  size of:: in_vids:{} in_seqs:{} out_seqs:{}'.format(in_vids.shape, in_seqs.shape, out_seqs.shape))
         log('info', '\n\n\n')
@@ -244,7 +252,7 @@ class FrameWork():
                 new_lr /= 5
             return new_lr
 
-        model_path = self.params['model_path']
+        model_path = self.vmodel.model_path
 
         modelCheckpoint_callback = ModelCheckpoint( model_path, monitor='loss', save_best_only=True, save_weights_only=True)
 
@@ -280,6 +288,8 @@ class FrameWork():
         if gt_caps:
             print("ground truth caption:", gt_caps[0]) 
 
+        times = [] 
+
         preprocessed_video = self.vmodel.preprocess_frames(video)
         videoVec = self.vmodel.vid2vec( preprocessed_video[0]) # choose only the first video
         
@@ -295,10 +305,13 @@ class FrameWork():
             in_seq_vid = np.array([videoVec]).astype(np.float32)
             
             inputt = [in_seq_cap, in_seq_vid]
-            verbose_seq = [self.vocab.ix2word[word] for word in in_seq_cap[0].tolist()]
+            #verbose_seq = [self.vocab.ix2word[word] for word in in_seq_cap[0].tolist()]
             #print(verbose_seq)
 
+            start = time.time() 
             pred = self.vmodel.model.predict(inputt)[0] 
+            times.append(time.time() - start)
+
             ix = np.argmax(pred) 
             word = self.vocab.ix2word.get(ix, 'seq_unkown')
             caption.append(word) 
@@ -307,7 +320,7 @@ class FrameWork():
             current_len += 1
 
         predicted = ' '.join(caption)
-        return predicted
+        return predicted, times
         
 
     def dev_train(self):
@@ -362,7 +375,13 @@ if __name__ == '__main__':
     if train :
         framework.train()
     else:
-        for id in ids :
-            pred = framework.predict(framework.vHandler.get_video_by_id(id)) 
+        allTimes = [] 
+        for id in ids[:5] :
+            video = framework.vHandler.get_video_by_id(id)
+            pred, times = framework.predict(video) 
             print("predicted:", pred)
+            allTimes.extend(times)
+        allTimes.pop(0)            
+        print("average:{}s | std:{}s".format(np.mean(allTimes), np.std(allTimes)))
+        print("all:", allTimes)
             

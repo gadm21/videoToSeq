@@ -238,10 +238,12 @@ class VModel:
 
         self.callbacks = []
         self.params = params
-        self.model_path = params['model_path']
+        self.model_path = os.path.join(params['model_path'], params['model_name'])
+
+        if self.params['model_name'] == 'config_1' :self.build_config_1()
+        elif self.params['model_name'] == 'config_2' : self.build_config_2()
 
         self.build_cnn_model()
-        self.build_model()
         self.compile_model()
         self.load_weights()
 
@@ -267,7 +269,55 @@ class VModel:
         #print(self.cnn_model.summary())
 
 
-    def build_model(self):
+
+
+    def build_config_2(self):
+        
+        
+        vocab_size = self.params['VOCAB_SIZE']
+        word_emb = self.params['OUTDIM_EMB']
+        frame_emb = self.params['VIDEO_VEC']
+
+        #__________________________Inputs
+        input_1 = Input(shape = (self.params['CAPTION_LEN']))
+        input_2 = Input(shape = (self.params['FRAMES_LIMIT'],frame_emb))
+
+
+
+
+
+        #____________frames layers
+        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 4, ff_dim= int(frame_emb*2), dropout=0.1, training= self.params['train'])(input_2)
+        x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 4, ff_dim= int(frame_emb*2), dropout=0.1, training= self.params['train'])(input_2)
+        
+        x_2 = LSTM(500, return_sequences = True)(x_2)
+        x_2 = TransformerBlock(embed_dim= 500, num_heads= 5, ff_dim= int(1000), dropout=0.1, training= self.params['train'])(x_2)
+        x_2 = LSTM(500, return_sequences = False)(x_2)
+        
+        x_2 = Dense(word_emb, activation = 'relu')(x_2)
+        frame_initial_state = [x_2, x_2]
+        x_2 = RepeatVector(self.params['CAPTION_LEN'])(x_2)
+
+
+
+        #____________caption layers
+        
+        x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
+        x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 10, ff_dim= int(word_emb*2), dropout=0.0, training= self.params['train'])(x_1)
+        x_1 = LSTM(word_emb, return_sequences = False)(inputs = x_1, initial_state= frame_initial_state)
+        
+        c = Dense(vocab_size, activation = 'softmax')(x_1)
+
+        model = Model(inputs = [input_1, input_2], outputs = c) 
+        
+
+        
+        self.model = Model(inputs = [input_1, input_2], outputs = c)
+        self.plot_model()
+        print("config2 model built")
+
+
+    def build_config_1(self):
         
         
         vocab_size = self.params['VOCAB_SIZE']
@@ -286,64 +336,51 @@ class VModel:
         #x_2 = TransformerBlock(embed_dim= frame_emb, num_heads= 4, ff_dim= int(frame_emb*4), dropout=0.0, training= self.params['train'])(input_2)
         
         x_2 = TimeDistributed(Dense(frame_emb//2, activation='relu'))(input_2)
-        x_2 = TimeDistributed(Dense(frame_emb//4, activation='relu'))(input_2)
-        x_2 = LSTM(500, return_sequences = True)(x_2)
         x_2 = LSTM(500, return_sequences = False)(x_2)
-        x_2 = Dense(300, activation = 'relu')(x_2)
         x_2 = Dense(word_emb, activation = 'relu')(x_2)
         frame_initial_state = [x_2, x_2]
-        #x_2 = RepeatVector(self.params['CAPTION_LEN'])(x_2)
+        x_2 = RepeatVector(self.params['CAPTION_LEN'])(x_2)
 
 
 
         #____________caption layers
         #x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 10, ff_dim= int(word_emb*4), dropout=0.0, training= self.params['train'])(x_1)
+        #x_1 = TransformerBlock(embed_dim= word_emb, num_heads= 4, ff_dim= int(word_emb*4), dropout=0.0, training= self.params['train'])(x_1)
         
         x_1 = Embedding(self.params['VOCAB_SIZE'], word_emb)(input_1) 
         x_1 = LSTM(word_emb, return_sequences = True)(x_1)
-        wprd_initial_state = [x_1, x_1]
-
-
-
-        
-    
-        c = LSTM(word_emb, return_sequences= True)(inputs = x_1, initial_state = frame_initial_state)
-        c = LSTM(word_emb, return_sequences= False)(c)
-        c = Dense(70)(c)
-        c = Dense(vocab_size)(c)
+        word_initial_state = [x_1, x_1]
         
 
 
 
 
-
-        '''
-        
         #___________concatenated layer
         c = Concatenate(2)([x_1, x_2])
-        c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*4), dropout=0.0, training= self.params['train'])(c)
-        c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*2), dropout=0.0, training= self.params['train'])(c)
-        c = LSTM(300, return_sequences = True)(c)
-        c = LSTM(300, return_sequences = False)(c)
+        #c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*4), dropout=0.0, training= self.params['train'])(c)
+        #c = TransformerBlock(embed_dim= 250, num_heads= 5, ff_dim= int(250*2), dropout=0.0, training= self.params['train'])(c)
+        c = LSTM(600, return_sequences = False)(c)
         c = Dense(200, activation = 'relu')(c)
-        c = Dense(100, activation = 'relu')(c)
         c = Dense(vocab_size, activation = 'softmax')(c)
 
-        self.model = Model(inputs = [input_1, input_2], outputs = c) 
-        '''
-        self.model = Model(inputs = [input_1, input_2], outputs = c)
+        model = Model(inputs = [input_1, input_2], outputs = c) 
+        
 
+        
+        self.model = Model(inputs = [input_1, input_2], outputs = c)
         self.plot_model()
-        print("model built")
+        print("config 1 model built")
 
 
     def load_weights(self):
         if not self.params['load_weights'] : 
             return
-        model_path = self.params['model_path']
-        if len(os.listdir(model_path)) == 3 :
+        print("modelpath:", self.model_path)
+        print("list:", os.listdir(self.model_path))
+
+        if len(os.listdir(self.model_path)) == 3 :
             print("loading weights...")
-            self.model.load_weights(model_path)
+            self.model.load_weights(self.model_path)
 
     def compile_model(self, lr = None):
         if lr is None : 

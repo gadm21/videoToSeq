@@ -120,8 +120,11 @@ class VideoHandler():
         video = video.set_fps(new_fps)
         
         video = np.array([cv2.resize(frame, self.frame_size) for frame in video.iter_frames()][:self.frames_num])
-        #return [video]
-        return video
+        
+        if self.params['train']:
+            return video
+        else:
+            return [video]
 
 
 

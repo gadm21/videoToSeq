@@ -12,11 +12,12 @@ stop_words_file: 'data/vocab/stop_words.txt'
 id_caption_file: 'data/id_caption.yaml'
 
 
+model_name: 'config_2'
 train: True
 load_weights: False
 dropout: False 
-model_callback: False
-EStopping_callback: False
+model_callback: True
+EStopping_callback: True
 LRS_callback: True 
 
 OUTDIM_EMB : 100
@@ -33,4 +34,4 @@ AUDIO_n_mfcc : 40
 learning_rate : 0.005
 BS: 12
 stepsPerEpoch: 1
-epochs: 100
+epochs: 50
