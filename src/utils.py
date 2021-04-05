@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(filename='logs/thisIsLog.log', format = '%(levelname)-8s %(asctime)s %(message)s' , level=logging.INFO)
 import re
 import numpy as np
-#import cv2 
+import cv2 
 
 
 
@@ -40,12 +40,12 @@ def read_json(path):
     return data 
 
 
-'''
+
 def show_image(frame):
     cv2.imshow('r', frame)
     cv2.waitKey(0)  
     cv2.destroyWindow('r')
-'''
+
 
 
 def tokenize_caption2(caption):

@@ -98,8 +98,8 @@ class Vocab:
 
         video_ids = [id[:-4] for id in os.listdir(self.params['vids_dir'])]
         for video_id in video_ids : self.vid2cap[video_id] = [self.vid_caption[video_id]] 
-        
-        '''
+   
+
         for sentence in self.captions :
             if sentence['video_id'] not in self.vid2cap: continue
             video_id = sentence['video_id']
@@ -112,7 +112,6 @@ class Vocab:
             caption = ' '.join(words)
             self.svo_captions.append((caption, video_id)) 
             self.vid2cap[video_id].append(caption)
-        '''
 
 
 
@@ -194,6 +193,14 @@ class Vocab:
 if __name__ == "__main__":
     params = read_yaml()
     v = Vocab(params)
-    print(v.word2ix)
-    print()
-    print(v.ix2word)
+    
+    
+    for svo, full in zip(v.svo_captions, v.full_captions):
+        print(svo[1], ' ', svo[0], ' ', full[0])
+    
+
+    sentence = 'the president was on the phone'
+    tokens = tokenize_caption(sentence)
+    unkown = nltk.pos_tag(tokens)
+    print(unkown)
+

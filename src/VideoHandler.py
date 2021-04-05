@@ -178,15 +178,20 @@ class VideoHandler():
 
 def main():
 
-    return 
-    video_id = 'video8331'
+
+    video_id = 'video4382'
     frames_dir = r'C:\Users\gad\Desktop\repos\videoToSeq\frames'
+    frames_dir = os.path.join(frames_dir, video_id)
+    os.makedirs(frames_dir, exist_ok=True)
     videoHandler = VideoHandler(read_yaml())
     frames = list(videoHandler.get_video_by_id(video_id))
     
+    
     for i, frame in enumerate(frames):
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        cv2.imwrite(os.path.join(frames_dir, str(i)+'.jpg'), frame) 
+        frame_path = os.path.join(frames_dir, str(i)+'.jpg')
+        print(i, ' ', frame_path)
+        cv2.imwrite(frame_path, frame) 
 
     print("done")
 
